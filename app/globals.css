@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    color: rgb(var(--foreground-rgb));
+    color: black;
+}
+.navbar{
+    @apply flex justify-between items-center px-2 bg-black text-white h-20 
+}
+.navbar ul{
+    @apply flex flex-row items-center gap-10
+}
+.navbar ul li{
+    @apply cursor-pointer
+}
+.logo{
+    @apply flex flex-row items-center text-2xl gap-2
+}
