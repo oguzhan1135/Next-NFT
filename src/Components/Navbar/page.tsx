@@ -28,7 +28,9 @@ const navbar = () => {
           <li><Link href={"/"}>Community</Link></li>
         </ul>
         <div className="switch-area">
-          <span>swich area</span>
+          <div className='navbar-switch'>
+            <span>ikonASDSA</span>
+          </div>
         </div>
       </div>
     </nav>

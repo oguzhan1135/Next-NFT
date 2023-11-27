@@ -1,11 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
     --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 214, 219, 220;
     --background-end-rgb: 255, 255, 255;
+    --body: 20, 20, 31, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,18 +18,25 @@
 }
 
 body {
-    color: rgb(var(--foreground-rgb));
-    color: black;
+    background-color: rgb(var(--body));
 }
-.navbar{
-    @apply flex justify-between items-center px-2 bg-black text-white h-20 
+
+.navbar {
+    @apply flex justify-between items-center px-2 bg-dark__bg text-on__surface h-20;
 }
-.navbar ul{
-    @apply flex flex-row items-center gap-10
+
+.navbar ul {
+    @apply flex flex-row items-center gap-10;
 }
-.navbar ul li{
-    @apply cursor-pointer
+
+.navbar ul li {
+    @apply cursor-pointer;
 }
-.logo{
-    @apply flex flex-row items-center text-2xl gap-2
+
+.logo {
+    @apply flex flex-row items-center text-2xl gap-2;
+}
+
+.navbar-switch {
+    @apply bg-black__write p-4 rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer hover:bg-on__surface  transition-all duration-200 ease-in-out;
 }
