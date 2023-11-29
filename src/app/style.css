@@ -1,0 +1,87 @@
+.sub-menu-area {
+  padding: 20px;
+  position: absolute;
+  top: 80%;
+  left: 0px;
+  display: none;
+}
+
+.sub-menu {
+  display: none;
+  position: relative;
+  top: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  left: 0;
+  background-color: #fff;
+  min-width: 255px;
+  box-shadow: 0 0 20px rgb(47, 83, 109, 0.12) inset;
+}
+
+.sub-menu-second-area {
+  padding: 20px;
+  position: absolute;
+  top: 80%;
+  left: 0px;
+  display: none;
+}
+
+.sub-menu-hover-menu {
+  display: flex;
+  position: relative;
+  top: -60px;
+  border-radius: 5px;
+  z-index: 99;
+  left: 300px;
+  background-color: red;
+  min-width: 255px;
+  box-shadow: 0 0 20px rgb(47, 83, 109, 0.12);
+}
+.navbar li:hover .sub-menu,
+.navbar li:hover .sub-menu-area {
+  display: block;
+  min-width: 200px;
+  z-index: 99;
+}
+
+.protrusion {
+  position: absolute;
+  top: 5px;
+  right: 75%;
+  z-index: -1;
+  color: #14141e;
+}
+
+.sub-menu a {
+  display: flex;
+  padding: 10px 10px;
+  border-bottom: #eeeeee 1px solid;
+  text-decoration: none;
+  align-items: center;
+  color: #14141e;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu a:hover {
+  color: #6157f3;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.sub-menu a:hover .sub-menu-line {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.sub-menu-line {
+  padding-right: 10px;
+  opacity: 0;
+  border: 1.5px solid #6157f3;
+  color: #6157f3;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}

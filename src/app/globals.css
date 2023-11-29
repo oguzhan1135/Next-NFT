@@ -1,0 +1,59 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+    --body: 20, 20, 31, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+body {
+    background-color: rgb(var(--body));
+}
+
+.navbar{
+    @apply flex w-full justify-between items-center px-2 bg-dark__bg text-on__surface h-20 min-w-full border-b-secondary border-b-2; 
+    
+}
+
+.navbar ul {
+    @apply flex flex-row items-center gap-10;
+}
+
+.navbar ul li a{
+    @apply cursor-pointer flex items-center flex-row gap-2 text-lg font-bold;
+}
+.navbar-item-icon{
+  @apply w-3
+}
+
+.logo a {
+    @apply flex flex-row items-center text-2xl gap-2;
+}
+
+.navbar-switch-area{
+  @apply flex flex-row items-center gap-3
+}
+.navbar-switch{
+    @apply bg-black__write p-3 rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer
+}
+.container{
+    @apply flex justify-center
+}
+.container-middle{
+    @apply flex bg-critical max-w-10xl flex-col  justify-center 
+}
+.navbar-container{
+    @apply flex max-w-10xl justify-center
+}
+

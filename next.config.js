@@ -1,12 +1,4 @@
-// next.config.js
-const webpack = require('webpack');
+/** @type {import('next').NextConfig} */
+const nextConfig = {}
 
-module.exports = {
-  // ...
-  webpack: (config, { dev }) => {
-    if (dev) {
-      config.plugins.push(new webpack.HotModuleReplacementPlugin());
-    }
-    return config;
-  },
-};
+module.exports = nextConfig

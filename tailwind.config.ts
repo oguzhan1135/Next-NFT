@@ -7,7 +7,11 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      maxWidth:{
+        '10xl':'1500px',
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
