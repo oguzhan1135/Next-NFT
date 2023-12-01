@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import SlidesPerView from '@/Components/Slides-Per-View/page'
 import '../FontAwesomeIcons'
 export default function Home() {
   return (
-    <div style={{color:"white"}}>
-     Homepage
+    <div className='content'>
+     <SlidesPerView/>
+
     </div>
   )
 }

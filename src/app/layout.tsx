@@ -16,19 +16,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html style={{color:"white"}} lang="en">
-      <body className={inter.className}>
-        
-        <nav>
-          <Navbar/>
-        </nav>
-        {children}
-        
-        
-        <footer>
-          Footer Area
-        </footer>
-        </body>
+    <html style={{ color: "white" }} lang="en">
+      <body >
+        <div className='navbar-container'>
+          <div className='container'>
+            <Navbar />
+          </div>
+        </div>
+        <div className="container">
+          {children}
+        </div>
+
+      </body>
     </html>
   )
 }

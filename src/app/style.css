@@ -1,7 +1,6 @@
 .sub-menu-area {
-  padding: 20px;
   position: absolute;
-  top: 80%;
+  top: 100%;
   left: 0px;
   display: none;
 }
@@ -12,30 +11,13 @@
   top: 100%;
   overflow: hidden;
   border-radius: 5px;
-  left: 0;
+  left: 10%;
   background-color: #fff;
   min-width: 255px;
   box-shadow: 0 0 20px rgb(47, 83, 109, 0.12) inset;
 }
-
-.sub-menu-second-area {
-  padding: 20px;
-  position: absolute;
-  top: 80%;
-  left: 0px;
+.navbar li:hover .navbar.items {
   display: none;
-}
-
-.sub-menu-hover-menu {
-  display: flex;
-  position: relative;
-  top: -60px;
-  border-radius: 5px;
-  z-index: 99;
-  left: 300px;
-  background-color: red;
-  min-width: 255px;
-  box-shadow: 0 0 20px rgb(47, 83, 109, 0.12);
 }
 .navbar li:hover .sub-menu,
 .navbar li:hover .sub-menu-area {
@@ -84,4 +66,9 @@
   display: flex;
   align-items: center;
   margin-right: 10px;
+}
+.swiper {
+  padding: 20px;
+  margin-top: 100px !important;
+  max-width: 1500px !important;
 }

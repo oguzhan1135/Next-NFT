@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBell, faCaretUp, faCheck, faChevronDown, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faBell, faCaretUp, faCheck, faChevronDown, faCoffee, faMoon, faSearch, faWallet } from '@fortawesome/free-solid-svg-icons'
 import '../../app/style.css'
 const Navbar = () => {
   return (
@@ -75,14 +75,18 @@ const Navbar = () => {
 
       </ul>
       <div className="navbar-switch-area">
+        <FontAwesomeIcon icon={faSearch} style={{width:"20px"}}/>
+        <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-primary border-2'>
+          <FontAwesomeIcon icon={faWallet} className='navbar-item-icon'/>
+          <span className='hidden xl:block'>Wallet Connect</span>
+        </div>
         <div className='navbar-switch'>
           <FontAwesomeIcon icon={faBell} className='navbar-item-icon'/>
         </div>
         <div className='navbar-switch'>
-          <FontAwesomeIcon icon={faBell} className='navbar-item-icon'/>
-        </div><div className='navbar-switch'>
-          <FontAwesomeIcon icon={faBell} className='navbar-item-icon'/>
+          <FontAwesomeIcon icon={faMoon} className='navbar-item-icon'/>
         </div>
+          <FontAwesomeIcon icon={faBars} className='navbar-item-icon  lg:hidden '/>
       </div>
     </div>
 
