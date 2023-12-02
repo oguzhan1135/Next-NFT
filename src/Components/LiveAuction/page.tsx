@@ -2,7 +2,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import NftCard from '../nft-card/page';
+import NftCard from '../NftCard/page';
 
 const slidesPerView = () => {
   return (

@@ -18,7 +18,10 @@
 }
 
 body {
-  @apply flex flex-col justify-center items-center bg-dark__bg;
+  @apply bg-dark__bg;
+}
+main {
+  @apply flex flex-col items-center;
 }
 
 .container {
@@ -56,6 +59,5 @@ body {
   @apply flex justify-center border-b-black__write border-b-2 w-full;
 }
 .content {
-  @apply flex flex-col gap-16
+  @apply flex flex-col gap-16;
 }
-
