@@ -1,34 +1,19 @@
 'use client'
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import '../../app/style.css'
 import NftCard from '../NftCard/page';
 
-const slidesPerView = () => {
+const MySwiper = () => {
   return (
     <Swiper
       spaceBetween={30}
-      pagination={{
-        clickable: true,
-
-      }}
+      pagination={{ clickable: true }}
       breakpoints={{
-        384: {
-          slidesPerView: 1,
-
-        },
-        600: {
-          slidesPerView: 2,
-
-        },
-        950: {
-          slidesPerView: 3,
-
-        },
-        1400: {
-          slidesPerView: 4,
-
-        }
+        0: { slidesPerView: 1 },
+        600: { slidesPerView: 2 },
+        960: { slidesPerView: 3 },
+        1280: { slidesPerView: 4 }
       }}
       className="mySwiper"
     >
@@ -50,8 +35,9 @@ const slidesPerView = () => {
       <SwiperSlide>
         <NftCard />
       </SwiperSlide>
-    </Swiper>
-  )
-}
 
-export default slidesPerView
+    </Swiper>
+  );
+};
+
+export default MySwiper;

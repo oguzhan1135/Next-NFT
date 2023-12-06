@@ -17,7 +17,7 @@ const Navbar = () => {
               </linearGradient>
             </defs>
           </svg>
-          <h1 style={{fontSize:"36px",fontWeight:"500"}}>Siyaz</h1>
+          <h1 style={{ fontSize: "36px", fontWeight: "500" }}>Siyaz</h1>
         </Link>
       </div>
       <ul className='items'>
@@ -75,18 +75,18 @@ const Navbar = () => {
 
       </ul>
       <div className="navbar-switch-area">
-        <FontAwesomeIcon icon={faSearch} style={{width:"20px"}}/>
+        <FontAwesomeIcon icon={faSearch} style={{ width: "20px" }} />
         <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-primary border-2'>
-          <FontAwesomeIcon icon={faWallet} className='navbar-item-icon'/>
+          <FontAwesomeIcon icon={faWallet} className='navbar-item-icon' />
           <span className='hidden xl:block'>Wallet Connect</span>
         </div>
         <div className='navbar-switch'>
-          <FontAwesomeIcon icon={faBell} className='navbar-item-icon'/>
+          <FontAwesomeIcon icon={faBell} className='navbar-item-icon' />
         </div>
         <div className='navbar-switch'>
-          <FontAwesomeIcon icon={faMoon} className='navbar-item-icon'/>
+          <FontAwesomeIcon icon={faMoon} className='navbar-item-icon' />
         </div>
-          <FontAwesomeIcon icon={faBars} className='navbar-item-icon  lg:hidden '/>
+        <FontAwesomeIcon icon={faBars} className='navbar-item-icon  lg:hidden ' />
       </div>
     </div>
 

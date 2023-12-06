@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable @next/next/no-img-element */
+import React from 'react';
 import '../../app/globals.css';
 import Image from 'next/image';
 import Hamlet from '../../../public/images/NFT/hamlet-nft.svg';
@@ -6,15 +7,17 @@ import FreddieCarpanter from '../../../public/images/avatar/freddie.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import FireLogo from "../../../public/images/icon/siyaz-logo.svg";
+
 const NftCard = () => {
     return (
-        <div className='flex flex-col gap-3 bg-black__write p-5 rounded-[20px]'>
-            <div className="flex overflow-hidden rounded-[20px] relative">
+        <div className='flex flex-col gap-3 bg-black__write p-5 min-w-full rounded-[20px]'>
+
+            <div className="flex overflow-hidden rounded-[20px] w-full relative">
                 <Image
                     src={Hamlet}
-                    layout='responsive'
-                    alt='Hamlet'
-                    className='hover:scale-110 transition-all ease-in-out duration-300' />
+                    alt='deneme'
+                    style={{ width: "100%" }}
+                />
                 <div className='absolute top-2 right-2 bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
                     <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
                     <span>100</span>
@@ -25,7 +28,8 @@ const NftCard = () => {
                         src={FireLogo}
                         width={16}
                         height={16}
-                        alt='logo' />
+                        alt='logo'
+                    />
                     <span className='font-bold'>07 : 15 : 21 : 52</span>
                 </div>
             </div>
@@ -39,12 +43,14 @@ const NftCard = () => {
                     <div className="overflow-hidden rounded-md">
                         <Image
                             src={FreddieCarpanter}
-                            layout='responsive'
                             alt='freddie'
+                            layout='responsive'
+                            width={100}
+                            height={100}
                         />
                     </div>
                     <div className="flex flex-col gap-0">
-                        <span className='font-bold text-white__second'>Creater</span>
+                        <span className='font-bold text-white__second'>Creator</span>
                         <span className='font-bold'>Freddie Carpanter</span>
                     </div>
                 </div>
@@ -53,9 +59,8 @@ const NftCard = () => {
                     <span className='text-lg font-bold text-on__surface'>4.89 ETH</span>
                 </div>
             </div>
-
         </div>
-    )
+    );
 }
 
-export default NftCard
+export default NftCard;

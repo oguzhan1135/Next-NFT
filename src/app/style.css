@@ -16,9 +16,7 @@
   min-width: 255px;
   box-shadow: 0 0 20px rgb(47, 83, 109, 0.12) inset;
 }
-.navbar li:hover .navbar.items {
-  display: none;
-}
+
 .navbar li:hover .sub-menu,
 .navbar li:hover .sub-menu-area {
   display: block;
@@ -67,6 +65,22 @@
   align-items: center;
   margin-right: 10px;
 }
+
 .swiper {
-  max-width: 1500px !important;
+  max-width: 100% !important;
+  display: flex !important;
+}
+
+
+.swiper-wrapper {
+  position: relative !important;
+  height: auto !important;
+  z-index: 1 !important;
+  display: flex !important;
+  transition-property: transform !important;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  ) !important;
+  box-sizing: content-box !important;
 }

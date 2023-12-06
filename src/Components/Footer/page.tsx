@@ -6,7 +6,7 @@ import { faFaceAngry, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
     return (
-        <div className='flex justify-center bg-footer__bg p-20 mt-20'>
+        <div className='flex justify-center bg-footer__bg py-10 px-2 mt-20'>
             <div className="container">
                 <div className="grid grid-cols-1 xl:grid-cols-4 w-full gap-5">
                     <div className="flex flex-col gap-10">
@@ -40,7 +40,7 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="grid col-span-2 xl:px-20">
+                    <div className="grid col-span-2 p-0 xl:px-20">
                         <div className="flex flex-row justify-between items-start">
                             <div className="flex flex-col gap-2">
                                 <span className='font-bold text-lg mb-3'>My Account</span>

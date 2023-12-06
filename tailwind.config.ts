@@ -26,11 +26,11 @@ const config: Config = {
       white__second: '#8A8AA0',
       footer__bg: '#0D0D11',
     },
-    backgroundImage: {
-      'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      'gradient-conic':
-        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-    },
+    // backgroundImage: {
+    //   'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+    //   'gradient-conic':
+    //     'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    // },
   },
   plugins: [],
 };
