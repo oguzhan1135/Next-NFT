@@ -1,4 +1,4 @@
-import SlidesPerView from '@/Components/LiveAuction/page'
+import SlidesPerView from '@/Components/Slider/LiveAuction/page'
 import '../FontAwesomeIcons'
 import '../../FontAwesomeConfig'
 import '../app/globals.css'
@@ -8,6 +8,8 @@ import TodaysPick from '@/Components/TodaysPick/page'
 import ContentHeader from '@/Components/ContentHeader/page'
 import { FontAwesomeIcon } from '../FontAwesomeIcons'
 import { faBook, faRocket } from '@fortawesome/free-solid-svg-icons'
+import Link from 'next/link'
+import TopSeller from '@/Components/Slider/TopSellerSlider/page'
 export default function Home() {
   return (
     <div className='content'>
@@ -16,17 +18,22 @@ export default function Home() {
           <div className='slogan'>Discover, find,
             Sell extraordinary
             Monster NFTs</div>
-         <span>Marketplace for monster character cllections non fungible token NFTs</span>
-         <div className="flex flex-row gap-3">
-          <div className='button'>
-            <FontAwesomeIcon icon={faRocket}/>
-            <span>Explore</span>
+          <span>Marketplace for monster character cllections non fungible token NFTs</span>
+          <div className="flex flex-row gap-3">
+            <Link href={"/"}>
+              <div className='button'>
+                <FontAwesomeIcon icon={faRocket} />
+                <span>Explore</span>
+              </div>
+            </Link>
+            <Link href={"/"}>
+              <div className="button">
+                <FontAwesomeIcon icon={faBook} />
+                <span>Create</span>
+              </div>
+            </Link>
+
           </div>
-          <div className="button">
-            <FontAwesomeIcon icon={faBook}/>
-            <span>Create</span>
-          </div>
-         </div>
         </div>
 
         <div className="relative ">
@@ -43,9 +50,11 @@ export default function Home() {
         title="Live Auction" />
       <SlidesPerView />
       <ContentHeader
+        title='Top Seller' />
+      <TopSeller />
+      <ContentHeader
         title="Today's Pick" />
       <TodaysPick />
-
     </div>
   )
 }
