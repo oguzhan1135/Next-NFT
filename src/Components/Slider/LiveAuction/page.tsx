@@ -3,9 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import '@/app/style.css'
 import NftCard from '@/Components/NftCard/page';
+import { NftProductContext } from '@/Context/NftCardContext';
 
 const MySwiper = () => {
+  const { nftProducts, setNftProducts } = NftProductContext();
+
   return (
+
     <Swiper
       spaceBetween={30}
       pagination={{ clickable: true }}
@@ -17,25 +21,11 @@ const MySwiper = () => {
       }}
       className="mySwiper"
     >
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-      <SwiperSlide>
-        <NftCard />
-      </SwiperSlide>
-
+      {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
+        <SwiperSlide key={nftData.id}>
+          <NftCard nftCardData={nftData} />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

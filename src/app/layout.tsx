@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/Components/Header/Navbar/page'
 import Footer from '@/Components/Footer/page'
+import { NftProvider } from '@/Context/NftCardContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,20 +20,24 @@ export default function RootLayout({
   return (
     <html style={{ color: "white" }} lang="en">
       <body >
-        <main>
-          <div className='navbar-container'>
-            <div className='container'>
-              <Navbar />
+        <NftProvider>
+          <main>
+            <div className='navbar-container'>
+              <div className='container'>
+                <Navbar />
+              </div>
             </div>
-          </div>
-          <div className="container">
-            {children}
-          </div>
-        </main>
+            <div className="container">
 
-        <footer>
-          <Footer />
-        </footer>
+              {children}
+
+
+            </div>
+          </main>
+
+          <footer>
+            <Footer />
+          </footer></NftProvider>
       </body>
 
     </html>
