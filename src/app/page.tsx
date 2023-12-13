@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '../FontAwesomeIcons'
 import { faBook, faRocket } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import TopSeller from '@/Components/Slider/TopSellerSlider/page'
+import CreateAndSell from '@/Components/CreateAndSell/page'
+import PopularCollection from '@/Components/Slider/PopularCollection/page'
 export default function Home() {
   return (
     <div className='content'>
@@ -45,16 +47,31 @@ export default function Home() {
           />
         </div>
       </div>
+      <div className="content-container">
+        <ContentHeader
+          title="Live Auction" />
+        <SlidesPerView />
+      </div>
+      <div className="content-container">
+        <ContentHeader
+          title='Top Seller' />
+        <TopSeller />
+      </div>
+      <div className="content-container">
+        <ContentHeader
+          title="Today's Pick" />
+        <TodaysPick />
+      </div>
+      <div className="content-container">
+        <ContentHeader title='Popular Collection' />
+        <PopularCollection />
+      </div>
+      <div className="content-container">
+        <h2 className='font-bold text-[36px]'>Create And Your Sell Nfts</h2>
+        <CreateAndSell />
+      </div>
 
-      <ContentHeader
-        title="Live Auction" />
-      <SlidesPerView />
-      <ContentHeader
-        title='Top Seller' />
-      <TopSeller />
-      <ContentHeader
-        title="Today's Pick" />
-      <TodaysPick />
+
     </div>
   )
 }

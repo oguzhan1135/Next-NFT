@@ -23,11 +23,11 @@ export default function RootLayout({
         <NftProvider>
           <main>
             <div className='navbar-container'>
-              <div className='container'>
+              <div className='main-container'>
                 <Navbar />
               </div>
             </div>
-            <div className="container">
+            <div className="main-container">
 
               {children}
 

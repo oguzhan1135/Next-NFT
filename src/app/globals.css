@@ -56,11 +56,14 @@ main {
   @apply flex justify-center border-b-black__write border-b-2 w-full;
 }
 .content {
-  @apply flex w-full flex-col gap-8;
+  @apply flex w-full flex-col gap-20;
 }
 
-.container {
+.main-container {
   @apply flex w-full max-w-screen-2xl px-2;
+}
+.content-container{
+  @apply flex flex-col gap-9
 }
 .slogan {
   @apply text-[40px] md:text-[56px] text-on__surface font-bold max-w-[470px];
@@ -76,4 +79,90 @@ main {
 }
 .button {
   @apply px-8 py-4 rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface;
+}
+.sub-menu-area {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  display: none;
+}
+
+.sub-menu {
+  display: none;
+  position: relative;
+  top: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  left: 10%;
+  background-color: #fff;
+  min-width: 255px;
+  box-shadow: 0 0 20px rgb(47, 83, 109, 0.12) inset;
+}
+
+.navbar li:hover .sub-menu,
+.navbar li:hover .sub-menu-area {
+  display: block;
+  min-width: 200px;
+  z-index: 99;
+}
+
+.protrusion {
+  position: absolute;
+  top: 5px;
+  right: 75%;
+  z-index: -1;
+  color: #14141e;
+}
+
+.sub-menu a {
+  display: flex;
+  padding: 10px 10px;
+  border-bottom: #eeeeee 1px solid;
+  text-decoration: none;
+  align-items: center;
+  color: #14141e;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+
+.sub-menu a:hover {
+  color: #6157f3;
+  transition: all 0.2s ease-in-out;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.sub-menu a:hover .sub-menu-line {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.sub-menu-line {
+  padding-right: 10px;
+  opacity: 0;
+  border: 1.5px solid #6157f3;
+  color: #6157f3;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.swiper {
+  max-width: 100% !important;
+  display: flex !important;
+}
+
+
+.swiper-wrapper {
+  position: relative !important;
+  height: auto !important;
+  z-index: 1 !important;
+  display: flex !important;
+  transition-property: transform !important;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  ) !important;
+  box-sizing: content-box !important;
 }

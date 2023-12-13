@@ -1,7 +1,6 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import '@/app/style.css'
 import NftCard from '@/Components/NftCard/page';
 import { NftProductContext } from '@/Context/NftCardContext';
 

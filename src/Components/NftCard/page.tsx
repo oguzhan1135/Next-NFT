@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../app/globals.css';
+import '@/app/globals.css';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';

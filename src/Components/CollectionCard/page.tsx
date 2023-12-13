@@ -1,0 +1,85 @@
+import React from 'react'
+import Image from 'next/image'
+import CollectionLeft from '@/../public/images/NFT/collection-item-1-1.svg';
+import CollectionTopLeft from '@/../public/images/NFT/collection-item-top-1-1.svg';
+import CollectionTopRight from '@/../public/images/NFT/collection-item-top-1-2.svg';
+import CollectionBottom from '@/../public/images/NFT/collection-item-bottom-1.svg';
+import FreddieCarpanter from '@/../../public/images/avatar/crispin.svg'
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
+
+const CollectionCard = () => {
+    return (
+        <>
+            <div className='flex flex-col gap-3 bg-black__write p-5 min-w-full rounded-[20px]' >
+                <div className="flex flex-row justify-between items-start">
+                    <div className="flex flex-row gap-3 items-center">
+                        <div className="p-2  relative">
+                            <div className="overflow-hidden rounded-3xl">
+                                <Image
+                                    src={FreddieCarpanter}
+                                    width={80}
+                                    height={80}
+                                    alt='fredie' />
+                                <div className="absolute bottom-2 right-2 rounded-full bg-primary  w-4 h-4 flex items-center justify-center ">
+                                    <FontAwesomeIcon icon={faCheck} style={{ fontSize: "12px" }} />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <h6 className='font-bold text-xl'>Creative Art Collection</h6>
+                            <div className="flex flex-row gap-1 items-center">
+                                <span className='text-[13px] text-white__second'>Created by</span>
+                                <span className='text-[15px]'>Ralph Garraway</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
+                        <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
+                        <span>100</span>
+                    </div>
+                </div>
+
+                <div className="flex flex-row gap-3  w-full">
+                    <div className="overflow-hidden rounded-[20px]">
+                        <Image
+                            src={CollectionLeft}
+                            alt='leftColection'
+                            className=' w-60'
+                            
+                        />
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <div className="flex flex-row gap-3 w-auto">
+                            <div className="overflow-hidden rounded-[20px]">
+                                <Image
+                                    src={CollectionTopLeft}
+                                    alt='topLeftCollection'
+
+                                />
+                            </div >
+                            <div className="overflow-hidden rounded-[20px]">
+                                <Image
+                                    src={CollectionTopRight}
+                                    alt='topRightCollection'
+                                />
+                            </div >
+
+                        </div>
+                        <div className="overflow-hidden rounded-[20px]">
+                            <Image
+                                src={CollectionBottom}
+                                alt='bottomCollection' 
+                                height={200}
+                               />
+                        </div >
+
+                    </div>
+                </div>
+            </div >
+        </>
+    )
+}
+
+export default CollectionCard
