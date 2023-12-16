@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import FireLogo from "@/../public/images/icon/fire.svg";
-
+import Link from 'next/link';
 interface NftCard {
     id: number;
     createrName: string;
@@ -30,31 +30,35 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
 
     return (
         <>
-            <div className='flex flex-col gap-3 bg-black__write p-5 min-w-full rounded-[20px]' >
-                <div className="flex overflow-hidden rounded-[20px] w-full relative">
-                    <Image
-                        src={nftCardData.nftImage}
-                        alt='deneme'
-                        width={1000}
-                        height={1000}
-                        style={{ width: "100%" }}
-                    />
-                    <div className='absolute top-2 right-2 bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
-                        <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
-                        <span>100</span>
-                    </div>
+            <div className='flex flex-col gap-3 bg-black__write p-5 min-w-full rounded-[20px] nft-card' >
+                <Link href={"/"}>
+                    <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
-                    <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
                         <Image
-                            src={FireLogo}
-                            width={20}
-                            height={20}
-                            alt='logo'
-                            className=' w-auto h-auto'
+                            src={nftCardData.nftImage}
+                            alt='deneme'
+                            width={1000}
+                            height={1000}
+                            style={{ width: "100%" }}
                         />
-                        <span className='font-bold'>07 : 15 : 21 : 52</span>
+                        <div className='absolute top-2 right-2 bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
+                            <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
+                            <span>100</span>
+                        </div>
+
+                        <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
+                            <Image
+                                src={FireLogo}
+                                width={20}
+                                height={20}
+                                alt='logo'
+                                className=' w-auto h-auto'
+                            />
+                            <span className='font-bold'>07 : 15 : 21 : 52</span>
+                        </div>
                     </div>
-                </div>
+                </Link>
+
                 <div className="flex justify-between items-center">
                     <h3 className='text-lg font-bold'>{nftCardData.cardName}</h3>
                     <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>

@@ -18,7 +18,7 @@ export default function Home() {
       <div className="homepage-header-area">
         <div className="slogan-area">
           <div className='slogan'>Discover, find,
-            Sell extraordinary
+            <span className='gradiant-write'>Sell extraordinary</span>
             Monster NFTs</div>
           <span>Marketplace for monster character cllections non fungible token NFTs</span>
           <div className="flex flex-row gap-3">
@@ -70,8 +70,6 @@ export default function Home() {
         <h2 className='font-bold text-[36px]'>Create And Your Sell Nfts</h2>
         <CreateAndSell />
       </div>
-
-
     </div>
   )
 }

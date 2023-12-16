@@ -16,7 +16,7 @@ const Navbar = () => {
               </linearGradient>
             </defs>
           </svg>
-          <h1 style={{ fontSize: "36px", fontWeight: "500" }}>Siyaz</h1>
+          <h1 className='logo'>Siyaz</h1>
         </Link>
       </div>
       <ul className='items'>

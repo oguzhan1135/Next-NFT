@@ -1,8 +1,10 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import NftCard from '@/Components/NftCard/page';
 import { NftProductContext } from '@/Context/NftCardContext';
+import { Pagination } from 'swiper/modules';
 
 const MySwiper = () => {
   const { nftProducts, setNftProducts } = NftProductContext();
@@ -18,6 +20,8 @@ const MySwiper = () => {
         960: { slidesPerView: 3 },
         1280: { slidesPerView: 4 }
       }}
+
+      modules={[Pagination]}
       className="mySwiper"
     >
       {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (

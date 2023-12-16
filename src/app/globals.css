@@ -16,69 +16,16 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
-body {
-  @apply bg-dark__bg;
-}
-main {
-  @apply flex flex-col items-center;
-}
-
-.navbar {
-  @apply flex w-full justify-between items-center bg-dark__bg text-on__surface h-20  px-2;
-}
-
-.navbar ul {
-  @apply flex-row items-center gap-8 lg:flex hidden;
-}
-.navbar ul li {
-  @apply flex items-stretch justify-center py-7;
-}
-.navbar ul li a {
-  @apply cursor-pointer flex items-center flex-row gap-2 text-lg font-bold;
-}
-.navbar-item-icon {
-  @apply w-3;
-}
-
-.logo a {
-  @apply flex flex-row items-center text-2xl gap-2;
-}
-
-.navbar-switch-area {
-  @apply flex flex-row items-center gap-6 md:gap-3;
-}
-.navbar-switch {
-  @apply bg-black__write px-[10px] py-3 rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer hidden md:block;
-}
-
-.navbar-container {
-  @apply flex justify-center border-b-black__write border-b-2 w-full;
-}
-.content {
-  @apply flex w-full flex-col gap-20;
-}
-
-.main-container {
-  @apply flex w-full max-w-screen-2xl px-2;
-}
-.content-container{
-  @apply flex flex-col gap-9
-}
-.slogan {
-  @apply text-[40px] md:text-[56px] text-on__surface font-bold max-w-[470px];
-}
-.slogan-area {
-  @apply flex flex-col gap-6 items-center md:items-start;
-}
-.homepage-header-area {
-  @apply flex flex-col lg:flex-row w-full  justify-between items-center;
-}
-.homepage-header-area img {
-  @apply hidden lg:block;
-}
-.button {
-  @apply px-8 py-4 rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface;
+.gradiant-write {
+  background: -webkit-linear-gradient(
+    -86deg,
+    #e250e5 5%,
+    #e250e5 13%,
+    #4b50e6 91%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
 }
 .sub-menu-area {
   position: absolute;
@@ -151,8 +98,9 @@ main {
 .swiper {
   max-width: 100% !important;
   display: flex !important;
-}
+  overflow:hidden !important;
 
+}
 
 .swiper-wrapper {
   position: relative !important;
@@ -165,4 +113,92 @@ main {
     initial
   ) !important;
   box-sizing: content-box !important;
+}
+body {
+  @apply bg-dark__bg;
+}
+main {
+  @apply flex flex-col items-center;
+}
+
+.navbar {
+  @apply flex w-full justify-between items-center  text-on__surface h-20  px-2;
+}
+
+.navbar ul {
+  @apply flex-row items-center gap-8 lg:flex hidden;
+}
+.navbar ul li {
+  @apply flex items-stretch justify-center py-7;
+}
+.navbar ul li a {
+  @apply cursor-pointer flex items-center flex-row gap-2 text-lg font-bold;
+}
+.navbar-item-icon {
+  @apply w-3;
+}
+
+.logo a {
+  @apply flex flex-row items-center gap-2 text-4xl font-bold;
+}
+
+.navbar-switch-area {
+  @apply flex flex-row items-center gap-6 md:gap-3;
+}
+.navbar-switch {
+  @apply bg-black__write w-10 h-10  justify-center items-center rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer hidden md:flex;
+}
+
+.navbar-container {
+  @apply flex justify-center border-b-black__write border-b-2 w-full;
+}
+.content {
+  @apply flex w-full flex-col gap-20;
+}
+
+.main-container {
+  @apply flex w-full max-w-screen-2xl px-2;
+}
+.content-container {
+  @apply flex flex-col gap-9;
+}
+.slogan {
+  @apply text-[40px] md:text-[56px] text-on__surface font-bold max-w-[470px];
+}
+.slogan-area {
+  @apply flex flex-col gap-6 items-center md:items-start;
+}
+.homepage-header-area {
+  @apply flex flex-col lg:flex-row w-full  justify-between items-center;
+}
+.homepage-header-area img {
+  @apply hidden lg:block;
+}
+.button {
+  @apply px-9 py-4 rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface;
+
+  &:hover {
+    @apply bg-on__surface text-primary border-on__surface transition-all duration-300;
+  }
+}
+.nft-image {
+  &:hover img{
+    @apply scale-125 transition-all duration-300;
+  }
+}
+.header.homepage{
+  @apply w-full bg-dark__bg
+}
+.header.explore{
+  @apply w-full bg-critical
+}
+.page-title{
+  @apply text-5xl font-bold
+}
+.page-title-area{
+  @apply flex flex-col gap-3 justify-center items-center h-56 w-full ;
+  background-image:URL("../../public/images/other/explore-bacground.svg")
+}
+.dropdown-select{
+  @apply bg-black__write py-2 pl-6 pr-3 rounded-md flex justify-between items-center gap-8
 }

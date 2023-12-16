@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Urbanist} from 'next/font/google'
 import './globals.css'
 import Navbar from '@/Components/Header/Navbar/page'
 import Footer from '@/Components/Footer/page'
 import { NftProvider } from '@/Context/NftCardContext'
 
-const inter = Inter({ subsets: ['latin'] })
+const urbanist = Urbanist( {subsets: ['latin', 'latin-ext']});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html style={{ color: "white" }} lang="en">
+    <html style={{ color: "white" }} className={urbanist.className} lang="en">
       <body >
         <NftProvider>
           <main>
+            
             <div className='navbar-container'>
               <div className='main-container'>
                 <Navbar />
