@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import React from 'react'
-import { faFacebook, faTwitter, faGoogle, faTwitch } from '@fortawesome/free-brands-svg-icons';
-import { faFaceAngry, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { FaFacebook, FaGoogle, FaTwitch, FaTwitter } from "react-icons/fa";
+import { BsFillSendFill } from "react-icons/bs";
 
 const Footer = () => {
     return (
@@ -27,16 +26,17 @@ const Footer = () => {
                         <p>Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
                         <div className="flex flex-row items-center justify-start gap-3">
                             <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
-                                <FontAwesomeIcon icon={faFacebook} />
+                                <FaFacebook />
                             </div>
                             <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
-                                <FontAwesomeIcon icon={faTwitter} />
+                                <FaTwitter />
                             </div>
                             <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
-                                <FontAwesomeIcon icon={faGoogle} />
+                                <FaGoogle />
                             </div>
                             <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
-                                <FontAwesomeIcon icon={faTwitch} />
+                                <FaTwitch />
+
                             </div>
                         </div>
                     </div>
@@ -64,17 +64,17 @@ const Footer = () => {
                                 <span>Discover</span>
                             </div>
                         </div>
-                    
+
                     </div>
-                        <div className="flex flex-col gap-10">
-                            <span className='font-bold text-lg'>Subscribe Us</span>
-                            <div className="flex  justify-between items-center border-2 rounded-md border-white__second text-on__surface">
-                                <input type="text"placeholder='info@yourgmail.com' style={{outline:"none", backgroundColor:"transparent", paddingLeft:"20px"}} />
-                                <button type="submit" className='py-3 px-4 bg-primary text-on__surface rounded-md'>
-                                    <FontAwesomeIcon icon={faPaperPlane}/>
-                                </button>
-                            </div>
+                    <div className="flex flex-col gap-10">
+                        <span className='font-bold text-lg'>Subscribe Us</span>
+                        <div className="flex  justify-between items-center border-2 rounded-md border-white__second text-on__surface">
+                            <input type="text" placeholder='info@yourgmail.com' style={{ outline: "none", backgroundColor: "transparent", paddingLeft: "20px" }} />
+                            <button type="submit" className='py-3 px-4 bg-primary text-on__surface rounded-md'>
+                            <BsFillSendFill />
+                            </button>
                         </div>
+                    </div>
                 </div>
 
             </div>

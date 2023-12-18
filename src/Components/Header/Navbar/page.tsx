@@ -1,7 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faBell, faCaretUp, faCheck, faChevronDown, faCoffee, faMoon, faSearch, faWallet } from '@fortawesome/free-solid-svg-icons'
+import { FaBell, FaChevronDown, FaMoon, FaSearch, FaWallet } from "react-icons/fa";
+import { IoIosMenu } from "react-icons/io";
+
 const Navbar = () => {
   return (
     <div className='navbar'>
@@ -20,7 +21,8 @@ const Navbar = () => {
         </Link>
       </div>
       <ul className='items'>
-        <li className='relative group'><Link href={"/"}>Home <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/"}>Home <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/"}><span className='sub-menu-line'></span> Homepage</Link>
@@ -30,14 +32,16 @@ const Navbar = () => {
             </div>
           </div>
         </li>
-        <li className='relative group'><Link href={"/Explore"}>Explore <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/Explore"}>Explore <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/Explore"}><span className='sub-menu-line'></span> Explore</Link>
             </div>
           </div>
         </li>
-        <li className='relative group'><Link href={"/"}>Activity <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/"}>Activity <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/"}><span className='sub-menu-line'></span> Activity-1</Link>
@@ -45,7 +49,8 @@ const Navbar = () => {
             </div>
           </div>
         </li>
-        <li className='relative group'><Link href={"/"}>Community <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/"}>Community <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/"}><span className='sub-menu-line'></span> Community-1</Link>
@@ -53,7 +58,8 @@ const Navbar = () => {
             </div>
           </div>
         </li>
-        <li className='relative group'><Link href={"/"}>Pages <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/"}>Pages <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/"}><span className='sub-menu-line'></span> Login</Link>
@@ -64,7 +70,8 @@ const Navbar = () => {
             </div>
           </div>
         </li>
-        <li className='relative group'><Link href={"/"}>Contact <FontAwesomeIcon icon={faChevronDown} className='navbar-item-icon' /></Link>
+        <li className='relative group'><Link href={"/"}>Contact <FaChevronDown />
+        </Link>
           <div className="sub-menu-area">
             <div className="sub-menu">
               <Link href={"/"}><span className='sub-menu-line'></span> Contact</Link>
@@ -74,18 +81,19 @@ const Navbar = () => {
 
       </ul>
       <div className="navbar-switch-area">
-        <FontAwesomeIcon icon={faSearch} style={{ width: "20px" }} />
+        <FaSearch />
         <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-primary border-2'>
-          <FontAwesomeIcon icon={faWallet} className='navbar-item-icon' />
+          <FaWallet />
           <span className='hidden xl:block'>Wallet Connect</span>
         </div>
         <div className='navbar-switch'>
-          <FontAwesomeIcon icon={faBell} className='navbar-item-icon' />
+          <FaBell />
         </div>
         <div className='navbar-switch'>
-          <FontAwesomeIcon icon={faMoon} className='navbar-item-icon' />
+          <FaMoon />
+
         </div>
-        <FontAwesomeIcon icon={faBars} className='navbar-item-icon  lg:hidden ' />
+        <span className='lg:hidden'><IoIosMenu  /></span>
       </div>
     </div>
 

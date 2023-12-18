@@ -1,13 +1,10 @@
 import SlidesPerView from '@/Components/Slider/LiveAuction/page'
-import '../FontAwesomeIcons'
-import '../../FontAwesomeConfig'
+import { FaBook, FaRocket } from "react-icons/fa";
 import '../app/globals.css'
 import Image from 'next/image'
 import BigRobo from '../../public/images/NFT/gaming-home-NFT.svg'
 import TodaysPick from '@/Components/TodaysPick/page'
 import ContentHeader from '@/Components/ContentHeader/page'
-import { FontAwesomeIcon } from '../FontAwesomeIcons'
-import { faBook, faRocket } from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
 import TopSeller from '@/Components/Slider/TopSellerSlider/page'
 import CreateAndSell from '@/Components/CreateAndSell/page'
@@ -24,13 +21,13 @@ export default function Home() {
           <div className="flex flex-row gap-3">
             <Link href={"/"}>
               <div className='button'>
-                <FontAwesomeIcon icon={faRocket} />
+              <FaRocket />
                 <span>Explore</span>
               </div>
             </Link>
             <Link href={"/"}>
               <div className="button">
-                <FontAwesomeIcon icon={faBook} />
+              <FaBook />
                 <span>Create</span>
               </div>
             </Link>
@@ -42,8 +39,8 @@ export default function Home() {
           <Image
             src={BigRobo}
             alt='robo'
-            layout='responsive'
             className='w-full '
+            priority
           />
         </div>
       </div>

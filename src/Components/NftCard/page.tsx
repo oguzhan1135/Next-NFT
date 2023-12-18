@@ -1,8 +1,7 @@
 import React from 'react';
 import '@/app/globals.css';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FaHeart } from "react-icons/fa";
 import FireLogo from "@/../public/images/icon/fire.svg";
 import Link from 'next/link';
 interface NftCard {
@@ -37,12 +36,14 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                         <Image
                             src={nftCardData.nftImage}
                             alt='deneme'
-                            width={1000}
-                            height={1000}
+                            width={500}
+                            height={500}
+                            priority
                             style={{ width: "100%" }}
                         />
-                        <div className='absolute top-2 right-2 bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
-                            <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
+                        <div className='absolute top-2 right-2 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
+                        <FaHeart />
+
                             <span>100</span>
                         </div>
 

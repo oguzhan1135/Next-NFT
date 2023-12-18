@@ -5,9 +5,8 @@ import CollectionTopLeft from '@/../public/images/NFT/collection-item-top-1-1.sv
 import CollectionTopRight from '@/../public/images/NFT/collection-item-top-1-2.svg';
 import CollectionBottom from '@/../public/images/NFT/collection-item-bottom-1.svg';
 import FreddieCarpanter from '@/../../public/images/avatar/crispin.svg'
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
+import { FaHeart, FaCheck } from 'react-icons/fa';
+
 
 const CollectionCard = () => {
     return (
@@ -23,7 +22,7 @@ const CollectionCard = () => {
                                     height={80}
                                     alt='fredie' />
                                 <div className="absolute bottom-2 right-2 rounded-full bg-primary  w-4 h-4 flex items-center justify-center ">
-                                    <FontAwesomeIcon icon={faCheck} style={{ fontSize: "12px" }} />
+                                     <FaCheck size={12}/>
                                 </div>
                             </div>
                         </div>
@@ -35,8 +34,8 @@ const CollectionCard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='bg-dark__bg text-on__surface flex items-center gap-1 flex-row px-3 py-1 rounded-xl'>
-                        <FontAwesomeIcon icon={faHeart} className='navbar-item-icon' />
+                    <div className='bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
+                       <FaHeart/>
                         <span>100</span>
                     </div>
                 </div>
@@ -47,7 +46,7 @@ const CollectionCard = () => {
                             src={CollectionLeft}
                             alt='leftColection'
                             className=' w-60'
-                            
+
                         />
                     </div>
                     <div className="flex flex-col gap-3">
@@ -70,9 +69,9 @@ const CollectionCard = () => {
                         <div className="overflow-hidden rounded-[20px]">
                             <Image
                                 src={CollectionBottom}
-                                alt='bottomCollection' 
+                                alt='bottomCollection'
                                 height={200}
-                               />
+                            />
                         </div >
 
                     </div>
