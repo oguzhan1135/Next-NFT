@@ -25,11 +25,14 @@ export default function RootLayout({
       <body>
         <NftProvider>
           <main>
-            <div className='navbar-container'>
-              <div className='main-container'>
-                <Navbar />
+            <div className="navbar-header homepage">
+              <div className='navbar-container'>
+                <div className='main-container'>
+                  <Navbar />
+                </div>
               </div>
             </div>
+
             <div className='main-container'>
               <>
                 {loading ? (

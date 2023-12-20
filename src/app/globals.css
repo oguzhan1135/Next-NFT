@@ -107,7 +107,10 @@
   z-index: 1 !important;
   display: flex !important;
   transition-property: transform !important;
-  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial) !important;
+  transition-timing-function: var(
+    --swiper-wrapper-transition-timing-function,
+    initial
+  ) !important;
   box-sizing: content-box !important;
 }
 
@@ -184,20 +187,28 @@ main {
 }
 
 .button {
-  @apply px-9 py-[14px] rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface;
+  @apply px-9 py-[14px] rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer;
 
   &:hover {
     @apply bg-on__surface text-primary border-on__surface transition-all duration-300;
   }
 }
+.button.place-bid {
+  @apply px-7 py-3 text-sm font-bold;
+}
+.button.place-bid-hover {
+  @apply  text-sm font-bold absolute bottom-28 w-max transform translate-x-2/4  z-30 opacity-0;
 
+}
 .nft-image:hover img {
   @apply scale-125 transition-all duration-300;
 }
-
-.header.homepage {
-  @apply w-full bg-dark__bg;
+.nft-card:hover .place-bid-hover {
+  opacity: 1;
+  padding-top: 5%;
+  transition: all 0.2s ease-out;
 }
+
 
 .header.explore {
   @apply w-full;
@@ -216,5 +227,15 @@ main {
 }
 
 .dropdown-select {
-  @apply bg-black__write py-2 pl-6 pr-3 rounded-md flex justify-between items-center gap-8;
+  @apply bg-black__write py-3 pl-6 pr-3 rounded-md flex justify-between items-center gap-8;
+}
+.navbar-header{
+  @apply flex w-full flex-col 
+}
+.navbar-header.homepage{
+  @apply  bg-dark__bg
+}
+
+.navbar-header.explore{
+  @apply  bg-header-bg mb-10 bg-cover
 }
