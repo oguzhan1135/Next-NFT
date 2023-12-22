@@ -2,11 +2,12 @@
 import { useEffect, useState } from 'react';
 import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
-import './globals.css';
+import '@/app/globals.css'
 import Navbar from '@/Components/Header/Navbar/page';
 import Footer from '@/Components/Footer/page';
 import { NftProvider } from '@/Context/NftCardContext';
 import Loading from '@/Components/Loading/loading';
+import { usePathname } from 'next/navigation';
 const urbanist = Urbanist({ subsets: ['latin', 'latin-ext'] });
 
 export default function RootLayout({
@@ -20,27 +21,20 @@ export default function RootLayout({
     setLoading(false);
   }, []);
 
+  const router = usePathname();
+
   return (
     <html style={{ color: 'white' }} className={urbanist.className} lang="en">
       <body>
         <NftProvider>
           <main>
-            <div className="navbar-header homepage">
-              <div className='navbar-container'>
-                <div className='main-container'>
-                  <Navbar />
-                </div>
-              </div>
-            </div>
-
-            <div className='main-container'>
-              <>
-                {loading ? (
-                  <Loading />
-                ) : (
-                  children
-                )}</>
-            </div>
+            <Navbar currentPagePath={router} />
+            <>
+              {loading ? (
+                <Loading />
+              ) : (
+                children
+              )}</>
           </main>
           <footer>
             <Footer />

@@ -4,6 +4,7 @@ import { FaChevronDown } from 'react-icons/fa'
 
 const Explore = () => {
   return (
+    <main className='main-container'>
       <div className="content">
         <div className="content-container">
           <div className='flex flex-col lg:flex-row items-center justify-between gap-2'>
@@ -36,6 +37,8 @@ const Explore = () => {
           <TodaysPick />
         </div>
       </div>
+    </main>
+
 
   )
 }
