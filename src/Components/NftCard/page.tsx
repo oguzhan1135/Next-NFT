@@ -5,6 +5,7 @@ import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { FiRefreshCw } from "react-icons/fi";
 import FireLogo from "@/../public/images/icon/fire.svg";
 import Link from 'next/link';
+import { NftProductContext } from '@/Context/NftCardContext';
 interface NftCard {
     id: number;
     createrName: string;
@@ -25,15 +26,23 @@ interface NftCard {
 interface NftCardProps {
     nftCardData: NftCard; // 
 }
+
 const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
+
+    const { itemData, setItemData } = NftProductContext();
+
+
+    const cardDataProps = () => {
+        setItemData(nftCardData);
+    }
 
 
     return (
         <>
             <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card' >
-                <Link href={"/"}>
+                <Link href={"/ItemDetails"}>
                     <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
-
+                        
                         <Image
                             src={nftCardData.nftImage}
                             alt='deneme'
@@ -41,6 +50,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                             height={500}
                             priority
                             style={{ width: "100%" }}
+                            onClick={cardDataProps}
                         />
                         {
                             nftCardData.stock < 1 ?

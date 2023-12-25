@@ -22,19 +22,21 @@ interface Nft {
 interface NftContextProps {
     nftProducts: Nft[];
     setNftProducts: React.Dispatch<React.SetStateAction<Nft[]>>;
+    itemData: Nft | null;  
+    setItemData: React.Dispatch<React.SetStateAction<Nft | null>>;
 }
 
 const NftContext = createContext<NftContextProps | undefined>(undefined);
 
 export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [nftProducts,  setNftProducts] = useState<Nft[]>([
+    const [nftProducts, setNftProducts] = useState<Nft[]>([
         {
             id: 1,
             createrName: "Tyler Covington",
             createrAvatar: `/images/avatar/tyler.svg`,
             like: 100,
             nftImage: `/images/NFT/hamlet-nft.svg`,
-            cardName: `"Loving Vase 01 by Lanza...`,
+            cardName: `""Hamlet Contemplates ...`,
             price: 1400,
             stock: 10,
             currentBid: ``,
@@ -48,10 +50,10 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         {
             id: 2,
             createrName: "Tyler Covington",
-            createrAvatar: `/images/avatar/salvadordali.svg` ,
+            createrAvatar: `/images/avatar/salvadordali.svg`,
             like: 100,
             nftImage: `/images/NFT/sir-Lion-nft.svg`,
-            cardName: `"Loving Vase 01 by Lanza...`,
+            cardName: `"Triumphant Awakening...`,
             price: 1400,
             stock: 10,
             currentBid: ``,
@@ -85,7 +87,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             createrAvatar: `/images/avatar/tyler.svg`,
             like: 100,
             nftImage: `/images/NFT/Flame-dress-nft.svg`,
-            cardName: `"Loving Vase 01 by Lanza...`,
+            cardName: `"Flame Dress' by Balmain...`,
             price: 1400,
             stock: 10,
             currentBid: ``,
@@ -150,7 +152,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         {
             id: 8,
             createrName: "Tyler Covington",
-            createrAvatar: `/images/avatar/salvadordali.svg` ,
+            createrAvatar: `/images/avatar/salvadordali.svg`,
             like: 100,
             nftImage: `/images/NFT/sir-Lion-nft.svg`,
             cardName: `"Loving Vase 01 by Lanza...`,
@@ -252,7 +254,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         {
             id: 14,
             createrName: "Tyler Covington",
-            createrAvatar: `/images/avatar/salvadordali.svg` ,
+            createrAvatar: `/images/avatar/salvadordali.svg`,
             like: 100,
             nftImage: `/images/NFT/sir-Lion-nft.svg`,
             cardName: `"Loving Vase 01 by Lanza...`,
@@ -354,7 +356,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         {
             id: 20,
             createrName: "Tyler Covington",
-            createrAvatar: `/images/avatar/salvadordali.svg` ,
+            createrAvatar: `/images/avatar/salvadordali.svg`,
             like: 100,
             nftImage: `/images/NFT/sir-Lion-nft.svg`,
             cardName: `"Loving Vase 01 by Lanza...`,
@@ -437,9 +439,10 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             view: 210
         },
     ]);
+    const [itemData, setItemData] = useState<Nft | null>(null);
 
     return (
-        <NftContext.Provider value={{ nftProducts,  setNftProducts }}>
+        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData ,itemData}}>
             {children}
         </NftContext.Provider>
     );
