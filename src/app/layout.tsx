@@ -1,6 +1,4 @@
 'use client'
-import { useEffect, useState } from 'react';
-import type { Metadata } from 'next';
 import { Urbanist } from 'next/font/google';
 import '@/app/globals.css'
 import Navbar from '@/Components/Header/Navbar/page';
@@ -8,6 +6,7 @@ import Footer from '@/Components/Footer/page';
 import { NftProvider } from '@/Context/NftCardContext';
 import Loading from '@/Components/Loading/loading';
 import { usePathname } from 'next/navigation';
+
 const urbanist = Urbanist({ subsets: ['latin', 'latin-ext'] });
 
 export default function RootLayout({
@@ -15,11 +14,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  
 
   const router = usePathname();
 
@@ -29,12 +24,9 @@ export default function RootLayout({
         <NftProvider>
           <main>
             <Navbar currentPagePath={router} />
-            <>
-              {loading ? (
-                <Loading />
-              ) : (
-                children
-              )}</>
+           
+             { children}
+          
           </main>
           <footer>
             <Footer />

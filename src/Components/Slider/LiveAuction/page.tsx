@@ -5,10 +5,22 @@ import 'swiper/css/pagination';
 import NftCard from '@/Components/NftCard/page';
 import { NftProductContext } from '@/Context/NftCardContext';
 import { Pagination } from 'swiper/modules';
+import { useState, useEffect } from 'react';
 
 const MySwiper = () => {
   const { nftProducts, setNftProducts } = NftProductContext();
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+
+    const fetchData = async () => {
+
+    };
+
+    fetchData().then(() => {
+      setLoading(false);
+    });
+  }, []);
   return (
 
     <Swiper

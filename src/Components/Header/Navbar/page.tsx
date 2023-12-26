@@ -74,11 +74,11 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
                 </Link>
                   <div className="sub-menu-area">
                     <div className="sub-menu">
-                      <Link href={"/"}><span className='sub-menu-line'></span> Login</Link>
-                      <Link href={"/"}><span className='sub-menu-line'></span> Sign Up</Link>
-                      <Link href={"/"}><span className='sub-menu-line'></span> Create Item</Link>
-                      <Link href={"/"}><span className='sub-menu-line'></span> Profile</Link>
-                      <Link href={"/"}><span className='sub-menu-line'></span> Edit Profile</Link>
+                      <Link href={"/Login"}><span className='sub-menu-line'></span> Login</Link>
+                      <Link href={"/SignUp"}><span className='sub-menu-line'></span> Sign Up</Link>
+                      <Link href={"/CreateItem"}><span className='sub-menu-line'></span> Create Item</Link>
+                      <Link href={"/Profile"}><span className='sub-menu-line'></span> Profile</Link>
+                      <Link href={"/EditProfile"}><span className='sub-menu-line'></span> Edit Profile</Link>
                     </div>
                   </div>
                 </li>
