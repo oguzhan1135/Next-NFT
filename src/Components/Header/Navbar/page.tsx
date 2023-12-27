@@ -14,7 +14,7 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
 
   return (
     <>
-      <div className={`navbar-header ${(["/", "/HomepageSpaciel", "/Homepage2", "/Marketplace"].includes(currentPagePath)) ? 'homepage' : 'navbar-v2'}`}>
+      <div className={`navbar-header ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(currentPagePath)) ? 'homepage' : 'navbar-v2'}`}>
         <div className='navbar-container'>
           <div className={`${marketplacePage || homepageSpacielPage ? 'v2-w-container' : 'main-container'}`}>
             <div className='navbar'>
@@ -38,7 +38,7 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
                   <div className="sub-menu-area">
                     <div className="sub-menu">
                       <Link href={"/"}><span className='sub-menu-line'></span> Homepage</Link>
-                      <Link href={"/Homepage-2"}><span className='sub-menu-line'></span>Homepage-2</Link>
+                      <Link href={"/HomepageV2"}><span className='sub-menu-line'></span>Homepage-2</Link>
                       <Link href={"/Marketplace"}><span className='sub-menu-line'></span>Marketplace</Link>
                       <Link href={"/Homepage-Spacial"}><span className='sub-menu-line'></span>Homepage (Spaciel)</Link>
                     </div>
@@ -79,6 +79,7 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
                       <Link href={"/CreateItem"}><span className='sub-menu-line'></span> Create Item</Link>
                       <Link href={"/Profile"}><span className='sub-menu-line'></span> Profile</Link>
                       <Link href={"/EditProfile"}><span className='sub-menu-line'></span> Edit Profile</Link>
+                      <Link href={"/Author"}><span className='sub-menu-line'></span>Author</Link>
                     </div>
                   </div>
                 </li>
@@ -112,7 +113,7 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
 
         </div>
         {
-          ["/", "/HomepageSpaciel", "/Homepage2", "/Marketplace"].includes(currentPagePath) ? <>
+          ["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(currentPagePath) ? <>
 
           </> :
             <>

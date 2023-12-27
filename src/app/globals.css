@@ -176,6 +176,9 @@ main {
 .slogan {
   @apply text-4xl md:text-5xl text-on__surface font-bold max-w-[470px];
 }
+.slogan-v2{
+  @apply  w-full  text-4xl md:text-5xl text-on__surface font-bold
+}
 
 .slogan-area {
   @apply flex flex-col gap-6 items-center md:items-start;
@@ -184,13 +187,16 @@ main {
 .homepage-header-area {
   @apply flex flex-col lg:flex-row w-full justify-between items-center;
 }
+.homepage-header-area.v2{
+  @apply justify-center items-center py-20
+}
 
 .homepage-header-area img {
   @apply hidden lg:block;
 }
 
 .button {
-  @apply px-9 py-[14px] rounded-3xl flex gap-3 flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer;
+  @apply px-9 py-[14px] rounded-3xl flex gap-3 font-bold flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer;
 
   &:hover {
     @apply bg-on__surface text-primary border-on__surface transition-all duration-300;
@@ -199,8 +205,14 @@ main {
 .button.place-bid {
   @apply px-7 py-3 text-sm font-bold;
 }
+.button.white-b {
+  @apply border-on__surface;
+}
 .button.place-bid-hover {
   @apply text-sm font-bold absolute bottom-28 w-max transform translate-x-2/4  z-30 opacity-0;
+}
+.button.social {
+  @apply bg-primary text-on__surface hover:border-on__surface hover:bg-on__surface hover:text-primary;
 }
 .nft-image:hover img {
   @apply scale-125 transition-all duration-300;
@@ -235,9 +247,27 @@ main {
 .tab-btn {
   @apply hover:border-b-primary hover:transition-all hover:duration-300;
 }
-.tab-menu{
-  @apply max-h-60 overflow-y-scroll
+.tab-menu {
+  @apply max-h-60 overflow-y-scroll;
 }
-form input{
-  @apply bg-transparent rounded-md w-full
+form input {
+  @apply bg-transparent rounded-md w-full;
+}
+.gradiant-border {
+  background: linear-gradient(#14141f, #14141f) padding-box,
+    linear-gradient(-86deg, #e250e5 5%, #e250e5 13%, #4b50e6 91%) border-box;
+  border-radius: 8px;
+  border: 4px solid transparent;
+}
+.create-item-method {
+  @apply bg-black__write flex p-3 items-center gap-[10px] flex-row cursor-pointer font-bold transition-all duration-300 justify-center w-full rounded-lg text-white__second hover:text-primary hover:bg-on__surface;
+}
+.create-item-method.active{
+  @apply bg-on__surface text-primary
+}
+.author-tab-btn{
+  @apply text-on__surface p-5 cursor-pointer
+}
+.author-tab-btn.active{
+  @apply relative
 }

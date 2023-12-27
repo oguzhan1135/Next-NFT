@@ -25,13 +25,14 @@ const config: Config = {
       black__write: '#343444',
       white__second: '#8A8AA0',
       footer__bg: '#0D0D11',
+      on__surface__dark: '#1f1f2c'
     },
      backgroundImage: {
        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
        'gradient-conic':
        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
        'header-bg': "URL('../../public/images/other/explore-bacground.svg')",
-
+        'author-card': "URL('../../public/images/other/bg-author-card.svg')"
      },
   },
   plugins: [],
