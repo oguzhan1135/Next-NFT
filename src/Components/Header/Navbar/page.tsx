@@ -10,7 +10,7 @@ interface PathProps {
 
 const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
   const marketplacePage = currentPagePath === '/Marketplace';
-  const homepageSpacielPage = currentPagePath === '/HomepageSpacial';
+  const homepageSpacielPage = currentPagePath === '/HomepageSpaciel';
 
   return (
     <>
@@ -40,7 +40,7 @@ const Navbar: React.FC<PathProps> = ({ currentPagePath }) => {
                       <Link href={"/"}><span className='sub-menu-line'></span> Homepage</Link>
                       <Link href={"/HomepageV2"}><span className='sub-menu-line'></span>Homepage-2</Link>
                       <Link href={"/Marketplace"}><span className='sub-menu-line'></span>Marketplace</Link>
-                      <Link href={"/Homepage-Spacial"}><span className='sub-menu-line'></span>Homepage (Spaciel)</Link>
+                      <Link href={"/HomepageSpaciel"}><span className='sub-menu-line'></span>Homepage (Spaciel)</Link>
                     </div>
                   </div>
                 </li>

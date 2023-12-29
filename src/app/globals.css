@@ -7,6 +7,17 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --body: 20, 20, 31, 255;
+  --gradiant-dark: linear-gradient(
+    60deg,
+    rgba(20, 20, 31, 1) 54%,
+    rgba(40, 40, 49, 1) 71%,
+    rgba(57, 57, 65, 1) 100%,
+    rgba(63, 63, 70, 1) 100%,
+    rgba(126, 126, 130, 1) 100%,
+    rgba(81, 81, 88, 1) 100%,
+    rgba(162, 162, 164, 1) 100%,
+    rgba(196, 196, 196, 1) 100%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
@@ -159,7 +170,7 @@ main {
 }
 
 .content {
-  @apply flex w-full flex-col gap-20;
+  @apply flex w-full flex-col gap-20 pb-20;
 }
 
 .main-container {
@@ -188,7 +199,7 @@ main {
   @apply flex flex-col lg:flex-row w-full justify-between items-center;
 }
 .homepage-header-area.v2{
-  @apply justify-center items-center py-20
+  @apply justify-center items-center py-20 w-full
 }
 
 .homepage-header-area img {
@@ -270,4 +281,10 @@ form input {
 }
 .author-tab-btn.active{
   @apply relative
+}
+.marketplace-tab-btn{
+  @apply px-8 py-7 border-b border-b-on__surface__dark hover:text-primary transition-all duration-300 font-bold text-white__second cursor-pointer
+}
+.marketplace-tab-btn.active{
+  @apply border-b-primary text-on__surface
 }

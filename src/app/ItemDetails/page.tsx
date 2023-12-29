@@ -121,7 +121,7 @@ const ItemDetails = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col tab-menu">
-                                    <div className="flex flex-row justify-between items-center py-3 border-y-2 gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -140,7 +140,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -159,7 +159,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y-2 gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -178,7 +178,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y-2 gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -197,7 +197,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y-2 gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -216,7 +216,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y-2 gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image

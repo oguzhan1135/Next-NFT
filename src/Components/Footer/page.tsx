@@ -11,7 +11,7 @@ const Footer = () => {
             {
                 router !== "/Marketplace" ?
                     <>
-                        <div className='flex justify-center bg-footer__bg py-10 px-2 mt-20'>
+                        <div className='flex justify-center bg-footer__bg py-10 px-2 '>
                             <div className="container">
                                 <div className="grid grid-cols-1 xl:grid-cols-4 w-full gap-5">
                                     <div className="flex flex-col gap-10">

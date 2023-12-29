@@ -32,8 +32,10 @@ const config: Config = {
        'gradient-conic':
        'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
        'header-bg': "URL('../../public/images/other/explore-bacground.svg')",
-        'author-card': "URL('../../public/images/other/bg-author-card.svg')"
-     },
+       'author-card': "URL('../../public/images/other/bg-author-card.svg')",
+        'gradiant-dark':"linear-gradient(60deg, rgba(20, 20, 31, 1) 54%, rgba(40, 40, 49, 1) 71%, rgba(57, 57, 65, 1) 100%, rgba(63, 63, 70, 1) 100%, rgba(126, 126, 130, 1) 100%, rgba(81, 81, 88, 1) 100%,   rgba(162, 162, 164, 1) 100%,rgba(196, 196, 196, 1) 100%)",
+        
+      },
   },
   plugins: [],
 };
