@@ -23,7 +23,7 @@ export default function RootLayout({
       <body>
         <NftProvider>
           <main>
-            <Navbar currentPagePath={router} />
+            <Navbar/>
            
              { children}
           

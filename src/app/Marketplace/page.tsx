@@ -20,7 +20,7 @@ const Marketplace = () => {
 
         </div>
         <div className="grid grid-cols-12">
-          <div className="grid col-span-2">
+          <div className="grid col-span-12 lg:col-span-2">
             <div className="flex flex-col bg-on__surface__dark h-full">
               <div className="flex justify-between items-center px-10 py-4 border-b-black__write border-b">
                 <span className='text-xl font-bold'>Filter</span>
@@ -137,7 +137,7 @@ const Marketplace = () => {
               </ul>
             </div>
           </div>
-          <div className="grid col-span-10 p-10">
+          <div className="grid col-span-12 lg:col-span-10 p-10">
             <div className="flex flex-col gap-[30px] w-full">
               <div className="flex  items-center justify-between">
                 <h1 className='text-4xl font-bold'>1000 Items</h1>
@@ -160,7 +160,7 @@ const Marketplace = () => {
               </div>
 
 
-              <div className="grid gap-[30px] grid-cols-1 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3">
+              <div className="grid gap-[30px] grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
                 {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
                   <NftCard key={nftData.id} nftCardData={nftData} />
                 ))}
