@@ -42,7 +42,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
             <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card' >
                 <Link href={"/ItemDetails"}>
                     <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
-                        
+
                         <Image
                             src={nftCardData.nftImage}
                             alt='deneme'
@@ -76,17 +76,21 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                                 </>
                         }
 
+                        {
+                            nftCardData.sellCategory === "live" ?
+                                <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
+                                    <Image
+                                        src={FireLogo}
+                                        width={20}
+                                        height={20}
+                                        alt='logo'
+                                        className=' w-auto h-auto'
+                                    />
+                                    <span className='font-bold'>07 : 15 : 21 : 52</span>
+                                </div> :
+                                <></>
+                        }
 
-                        <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
-                            <Image
-                                src={FireLogo}
-                                width={20}
-                                height={20}
-                                alt='logo'
-                                className=' w-auto h-auto'
-                            />
-                            <span className='font-bold'>07 : 15 : 21 : 52</span>
-                        </div>
                     </div>
                 </Link>
 

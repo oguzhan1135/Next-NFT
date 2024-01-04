@@ -1,5 +1,6 @@
 'use client'
-import { createContext, useContext, ReactNode, useState,useEffect, use } from 'react';
+import Loading from '@/Components/Loading/loading';
+import { createContext, useContext, ReactNode, useState, useEffect, use } from 'react';
 
 interface Nft {
     id: number;
@@ -22,7 +23,7 @@ interface Nft {
 interface NftContextProps {
     nftProducts: Nft[];
     setNftProducts: React.Dispatch<React.SetStateAction<Nft[]>>;
-    itemData: Nft | null;  
+    itemData: Nft | null;
     setItemData: React.Dispatch<React.SetStateAction<Nft | null>>;
 }
 
@@ -30,17 +31,10 @@ const NftContext = createContext<NftContextProps | undefined>(undefined);
 
 export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 
-// useEffect(() => {
-//   first
-
-//   return () => {
-//     second
-//   }
-// }, [third])
+   
 
 
 
-    const [loader,setLoader] = useState(true);
     const [nftProducts, setNftProducts] = useState<Nft[]>([
         {
             id: 1,
@@ -454,9 +448,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
     const [itemData, setItemData] = useState<Nft | null>(null);
 
     return (
-        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData ,itemData}}>
-           { loader &&  <div className={"df"}>
-            </div>}
+        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData }}>
             {children}
         </NftContext.Provider>
     );

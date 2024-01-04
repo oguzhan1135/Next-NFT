@@ -6,24 +6,31 @@ import NftCard from '@/Components/NftCard/page';
 import { NftProductContext } from '@/Context/NftCardContext';
 import { Pagination } from 'swiper/modules';
 import { useState, useEffect } from 'react';
+import Loading from '@/Components/Loading/loading';
 
 const MySwiper = () => {
   const { nftProducts, setNftProducts } = NftProductContext();
-  const [loading, setLoading] = useState(true);
+  const [loader, setLoader] = useState(true);
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoader(false)
+    }, 1000);
 
-    const fetchData = async () => {
 
-    };
-
-    fetchData().then(() => {
-      setLoading(false);
-    });
-  }, []);
+  }, [])
   return (
 
-    <Swiper
+    <>
+    {
+      loader ? <div className=" flex flex-row gap-[30px]">
+        <Loading component='nft-card'/>
+        <Loading component='nft-card'/>
+        <Loading component='nft-card'/>
+        <Loading component='nft-card'/>
+      </div>
+      :
+       <Swiper
       spaceBetween={30}
       pagination={{ clickable: true }}
       breakpoints={{
@@ -39,9 +46,15 @@ const MySwiper = () => {
       {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
         <SwiperSlide key={nftData.id}>
           <NftCard nftCardData={nftData} />
+          
+         
         </SwiperSlide>
       ))}
     </Swiper>
+    }
+   
+    </>
+    
   );
 };
 
