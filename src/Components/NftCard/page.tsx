@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@/app/globals.css';
 import Image from 'next/image';
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
@@ -29,12 +29,21 @@ interface NftCardProps {
 
 const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
 
-    const { itemData, setItemData ,nftProducts, setNftProducts } = NftProductContext();
+    const { setItemData, nftProducts, setNftProducts, setAuthorData } = NftProductContext();
     const [liked, setLiked] = useState(false);
 
 
     const cardDataProps = () => {
         setItemData(nftCardData);
+        const updatedNftProducts = [...nftProducts];
+        const findProductIndex = updatedNftProducts.findIndex(product => product.id === nftCardData.id);
+        if (findProductIndex !== -1) {
+            updatedNftProducts[findProductIndex] = {
+                ...updatedNftProducts[findProductIndex],
+                view: nftCardData.view + 1
+            };
+            setNftProducts(updatedNftProducts);
+        }
     }
 
     const counterFunction = (targetDate: string) => {
@@ -61,15 +70,35 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
     }
 
     const likeCounter = (event: React.MouseEvent<HTMLSpanElement>) => {
-        event.preventDefault(); 
+        event.preventDefault();
+        const updatedNftProducts = [...nftProducts];
+        const findProductIndex = updatedNftProducts.findIndex(product => product.id === nftCardData.id);
 
         if (!liked) {
-            setLiked(true)
+            setLiked(true);
+
+            if (findProductIndex !== -1) {
+                updatedNftProducts[findProductIndex] = {
+                    ...updatedNftProducts[findProductIndex],
+                    like: nftCardData.like + 1
+                };
+                setNftProducts(updatedNftProducts);
+            }
         } else {
             setLiked(false)
+            if (findProductIndex !== -1) {
+                updatedNftProducts[findProductIndex] = {
+                    ...updatedNftProducts[findProductIndex],
+                    like: nftCardData.like - 1
+                };
+                setNftProducts(updatedNftProducts);
+            }
         }
     }
 
+    const authorData = () => {
+        setAuthorData({ authorName: nftCardData.createrName, authorAvatar: nftCardData.createrAvatar })
+    }
 
 
     return (
@@ -145,8 +174,8 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                             />
                         </div>
                         <div className="flex flex-col gap-0">
-                            <span className='font-bold text-white__second'>Creator</span>
-                            <span className='font-bold'>{nftCardData.createrName}</span>
+                            <span className='font-bold text-white__second'>Creater</span>
+                            <Link onClick={authorData} href={"/Author"} className='font-bold hover:text-primary text-hover'>{nftCardData.createrName}</Link>
                         </div>
                     </div>
                     <div className="flex flex-col text-right">

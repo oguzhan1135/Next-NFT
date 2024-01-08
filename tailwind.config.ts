@@ -26,6 +26,7 @@ const config: Config = {
       white__second: '#8A8AA0',
       footer__bg: '#0D0D11',
       on__surface__dark: '#1f1f2c',
+      gray:'#ececec'
     },
      backgroundImage: {
        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

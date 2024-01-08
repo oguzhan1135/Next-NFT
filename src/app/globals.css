@@ -58,7 +58,7 @@
 }
 
 .sub-menu a {
-  @apply flex p-2 border-b border-black__write  items-center text-on__surface__dark font-bold transition-all duration-200 ;
+  @apply flex p-2 border-b border-gray  items-center text-on__surface__dark font-bold transition-all duration-200 ;
 }
 
 .sub-menu a:hover {
@@ -248,6 +248,6 @@ form input {
   @apply border-b-primary text-on__surface
 }
 
-.gradiant-border{
-  background:linear-gradient(-86deg, #e250e5 5%, #e250e5 13%, #4b50e6 91%);
+.text-hover{
+  @apply hover:transition-all hover:duration-300 hover:ease-in-out hover:text-primary
 }

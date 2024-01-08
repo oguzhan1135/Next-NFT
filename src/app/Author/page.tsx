@@ -1,25 +1,48 @@
-import React from 'react'
-import Avatar from '/public/images/avatar/avt-author-tab-3.svg'
+'use client'
+import React, { useEffect, useState } from 'react'
+import Creater from '/public/images/avatar/avt-author-tab-3.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import TodaysPick from '@/Components/TodaysPick/page'
 import { FaCaretDown, FaCaretUp, FaCopy, FaFacebook, FaGoogle, FaTwitch, FaTwitter } from 'react-icons/fa'
+import { NftProductContext } from '@/Context/NftCardContext'
 const Author = () => {
+    const { authorData, setAuthorData } = NftProductContext();
+
+    const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+    useEffect(() => {
+        console.log(authorData)
+
+        // This function will be called when the component unmounts
+        return () => {
+            if (isPageLoaded) {
+                setAuthorData(null); // Set the authorData to null when the component is unmounted and the page has been loaded
+            }
+        };
+    }, [isPageLoaded]);
+
+    useEffect(() => {
+        // This function will be called when the component is first mounted
+        setIsPageLoaded(true);
+    }, []);
     return (
         <>
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-[60px] pb-20">
                 <div className="flex flex-col bg-author-card p-0 pt-10 rounded-[20px] bg-cover w-full max-w-screen-2xl mt-20 relative">
                     <div className="grid grid-cols-9">
-                        <div className="grid col-span-2 ">
-                            <div className="w-full h-auto scale-120 overflow-hidden rounded-[20px]">
+                        <div className="grid col-span-2 relative">
+                            <div className="w-full h-auto overflow-hidden rounded-[20px] absolute left-10">
                                 <Image
-                                    src={Avatar}
+                                    src={authorData?.authorAvatar ?? Creater}
                                     alt='avatar'
+                                    width={1000}
+                                    height={1000}
                                     className='scale-105'
                                 />
                             </div>
                         </div>
-                        <div className="grid col-span-7">
+                        <div className="grid col-span-7 ml-20">
                             <div className="w-full flex flex-col justify-between">
                                 <div className="flex justify-between items-center">
                                     <span className="text-lg text-secondary">Author Profile</span>
@@ -37,7 +60,14 @@ const Author = () => {
                                     </div>
 
                                 </div>
-                                <h4 className="text-4xl font-bold">Trista Francis</h4>
+                                <h4 className="text-4xl font-bold">
+                                    {
+                                        authorData !== null ?
+                                            authorData?.authorName :
+                                            <>Trista Francis</>
+                                    }
+
+                                </h4>
                                 <p className="max-w-[500px]">Lorem ipsum dolor sit amet,
                                     consectetur adipisicing elit. Laborum obcaecati
                                     dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
