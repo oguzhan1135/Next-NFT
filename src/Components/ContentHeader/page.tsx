@@ -15,7 +15,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ title }) => {
           <h2 className='font-bold text-[36px]'>{title}</h2>
           <div className="flex flex-col gap-1">
             <h5>EXPLORE MORE</h5>
-            <span className='border-2 w-full h-1 border-t-warning'></span>
+            <span className='w-full h-1 bg-gradiant__color'></span>
           </div>
         </div>
       </> :

@@ -68,9 +68,6 @@ const Navbar: React.FC = () => {
   const handleSearchClick = () => {
     toggleDropdown('search');
   };
-
-
-  console.log(filteredProducts.length)
   return (
     <>
       <div className={`navbar-header ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
@@ -156,7 +153,7 @@ const Navbar: React.FC = () => {
                 <div className="cursor-pointer relative" ref={menuRef} >
                   <FaSearch onClick={handleSearchClick} />
                   {activeDropdown === 'search' && (
-                    <div className='absolute z-50 top-12 w-80 right-10 '>
+                    <div className='absolute z-50 top-12 w-80 right-[-50px] '>
                       <div className="flex flex-col relative ">
                         <div className=" flex flex-row gap-3 items-center w-max  bg-black__write py-3 px-4 rounded-3xl">
                           <input type="text"
@@ -205,24 +202,22 @@ const Navbar: React.FC = () => {
                   <FaBell />
                   {activeDropdown === 'bell' && (
                     <div className="absolute top-16 right-1 z-50 w-80">
-                       <div className="flex flex-col gap-4 p-5 bg-black__write rounded-xl">
-                        <div className="flex flex-row items-center justify-between">
+                       <div className="flex flex-col gap-4  bg-black__write rounded-xl">
+                        <div className="flex flex-row items-center justify-between px-5 pt-5">
                           <h6 className='text-xl font-bold'>Notifications</h6>
                           <span className=' text-white__second text-sm'>Show all</span>
                         </div>
-                        <div className="flex flex-row gap-4">
+                        <div className="flex flex-row gap-4 px-5" >
                           <div className=" rounded-3xl px-5 flex justify-center items-center py-1 border border-on__surface">All</div>
                           <div className="rounded-3xl px-5 flex justify-center items-center py-1 border border-on__surface">Unread</div>
                         </div>
-                        <span className='font-bold text-sm text-left'>Today</span>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                        <span className='font-bold text-sm text-left px-5'>Today</span>
+                        <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -230,14 +225,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -245,14 +238,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -260,14 +251,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -275,14 +264,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -290,14 +277,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>
@@ -305,14 +290,12 @@ const Navbar: React.FC = () => {
                           </div>
 
                         </div>
-                        <div className="flex flex-row gap-4 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
-                          <div className="overflow-hidden  rounded-lg">
+                         <div className="flex flex-row gap-4 px-5 justify-start border-b pb-2 border-b-transparent hover:border-b-primary transition-all duration-200">
+                          <div className="overflow-hidden w-12 h-9 rounded-lg">
                             <Image
                             src={Samson}
                             alt='avatar'
-                            width={44}
-                            height={44}
-                            className=''/>
+                            className='w-full scale-100'/>
                           </div>
                           <div className="flex flex-col gap-2">
                             <div className='text-left'><span className='font-bold'>Taylor Covington</span> starting following you.</div>

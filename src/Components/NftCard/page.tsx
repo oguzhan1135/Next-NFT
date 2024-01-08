@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '@/app/globals.css';
 import Image from 'next/image';
 import { FaHeart, FaShoppingBag } from "react-icons/fa";
@@ -29,12 +29,47 @@ interface NftCardProps {
 
 const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
 
-    const { itemData, setItemData } = NftProductContext();
+    const { itemData, setItemData ,nftProducts, setNftProducts } = NftProductContext();
+    const [liked, setLiked] = useState(false);
 
 
     const cardDataProps = () => {
         setItemData(nftCardData);
     }
+
+    const counterFunction = (targetDate: string) => {
+        const [counter, setCounter] = useState("");
+
+        const interval = setInterval(() => {
+            var now = new Date().getTime();
+            var targetTime = new Date(targetDate).getTime();
+            var differenceDate = new Date(targetTime - now);
+            var day = differenceDate.getUTCDate() - 1;
+            var hours = differenceDate.getUTCHours();
+            var minute = differenceDate.getUTCMinutes();
+            var second = differenceDate.getUTCSeconds();
+
+            if (day <= 0 && hours <= 0 && minute <= 0 && second <= 0) {
+                clearInterval(interval);
+                setCounter("Time Out!!!")
+
+            } else {
+                setCounter(`${day < 10 ? `0${day}` : day} : ${hours < 10 ? `0${hours}` : hours} : ${minute < 10 ? `0${minute}` : minute} : ${second < 10 ? `0${second}` : second}`);
+            }
+        }, 1000);
+        return counter;
+    }
+
+    const likeCounter = (event: React.MouseEvent<HTMLSpanElement>) => {
+        event.preventDefault(); 
+
+        if (!liked) {
+            setLiked(true)
+        } else {
+            setLiked(false)
+        }
+    }
+
 
 
     return (
@@ -63,7 +98,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                                 </>
                         }
                         <div className='absolute top-4 right-4 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
-                            <FaHeart />
+                            <span className={`${liked ? 'text-critical' : 'text-on__surface'}`} onClick={likeCounter}><FaHeart /></span>
                             <span>{nftCardData.like}</span>
                         </div>
                         {
@@ -86,7 +121,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                                         alt='logo'
                                         className=' w-auto h-auto'
                                     />
-                                    <span className='font-bold'>07 : 15 : 21 : 52</span>
+                                    <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
                                 </div> :
                                 <></>
                         }

@@ -50,7 +50,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             file: "image",
             sellCategory: "live",
             category: ["art", "sports"],
-            targetDate: "2023-10-30T08:07:45Z",
+            targetDate: "2024-01-30T08:07:45Z",
             view: 210
         },
         {
@@ -67,7 +67,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             file: "image",
             sellCategory: "live",
             category: ["art", "sports"],
-            targetDate: "2023-10-30T08:07:45Z",
+            targetDate: "2024-01-05T14:48:00Z",
             view: 210
         },
         {

@@ -41,88 +41,47 @@
 }
 
 .sub-menu-area {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
+  @apply absolute top-full left-0 hidden;
 }
 
 .sub-menu {
-  display: none;
-  position: relative;
-  top: 100%;
-  overflow: hidden;
-  border-radius: 5px;
-  left: 10%;
-  background-color: #fff;
-  min-width: 255px;
-  box-shadow: 0 0 20px rgba(47, 83, 109, 0.12) inset;
+  @apply hidden relative top-full overflow-hidden rounded-md left-0 bg-on__surface min-w-[255px] shadow-md
 }
 
 .navbar li:hover .sub-menu,
 .navbar li:hover .sub-menu-area {
-  display: block;
-  min-width: 200px;
-  z-index: 99;
+  @apply block min-w-[200px] p-0 z-50;
 }
 
 .protrusion {
-  position: absolute;
-  top: 5px;
-  right: 75%;
-  z-index: -1;
-  color: #14141e;
+  @apply absolute top-5 right-2 -z-10 text-on__surface__dark ;
 }
 
 .sub-menu a {
-  display: flex;
-  padding: 10px;
-  border-bottom: #eeeeee 1px solid;
-  text-decoration: none;
-  align-items: center;
-  color: #14141e;
-  font-weight: 700;
-  transition: all 0.2s ease-in-out;
+  @apply flex p-2 border-b border-black__write  items-center text-on__surface__dark font-bold transition-all duration-200 ;
 }
 
 .sub-menu a:hover {
-  color: #6157f3;
-  background-color: white;
-  margin-left: 10px;
+  @apply text-primary bg-on__surface;
 }
 
 .sub-menu a:hover .sub-menu-line {
-  display: block;
-  opacity: 1;
+  @apply block opacity-100 ml-3 transition-all duration-300;
 }
 
 .sub-menu-line {
-  padding-right: 10px;
-  opacity: 0;
-  border: 1.5px solid #6157f3;
-  color: #6157f3;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
+  @apply pr-2 opacity-0 border border-primary text-primary flex items-center mr-2;
 }
 
 .swiper {
-  max-width: 100% !important;
-  display: flex !important;
-  overflow: hidden !important;
+  @apply w-full flex overflow-hidden;
 }
 
 .swiper-wrapper {
-  position: relative !important;
-  height: auto !important;
-  z-index: 1 !important;
-  display: flex !important;
-  transition-property: transform !important;
-  transition-timing-function: var(
-    --swiper-wrapper-transition-timing-function,
-    initial
-  ) !important;
-  box-sizing: content-box !important;
+  @apply relative h-auto -z-10 flex transition-transform ease-in-out pb-10;
+  transition-property: transform;
+  transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+  box-sizing: content-box;
 }
 
 body {
@@ -287,4 +246,8 @@ form input {
 }
 .marketplace-tab-btn.active{
   @apply border-b-primary text-on__surface
+}
+
+.gradiant-border{
+  background:linear-gradient(-86deg, #e250e5 5%, #e250e5 13%, #4b50e6 91%);
 }
