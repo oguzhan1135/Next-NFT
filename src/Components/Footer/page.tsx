@@ -2,16 +2,17 @@ import Link from 'next/link'
 import React from 'react'
 import { FaFacebook, FaGoogle, FaTwitch, FaTwitter } from "react-icons/fa";
 import { BsFillSendFill } from "react-icons/bs";
-import { usePathname } from 'next/navigation';
 
-const Footer = () => {
-    const router = usePathname();
+interface Router {
+    router: string;
+}
+const Footer: React.FC<Router> = ({ router }) => {
     return (
         <>
             {
                 router !== "/Marketplace" ?
                     <>
-                        <div className='flex justify-center bg-footer__bg py-10 px-2 '>
+                        <div className='flex justify-center w-full relative 3xl:fixed bottom-0 bg-footer__bg py-10 px-2 '>
                             <div className="container">
                                 <div className="grid grid-cols-1 xl:grid-cols-4 w-full gap-5">
                                     <div className="flex flex-col gap-10">

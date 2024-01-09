@@ -20,9 +20,16 @@ interface Nft {
     view: number;
 }
 
-interface AuthorData{
-    authorName:string;
-    authorAvatar:string;
+interface AuthorData {
+    authorName: string;
+    authorAvatar: string;
+}
+
+interface LoginUser {
+    id: number;
+    name: string;
+    mail: string;
+    password: string
 }
 interface NftContextProps {
     nftProducts: Nft[];
@@ -31,6 +38,8 @@ interface NftContextProps {
     setItemData: React.Dispatch<React.SetStateAction<Nft | null>>;
     authorData: AuthorData | null;
     setAuthorData: React.Dispatch<React.SetStateAction<AuthorData | null>>;
+    user: LoginUser[];
+    setUser: React.Dispatch<React.SetStateAction<LoginUser[]>>
 }
 
 const NftContext = createContext<NftContextProps | undefined>(undefined);
@@ -227,7 +236,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["art"],
             targetDate: "2023-10-31T12:00:00Z",
             view: 145,
-            stock:6
+            stock: 6
         },
         {
             id: 12,
@@ -244,7 +253,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["art", "domain"],
             targetDate: "2023-11-01T12:00:00Z",
             view: 145,
-            stock:4
+            stock: 4
         },
         {
             id: 13,
@@ -261,7 +270,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["collectibles"],
             stock: 1,
             view: 145,
-            targetDate:""
+            targetDate: ""
         },
         {
             id: 14,
@@ -278,7 +287,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["utulity", "virtual"],
             stock: 1,
             view: 145,
-            targetDate:""
+            targetDate: ""
         },
         {
             id: 15,
@@ -295,7 +304,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["virtual"],
             stock: 1,
             view: 298,
-            targetDate:""
+            targetDate: ""
         },
         {
             id: 16,
@@ -312,7 +321,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["virtual", "domain", "music"],
             stock: 0,
             view: 566,
-            targetDate:""
+            targetDate: ""
         },
         {
             id: 17,
@@ -329,7 +338,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["sports", "virtual", "music"],
             stock: 1,
             view: 100,
-            targetDate:""
+            targetDate: ""
         },
         {
             id: 18,
@@ -346,14 +355,40 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             category: ["trading"],
             stock: 1,
             view: 235,
-            targetDate:""
+            targetDate: ""
         },
     ]);
+    const [user, setUser] = useState<LoginUser[]>([
+        {
+            id: 1,
+            name: "Oguzhan Dönmez",
+            mail: "oguzhan@gmail.com",
+            password: "oguzhan123"
+        },
+        {
+            id: 2,
+            name: "Tayfun Çakır",
+            mail: "tayfun@gmail.com",
+            password: "tayfun123"
+        },
+        {
+            id: 3,
+            name: "Ahmet Çakır",
+            mail: "ahmet@gmail.com",
+            password: "ahmet123"
+        },
+        {
+            id: 4,
+            name: "Ferdi Tosun",
+            mail: "ferdi@gmail.com",
+            password: "ferdi123"
+        }
+    ])
     const [itemData, setItemData] = useState<Nft | null>(null);
     const [authorData, setAuthorData] = useState<AuthorData | null>(null);
 
     return (
-        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData ,authorData ,setAuthorData}}>
+        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData, authorData, setAuthorData, user, setUser }}>
             {children}
         </NftContext.Provider>
     );

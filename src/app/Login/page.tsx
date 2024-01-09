@@ -1,3 +1,4 @@
+import LoginForm from '@/Components/LoginForm/page';
 import React from 'react'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 
@@ -26,22 +27,7 @@ const Login = () => {
                 <span className='border border-white__second w-60'></span>
             </div>
             <div className="flex flex-col gap-6">
-                <form className='flex flex-col gap-6'>
-                    <div className="py-4 px-5 border border-black__write rounded-md">
-                        <input type="text" placeholder='Your Full Name' className=' outline-none bg-transparent' />
-                    </div>
-                    <div className="py-4 px-5 border border-black__write rounded-md">
-                        <input type="text" placeholder='Your Email Address' className=' outline-none bg-transparent' />
-                    </div>
-                </form>
-                <div className="flex justify-between items-center">
-                    <div className="flex flex-row gap-2">
-                        <input type="checkbox" name="remember" id="remember"/>
-                        Remember me
-                    </div>
-                    <span className='font-bold'>Forgot Password ?</span>
-                </div>
-                <div className="button w-full">Login</div>
+                <LoginForm/>
             </div>
         </div>
     )

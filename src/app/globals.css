@@ -166,12 +166,9 @@ main {
 }
 
 .button {
-  @apply px-9 py-[14px] rounded-3xl flex gap-3 font-bold flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer;
-
-  &:hover {
-    @apply bg-on__surface text-primary border-on__surface transition-all duration-300;
+  @apply px-9 py-[14px] rounded-3xl flex gap-3 font-bold flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer
+  hover:bg-on__surface hover:text-primary hover:border-on__surface hover:transition-all hover:duration-300;
   }
-}
 .button.place-bid {
   @apply px-7 py-3 text-sm font-bold;
 }
