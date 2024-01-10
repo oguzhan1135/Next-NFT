@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { FaChevronDown} from "react-icons/fa";
 import { usePathname } from 'next/navigation';
-import Searchbar from '@/Components/SearchBar/page';
+import Searchbar from '@/Components/Header/SearchBar/page';
 
 interface Router{
   router:string;

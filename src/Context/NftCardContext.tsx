@@ -1,5 +1,4 @@
 'use client'
-import Loading from '@/Components/Loading/loading';
 import { createContext, useContext, ReactNode, useState, useEffect, use } from 'react';
 
 interface Nft {
@@ -40,6 +39,8 @@ interface NftContextProps {
     setAuthorData: React.Dispatch<React.SetStateAction<AuthorData | null>>;
     user: LoginUser[];
     setUser: React.Dispatch<React.SetStateAction<LoginUser[]>>
+    loggedUser: LoginUser;
+    setLoggedUser: React.Dispatch<React.SetStateAction<LoginUser>>
 }
 
 const NftContext = createContext<NftContextProps | undefined>(undefined);
@@ -384,11 +385,12 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             password: "ferdi123"
         }
     ])
+    const [loggedUser, setLoggedUser] = useState<LoginUser>({ id: 1, name: "", mail: "", password: "" })
     const [itemData, setItemData] = useState<Nft | null>(null);
     const [authorData, setAuthorData] = useState<AuthorData | null>(null);
 
     return (
-        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData, authorData, setAuthorData, user, setUser }}>
+        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData, authorData, setAuthorData, user, setUser, loggedUser, setLoggedUser }}>
             {children}
         </NftContext.Provider>
     );

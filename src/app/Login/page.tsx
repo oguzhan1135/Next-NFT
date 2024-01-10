@@ -1,4 +1,4 @@
-import LoginForm from '@/Components/LoginForm/page';
+import LoginForm from '@/Components/Forms/LoginForm/page';
 import React from 'react'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 

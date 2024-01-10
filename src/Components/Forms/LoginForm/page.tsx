@@ -1,14 +1,14 @@
 'use client'
 import React, { useState } from "react";
 import { NftProductContext } from "@/Context/NftCardContext";
-import CorrectMessage from "../Messages/CorrectMessage/page";
-import InCorrectMessage from "../Messages/InCorrectMessage/page";
+import CorrectMessage from "../../Messages/CorrectMessage/page";
+import InCorrectMessage from "../../Messages/InCorrectMessage/page";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 
 const LoginForm = () => {
-    const { user } = NftProductContext();
+    const { user, setLoggedUser } = NftProductContext();
     const [formData, setFormData] = useState({
         mail: '',
         password: '',
@@ -32,10 +32,11 @@ const LoginForm = () => {
 
     };
     const userControl = () => {
-        if (findUser) {
+        if (findUser?.mail === formData.mail && findUser.password === formData.password) {
             setLoged(true)
             setTimeout(() => {
                 router.push("/")
+                setLoggedUser({ id: findUser.id, name: findUser.name, mail: findUser.mail, password: findUser.password })
             }, 1500);
         } else {
             setLoged(false)

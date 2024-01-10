@@ -3,8 +3,10 @@ import { NftProductContext } from "@/Context/NftCardContext";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Samson from '/public/images/avatar/samson.svg'
-import { FaSearch, FaWallet, FaBell, FaMoon } from "react-icons/fa";
+import { FaSearch, FaWallet, FaBell, FaMoon, FaUser } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
+import { CgLogOut } from "react-icons/cg";
+import Link from "next/link";
 
 interface NftCard {
     id: number;
@@ -24,12 +26,9 @@ interface NftCard {
     view: number;
 }
 const Searchbar = () => {
-    const { nftProducts } = NftProductContext();
+    const { nftProducts, loggedUser, setLoggedUser } = NftProductContext();
     const [filteredProducts, setFilteredProducts] = useState<NftCard[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const marketplacePage = '/Marketplace';
-    const homepageSpacielPage = '/HomepageSpaciel';
-    const [isMenuOpen, setMenuOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
@@ -41,7 +40,9 @@ const Searchbar = () => {
         setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
     };
 
-
+    const logOut = () => {
+        setLoggedUser({ id: 1, name: "", mail: "", password: "" })
+    }
 
     const handleSearchClick = () => {
         toggleDropdown('search');
@@ -52,8 +53,16 @@ const Searchbar = () => {
         );
         setFilteredProducts(filtered);
 
+        const handleSearchClick = () => {
+            toggleDropdown('search');
+        };
         const handleClickOutside = (event: MouseEvent) => {
-            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            if (
+                menuRef.current &&
+                event.target instanceof Node &&
+                !menuRef.current.contains(event.target) &&
+                !(event.target as Element).closest('.dropdown-area')
+            ) {
                 setActiveDropdown(null);
                 setFilteredProducts([]);
             }
@@ -229,8 +238,34 @@ const Searchbar = () => {
 
             <div className='navbar-switch'>
                 <FaMoon />
-
             </div>
+            {
+                loggedUser.name !== "" ?
+                    <div className="dropdown-area relative w-max" >
+                        <div className='navbar-switch' onClick={() => toggleDropdown('user')}>
+                            <FaUser />
+                            {activeDropdown === 'user' && (
+                                <div className="absolute top-16 bg-on__surface right-1 z-50 rounded-xl w-60">
+                                    <div className="flex flex-col">
+                                        <Link href={"/Profile"} className="flex flex-row gap-2 items-center py-2 px-4 border-b border-b-gray rounded-tl-xl rounded-tr-xl hover:bg-white__second transition-all duration-300">
+                                            <i className="text-on__surface__dark text-xl"><FaUser /></i>
+                                            <span className="font-bold text-on__surface__dark text-xl">{loggedUser.name}</span>
+                                        </Link>
+                                        <Link href={"/Login"} onClick={logOut} className="flex flex-row gap-2 items-center py-2 px-4 rounded-bl-xl rounded-br-xl hover:bg-white__second transition-all duration-300">
+                                            <i className="text-on__surface__dark text-xl"><CgLogOut /></i>
+                                            <span className="font-bold text-on__surface__dark text-xl">LOG OUT</span>
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    :
+                    <>
+                    </>
+            }
+
             <span className='lg:hidden'><IoIosMenu /></span>
         </div>
     )

@@ -1,4 +1,4 @@
-import SignUpForm from '@/Components/SignUpForm/page';
+import SignUpForm from '@/Components/Forms/SignUpForm/page';
 import React from 'react'
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 

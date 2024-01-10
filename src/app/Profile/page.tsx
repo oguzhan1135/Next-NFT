@@ -6,24 +6,17 @@ import Link from 'next/link'
 import TodaysPick from '@/Components/TodaysPick/page'
 import { FaCaretDown, FaCaretUp, FaCopy, FaFacebook, FaGoogle, FaTwitch, FaTwitter } from 'react-icons/fa'
 import { NftProductContext } from '@/Context/NftCardContext'
-const Author = () => {
-    const { authorData, setAuthorData } = NftProductContext();
+import { useRouter } from 'next/navigation'
 
-    const [isPageLoaded, setIsPageLoaded] = useState(false);
-
+const Profile = () => {
+    const { loggedUser } = NftProductContext();
+    const router = useRouter();
     useEffect(() => {
-        // This function will be called when the component unmounts
-        return () => {
-            if (isPageLoaded) {
-                setAuthorData(null); // Set the authorData to null when the component is unmounted and the page has been loaded
-            }
-        };
-    }, [isPageLoaded]);
-
-    useEffect(() => {
-        // This function will be called when the component is first mounted
-        setIsPageLoaded(true);
+        if (loggedUser.name === "") {
+            router.push("/Login")
+        }
     }, []);
+
     return (
         <>
             <div className="flex flex-col gap-[60px] pb-20">
@@ -32,7 +25,7 @@ const Author = () => {
                         <div className="grid col-span-2 relative">
                             <div className="w-full h-auto overflow-hidden rounded-[20px] absolute left-10">
                                 <Image
-                                    src={authorData?.authorAvatar ?? Creater}
+                                    src={Creater}
                                     alt='avatar'
                                     width={1000}
                                     height={1000}
@@ -43,7 +36,7 @@ const Author = () => {
                         <div className="grid col-span-7 ml-20">
                             <div className="w-full flex flex-col justify-between">
                                 <div className="flex justify-between items-center">
-                                    <span className="text-lg text-secondary">Author Profile</span>
+                                    <span className="text-lg text-secondary">Profile</span>
                                     <div className="flex row gap-6 items-center pr-10">
                                         <div className="flex flex-row items-center gap-[10px]">
                                             <Link href="/" className=' bg-on__surface rounded-xl flex justify-center items-center p-3 text-dark__bg'><FaFacebook /></Link>
@@ -59,12 +52,7 @@ const Author = () => {
 
                                 </div>
                                 <h4 className="text-4xl font-bold">
-                                    {
-                                        authorData !== null ?
-                                            authorData?.authorName :
-                                            <>Trista Francis</>
-                                    }
-
+                                    {loggedUser.name}
                                 </h4>
                                 <p className="max-w-[500px]">Lorem ipsum dolor sit amet,
                                     consectetur adipisicing elit. Laborum obcaecati
@@ -91,9 +79,7 @@ const Author = () => {
                 </div>
                 <TodaysPick />
             </div>
-
         </>
     )
 }
-
-export default Author
+export default Profile

@@ -2,8 +2,8 @@
 import { NftProductContext } from "@/Context/NftCardContext";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import CorrectMessage from "../Messages/CorrectMessage/page";
-import InCorrectMessage from "../Messages/InCorrectMessage/page";
+import CorrectMessage from "../../Messages/CorrectMessage/page";
+import InCorrectMessage from "../../Messages/InCorrectMessage/page";
 
 
 
@@ -25,10 +25,8 @@ const SignUpForm = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setSubmit(true)
-        console.log(formData)
         if (formData.name !== "" && formData.mail !== "" && formData.password !== "") {
             setUser([...user, { id: user.length + 1, name: formData.name, mail: formData.mail, password: formData.password }])
-            console.log(user)
             setTimeout(() => {
                 router.push("/Login")
             }, 1000);

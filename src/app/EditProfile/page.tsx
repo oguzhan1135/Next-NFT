@@ -5,6 +5,7 @@ import Option__1 from '/public/images/other/option1_bg_profile.svg'
 import Option__2 from '/public/images/other/option2_bg_profile.svg'
 import Link from 'next/link'
 import { FaDiscord, FaFacebook, FaTwitter } from 'react-icons/fa'
+import EditForm from '@/Components/Forms/EditForm/page'
 
 const EditProfile = () => {
     return (
@@ -28,7 +29,7 @@ const EditProfile = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-6 flex-1 w-full">
+                <div className="flex flex-col gap-6 flex-1 w-full pb-20">
                     <div className="flex flex-col gap-5">
                         <span className='text-xl font-bold'>Choiseyour Cover image</span>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
@@ -53,65 +54,7 @@ const EditProfile = () => {
                             </div>
                         </div>
                     </div>
-
-                    <form className='grid grid-cols-1 gap-10 lg:grid-cols-2'>
-                        <div className="flex flex-col gap-6">
-                            <h6 className="text-xl font-bold">Account info</h6>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="display-name">Display Name</label>
-                                <input type="text" placeholder='Trista Francis' name='display' id='display-name' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="custom-url">Custom URL</label>
-                                <input type="text" placeholder='Axies.Trista Francis.com/' name='custom-url' id='custom-url' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="email">Email</label>
-                                <input type="email" placeholder='Trista Francis' name='email' id='email' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="display-name">Bio</label>
-                                <textarea className='p-3 bg-transparent rounded-md border border-black__write' name="bio" id="bio" cols={30} rows={6}></textarea>
-                            </div>
-                            <div className="button white-b w-max">
-                                <Link href={"/"}>Update Profile</Link>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-6">
-                            <h6 className="text-xl font-bold">Your Social media</h6>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="facebook">Facebook</label>
-                                <input type="text" placeholder='Facebook username' name='facebook' id='facebook' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <Link href={"/"}>
-                                <div className="button social w-max">
-                                    <FaFacebook />
-                                    <span>Connect To Facebook</span>
-                                </div>
-                            </Link>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="twitter">Twitter</label>
-                                <input type="text" placeholder='Trista Francis' name='twitter' id='twitter' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <Link href={"/"}>
-                                <div className="button social w-max">
-                                    <FaTwitter />
-                                    <span>Connect To Twitter</span>
-                                </div>
-                            </Link>
-                            <div className="flex flex-col w-full gap-5">
-                                <label htmlFor="discord">Discord</label>
-                                <input type="text" placeholder='Discord username' name='discord' id='discord' className='p-3 bg-transparent rounded-md border border-black__write' />
-                            </div>
-                            <Link href={"/"}>
-                                <div className="button social w-max">
-                                    <FaDiscord />
-                                    <span>Connect To Discord</span>
-                                </div>
-                            </Link>
-
-                        </div>
-                    </form>
+                    <EditForm />
                 </div>
 
 
