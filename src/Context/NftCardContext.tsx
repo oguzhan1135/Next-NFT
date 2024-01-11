@@ -61,7 +61,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "bnb",
             file: "image",
             sellCategory: "live",
-            category: ["art", "sports"],
+            category: ["Art", "Sports"],
             targetDate: "2024-01-30T18:27:45Z",
             view: 210,
             stock: 10
@@ -78,7 +78,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "image",
             sellCategory: "live",
-            category: ["utulity", "sports"],
+            category: ["Utility", "Sports"],
             targetDate: "2024-01-16T03:40:00Z",
             stock: 5,
             view: 200
@@ -96,7 +96,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "busd",
             file: "image",
             sellCategory: "todays",
-            category: ["utulity", "art"],
+            category: ["Utility", "Art"],
             stock: 2,
             view: 210,
             targetDate: ""
@@ -114,7 +114,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "busd",
             file: "image",
             sellCategory: "todays",
-            category: ["domain", "collectibles"],
+            category: ["Domain Names", "Collectibles"],
             stock: 0,
             view: 210,
             targetDate: ""
@@ -131,7 +131,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "audio",
             sellCategory: "land",
-            category: ["domain", "trading", "music"],
+            category: ["Domain Names", "Trading Cards", "Music"],
             view: 145,
             stock: 3,
             targetDate: ""
@@ -148,7 +148,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "audio",
             sellCategory: "land",
-            category: ["collectibles", "sports", "music"],
+            category: ["Collectibles", "Sports", "Music"],
             view: 145,
             stock: 10,
             targetDate: ""
@@ -165,7 +165,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "image",
             sellCategory: "live",
-            category: ["utulity", "sports"],
+            category: ["Utility", "Sports"],
             targetDate: "2024-01-18T12:57:00Z",
             view: 145,
             stock: 4,
@@ -183,7 +183,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "bnb",
             file: "image",
             sellCategory: "items",
-            category: ["utulity", "collectibles"],
+            category: ["Utility", "Collectibles"],
             view: 105,
             targetDate: "",
             stock: 1
@@ -200,7 +200,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "bnb",
             file: "audio",
             sellCategory: "items",
-            category: ["art"],
+            category: ["Art"],
             view: 158,
             stock: 4,
             targetDate: ""
@@ -217,7 +217,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "busd",
             file: "audio",
             sellCategory: "items",
-            category: ["sports", "music"],
+            category: ["Sports", "Music"],
             view: 145,
             stock: 3,
             targetDate: ""
@@ -234,7 +234,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "video",
             sellCategory: "live",
-            category: ["art"],
+            category: ["Art"],
             targetDate: "2023-10-31T12:00:00Z",
             view: 145,
             stock: 6
@@ -251,7 +251,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "video",
             sellCategory: "live",
-            category: ["art", "domain"],
+            category: ["Art", "Domain Names"],
             targetDate: "2023-11-01T12:00:00Z",
             view: 145,
             stock: 4
@@ -268,7 +268,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "image",
             sellCategory: "todays",
-            category: ["collectibles"],
+            category: ["Collectibles"],
             stock: 1,
             view: 145,
             targetDate: ""
@@ -285,7 +285,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "bnb",
             file: "image",
             sellCategory: "todays",
-            category: ["utulity", "virtual"],
+            category: ["Utility", "Virtual World"],
             stock: 1,
             view: 145,
             targetDate: ""
@@ -302,7 +302,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "busd",
             file: "image",
             sellCategory: "todays",
-            category: ["virtual"],
+            category: ["Virtual World"],
             stock: 1,
             view: 298,
             targetDate: ""
@@ -319,7 +319,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "busd",
             file: "image",
             sellCategory: "todays",
-            category: ["virtual", "domain", "music"],
+            category: ["Virtual World", "Domain Names", "Music"],
             stock: 0,
             view: 566,
             targetDate: ""
@@ -336,7 +336,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "eth",
             file: "image",
             sellCategory: "todays",
-            category: ["sports", "virtual", "music"],
+            category: ["Sports", "Virtual World", "Music"],
             stock: 1,
             view: 100,
             targetDate: ""
@@ -353,7 +353,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             currency: "bnb",
             file: "image",
             sellCategory: "todays",
-            category: ["trading"],
+            category: ["Trading Cards"],
             stock: 1,
             view: 235,
             targetDate: ""
