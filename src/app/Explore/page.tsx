@@ -3,6 +3,24 @@ import Dropdown from "@/Components/FilterDropdown/page";
 import React, { useState, useEffect } from "react";
 import { NftProductContext } from "@/Context/NftCardContext";
 import NftCard from "@/Components/NftCard/page";
+import InCorrectMessage from "@/Components/Messages/InCorrectMessage/page";
+interface Nft {
+  id: number;
+  createrName: string;
+  createrAvatar: string;
+  like: number;
+  nftImage: string;
+  cardName: string;
+  price: number;
+  currentBid: string;
+  currency: string;
+  file: string;
+  stock: number;
+  sellCategory: string;
+  category: string[];
+  targetDate: string;
+  view: number;
+}
 const Explore = () => {
 
   const [filterParam, setFilterParam] = useState({
@@ -10,7 +28,8 @@ const Explore = () => {
   })
 
   const { nftProducts } = NftProductContext()
-
+  const [message, setMessage] = useState(false);
+  const [filteredProducts, setFilteredProducts] = useState<Nft[]>([]);
   const handleCategorySelect = (selectedCategory: string) => {
     setFilterParam({ category: selectedCategory, short: filterParam.short, stock: filterParam.stock })
   };
@@ -27,9 +46,13 @@ const Explore = () => {
 
 
   const filteredOperation = () => {
-    let filteredProducts = nftProducts.filter((product) => {
-      return product.sellCategory === "todays" && product.category.includes(filterParam.category);
-    });
+    let filteredProducts = nftProducts.filter((product) => product.sellCategory === "todays");
+
+    if (filterParam.category !== "All Categories") {
+      filteredProducts = filteredProducts.filter((product) => {
+        return product.sellCategory === "todays" && product.category.includes(filterParam.category);
+      });
+    }
 
     if (filterParam.stock === "In Stock") {
       filteredProducts = filteredProducts.filter((product) => product.stock > 0);
@@ -43,17 +66,22 @@ const Explore = () => {
       filteredProducts.sort((a, b) => b.price - a.price);
     }
 
-    return filteredProducts
+    return filteredProducts;
   };
 
-  let filteredProducts = filteredOperation();
-  if (filteredProducts.length === 0) {
-    filteredProducts = nftProducts.filter((product) => product.sellCategory === "todays")
-  }
 
   useEffect(() => {
-    filteredOperation();
-  }, [filterParam]);
+    const updatedProducts = filteredOperation();
+    if (updatedProducts.length === 0) {
+      setMessage(true);
+      setTimeout(() => {
+        setMessage(false);
+        setFilteredProducts(nftProducts.filter((product) => product.sellCategory === "todays"));
+      }, 2000);
+    } else {
+      setFilteredProducts(updatedProducts);
+    }
+  }, [filterParam, nftProducts]);
 
 
   return (
@@ -63,12 +91,12 @@ const Explore = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-2">
             <div className="flex flex-row gap-3 items-center flex-wrap">
               <Dropdown
-                options={['Art', 'Domain Names', 'Virtual World', 'Trading Cards', 'Sports', 'Utility']}
+                options={['All Categories', 'Art', 'Domain Names', 'Virtual World', 'Trading Cards', 'Sports', 'Utility']}
                 defaultOption="All Categories"
                 onSelect={handleCategorySelect}
               />
               <Dropdown
-                options={['In Stock', 'Out of Stock']}
+                options={['All Stock', 'In Stock', 'Out of Stock']}
                 defaultOption="All Stock"
                 onSelect={handleStockSelect}
               />
@@ -78,6 +106,9 @@ const Explore = () => {
                 onSelect={deActiveSelect}
               />
             </div>
+            {
+              message ? <InCorrectMessage message="Sorry! No product was found that matches the filter features you requested." /> : <></>
+            }
             <div className="flex flex-row gap-3 items-center">
 
               <Dropdown
@@ -86,7 +117,7 @@ const Explore = () => {
                 onSelect={deActiveSelect}
               />
               <Dropdown
-                options={['Low to High', 'High to Low']}
+                options={['Short By', 'Low to High', 'High to Low']}
                 defaultOption="Short By"
                 onSelect={handleShortBySelect}
               />

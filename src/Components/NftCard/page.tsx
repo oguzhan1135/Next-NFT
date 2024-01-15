@@ -103,7 +103,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
 
     return (
         <>
-            <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card' >
+            <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
                 <Link href={"/ItemDetails"}>
                     <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
@@ -185,25 +185,25 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
                 </div>
 
 
-                {nftCardData.sellCategory !== "live" ?
+                {nftCardData.sellCategory !== "live" &&  nftCardData.stock > 0?
                     <>
-                        <div className="flex justify-between items-center">
-                            <div className="button place-bid">
-                                <FaShoppingBag />
-                                Place Bid
-                            </div>
-                            <div className="flex flex-row items-center gap-2 hover:text-primary cursor-pointer ">
-                                <FiRefreshCw />
-                                <span className=' text-base font-bold text-white__second hover:text-primary'>View History</span>
-                            </div>
+                    <div className="flex justify-between items-center">
+                        <div className="button place-bid">
+                            <FaShoppingBag />
+                            Place Bid
                         </div>
+                        <div className="flex flex-row items-center gap-2 hover:text-primary cursor-pointer ">
+                            <FiRefreshCw />
+                            <span className=' text-base font-bold text-white__second hover:text-primary'>View History</span>
+                        </div>
+                    </div>
                     </> :
-                    <>
-                    </>
+            <>
+            </>
                 }
 
 
-            </div >
+        </div >
         </>
 
 
