@@ -127,7 +127,7 @@ const Explore = () => {
           <div className='grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  gap-8'>
 
             {filteredProducts.map((filteredCard) => (
-              <NftCard key={filteredCard.id} nftCardData={filteredCard} />
+              <NftCard key={filteredCard.id} nftCardData={filteredCard} isListView={false} />
             ))}
 
           </div>

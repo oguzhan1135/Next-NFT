@@ -24,10 +24,11 @@ interface NftCard {
     view: number;
 }
 interface NftCardProps {
-    nftCardData: NftCard; // 
+    nftCardData: NftCard;
+    isListView: boolean;
 }
 
-const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
+const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
 
     const { setItemData, nftProducts, setNftProducts, setAuthorData } = NftProductContext();
     const [liked, setLiked] = useState(false);
@@ -103,107 +104,185 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData }) => {
 
     return (
         <>
-            <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
-                <Link href={"/ItemDetails"}>
-                    <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
-
-                        <Image
-                            src={nftCardData.nftImage}
-                            alt='deneme'
-                            width={500}
-                            height={500}
-                            priority
-                            style={{ width: "100%" }}
-                            onClick={cardDataProps}
-                        />
+            {
+                isListView ? <>
+                    <div className="flex justify-between items-center bg-black__write p-5 rounded-[20px]">
+                        <Link href={"/ItemDetails"}>
+                            <div className="overflow-hidden rounded-[20px]">
+                                <Image
+                                    src={nftCardData.nftImage}
+                                    alt='deneme'
+                                    width={140}
+                                    height={140}
+                                    priority
+                                    onClick={cardDataProps}
+                                />
+                            </div>
+                        </Link>
+                        <div className="flex flex-col gap-4">
+                            <span className=' text-white__second font-bold text-sm'>ITEM NAME</span>
+                            <h3 className='text-lg font-bold'>{nftCardData.cardName}</h3>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <span className=' text-white__second font-bold text-sm'>CREATOR</span>
+                            <div className="flex flex-row gap-1 items-center">
+                                <div className="overflow-hidden rounded-md">
+                                    <Image
+                                        src={nftCardData.createrAvatar}
+                                        alt='freddie'
+                                        width={40}
+                                        height={40}
+                                    />
+                                </div>
+                                <Link onClick={authorData} href={"/Author"} className='font-bold hover:text-primary text-hover'>{nftCardData.createrName}</Link>
+                            </div>
+                        </div>
                         {
-                            nftCardData.stock < 1 ?
-                                <>
-                                    <div className="absolute top-4 left-4 bg-warning text-black__write font-bold px-3 py-1 rounded-xl">
-                                        Comming Soon
+                            nftCardData.sellCategory === "live" ?
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex flex-row gap-1">
+                                        <Image
+                                            src={FireLogo}
+                                            width={20}
+                                            height={20}
+                                            alt='logo'
+                                            className=' w-auto h-auto'
+                                        />
+                                        <span className=' text-white__second font-bold text-sm'>COUNTDOWN</span>
                                     </div>
-                                </> :
-                                <>
-                                </>
+                                    <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
+                                </div>
+                                : <></>
                         }
-                        <div className='absolute top-4 right-4 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
+
+
+                        <div className='bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
                             <span className={`${liked ? 'text-critical' : 'text-on__surface'}`} onClick={likeCounter}><FaHeart /></span>
                             <span>{nftCardData.like}</span>
                         </div>
+                        <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>
+                        <div className="flex flex-col gap-4">
+                            <span className=' text-white__second font-bold text-sm'>CURRENT BID</span>
+                            <span className='text-lg font-bold text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
+                        </div>
                         {
-                            nftCardData.sellCategory === "live" ? <>
-                                <div className="button place-bid-hover">
-                                    <FaShoppingBag />
-                                    <span>Place Bid</span></div>
-                            </> :
-                                <>
-                                </>
-                        }
-
-                        {
-                            nftCardData.sellCategory === "live" ?
-                                <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
-                                    <Image
-                                        src={FireLogo}
-                                        width={20}
-                                        height={20}
-                                        alt='logo'
-                                        className=' w-auto h-auto'
-                                    />
-                                    <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
+                            nftCardData.stock < 1 ?
+                                <div className=" bg-warning text-black__write font-bold px-3 py-1 rounded-xl">
+                                    Comming Soon
                                 </div> :
-                                <></>
+                                <div className="button place-bid">
+                                    <FaShoppingBag />
+                                    Place Bid
+                                </div>
                         }
 
+
                     </div>
-                </Link>
+                </>
+                    :
+                    <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
+                        <Link href={"/ItemDetails"}>
+                            <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
-                <div className="flex justify-between items-center">
-                    <h3 className='text-lg font-bold'>{nftCardData.cardName}</h3>
-                    <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>
-                </div>
+                                <Image
+                                    src={nftCardData.nftImage}
+                                    alt='deneme'
+                                    width={500}
+                                    height={500}
+                                    priority
+                                    style={{ width: "100%" }}
+                                    onClick={cardDataProps}
+                                />
+                                {
+                                    nftCardData.stock < 1 ?
+                                        <>
+                                            <div className="absolute top-4 left-4 bg-warning text-black__write font-bold px-3 py-1 rounded-xl">
+                                                Comming Soon
+                                            </div>
+                                        </> :
+                                        <>
+                                        </>
+                                }
+                                <div className='absolute top-4 right-4 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
+                                    <span className={`${liked ? 'text-critical' : 'text-on__surface'}`} onClick={likeCounter}><FaHeart /></span>
+                                    <span>{nftCardData.like}</span>
+                                </div>
+                                {
+                                    nftCardData.sellCategory === "live" ? <>
+                                        <div className="button place-bid-hover">
+                                            <FaShoppingBag />
+                                            <span>Place Bid</span></div>
+                                    </> :
+                                        <>
+                                        </>
+                                }
 
-                <div className="flex justify-between items-start">
-                    <div className="flex flex-row items-start gap-3">
-                        <div className="overflow-hidden rounded-md">
-                            <Image
-                                src={nftCardData.createrAvatar}
-                                alt='freddie'
-                                width={40}
-                                height={40}
-                            />
+                                {
+                                    nftCardData.sellCategory === "live" ?
+                                        <div className='absolute bottom-2 right-1/2 translate-x-1/2 w-max bg-dark__bg flex flex-row item-center justify-center gap-3 px-3 py-2 rounded-lg'>
+                                            <Image
+                                                src={FireLogo}
+                                                width={20}
+                                                height={20}
+                                                alt='logo'
+                                                className=' w-auto h-auto'
+                                            />
+                                            <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
+                                        </div> :
+                                        <></>
+                                }
+
+                            </div>
+                        </Link>
+
+                        <div className="flex justify-between items-center">
+                            <h3 className='text-lg font-bold'>{nftCardData.cardName}</h3>
+                            <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>
                         </div>
-                        <div className="flex flex-col gap-0">
-                            <span className='font-bold text-white__second'>Creater</span>
-                            <Link onClick={authorData} href={"/Author"} className='font-bold hover:text-primary text-hover'>{nftCardData.createrName}</Link>
+
+                        <div className="flex justify-between items-start">
+                            <div className="flex flex-row items-start gap-3">
+                                <div className="overflow-hidden rounded-md">
+                                    <Image
+                                        src={nftCardData.createrAvatar}
+                                        alt='freddie'
+                                        width={40}
+                                        height={40}
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-0">
+                                    <span className='font-bold text-white__second'>Creater</span>
+                                    <Link onClick={authorData} href={"/Author"} className='font-bold hover:text-primary text-hover'>{nftCardData.createrName}</Link>
+                                </div>
+                            </div>
+                            <div className="flex flex-col text-right">
+                                <span className='text-white__second'>Current Bid</span>
+                                <span className='text-lg font-bold text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col text-right">
-                        <span className='text-white__second'>Current Bid</span>
-                        <span className='text-lg font-bold text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
-                    </div>
-                </div>
 
 
-                {nftCardData.sellCategory !== "live" &&  nftCardData.stock > 0?
-                    <>
-                    <div className="flex justify-between items-center">
-                        <div className="button place-bid">
-                            <FaShoppingBag />
-                            Place Bid
-                        </div>
-                        <div className="flex flex-row items-center gap-2 hover:text-primary cursor-pointer ">
-                            <FiRefreshCw />
-                            <span className=' text-base font-bold text-white__second hover:text-primary'>View History</span>
-                        </div>
-                    </div>
-                    </> :
-            <>
-            </>
-                }
+                        {nftCardData.sellCategory !== "live" && nftCardData.stock > 0 ?
+                            <>
+                                <div className="flex justify-between items-center">
+                                    <div className="button place-bid">
+                                        <FaShoppingBag />
+                                        Place Bid
+                                    </div>
+                                    <div className="flex flex-row items-center gap-2 hover:text-primary cursor-pointer ">
+                                        <FiRefreshCw />
+                                        <span className=' text-base font-bold text-white__second hover:text-primary'>View History</span>
+                                    </div>
+                                </div>
+                            </> :
+                            <>
+                            </>
+                        }
 
 
-        </div >
+                    </div >
+            }
+
         </>
 
 

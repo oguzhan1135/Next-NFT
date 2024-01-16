@@ -48,7 +48,7 @@ const MySwiper = () => {
           >
             {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
               <SwiperSlide key={nftData.id}>
-                <NftCard nftCardData={nftData} />
+                <NftCard nftCardData={nftData} isListView={false} />
 
 
               </SwiperSlide>

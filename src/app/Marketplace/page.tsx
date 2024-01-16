@@ -1,4 +1,5 @@
 'use client'
+import Dropdown from '@/Components/FilterDropdown/page'
 import NftCard from '@/Components/NftCard/page'
 import { NftProductContext } from '@/Context/NftCardContext'
 import React, { useState, useEffect } from 'react'
@@ -32,9 +33,16 @@ const Marketplace: React.FC = () => {
   const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([]);
   const [filteredProducts, setFilterProducts] = useState<Nft[]>(nftProducts)
   const [activeTab, setActiveTab] = useState("live");
+  const [shortBy, setShortBy] = useState("Short By")
+  const [isListView, setListView] = useState(false);
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinPrice(Number(e.target.value));
+  };
+
+  const handleShortBySelect = (selectedShortBuyOption: string) => {
+    setShortBy(selectedShortBuyOption)
+
   };
 
   const handleMaxPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,16 +59,24 @@ const Marketplace: React.FC = () => {
     }
   };
   const applyFilters = () => {
-    setFilterProducts(
-      nftProducts.filter((product) =>
-        product.sellCategory === activeTab &&
-        (selectedCategories.length === 0 || selectedCategories.some(selectedCategory => product.category.includes(selectedCategory))) &&
-        (selectedCurrencies.length === 0 || selectedCurrencies.includes(product.currency)) &&
-        (selectedFileType.length === 0 || selectedFileType.includes(product.file)) &&
-        (product.price >= minPrice && product.price <= maxPrice)
-      )
+    const filtered = nftProducts.filter((product) =>
+      product.sellCategory === activeTab &&
+      (selectedCategories.length === 0 || selectedCategories.some(selectedCategory => product.category.includes(selectedCategory))) &&
+      (selectedCurrencies.length === 0 || selectedCurrencies.includes(product.currency)) &&
+      (selectedFileType.length === 0 || selectedFileType.includes(product.file)) &&
+      (product.price >= minPrice && product.price <= maxPrice)
     );
+
+    let updatedProducts = [...filtered];
+    if (shortBy === "Low to High") {
+      updatedProducts = updatedProducts.sort((a, b) => a.price - b.price);
+    } else if (shortBy === "High to Low") {
+      updatedProducts = updatedProducts.sort((a, b) => b.price - a.price);
+    }
+
+    setFilterProducts(updatedProducts);
   };
+
 
   const handleFilterReset = () => {
     setSelectedCategories([])
@@ -68,6 +84,7 @@ const Marketplace: React.FC = () => {
     setSelectedFileType([]);
     setMaxPrice(3500);
     setMinPrice(800);
+    setShortBy("Short By");
     const checkboxes = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
     checkboxes.forEach((checkbox) => {
       checkbox.checked = false;
@@ -75,7 +92,8 @@ const Marketplace: React.FC = () => {
   }
   useEffect(() => {
     applyFilters();
-  }, [selectedCategories, selectedCurrencies, maxPrice, minPrice, selectedFileType, activeTab]);
+
+  }, [selectedCategories, nftProducts, selectedCurrencies, maxPrice, minPrice, selectedFileType, activeTab, shortBy]);
 
 
   return (
@@ -109,7 +127,7 @@ const Marketplace: React.FC = () => {
         </div>
         <div className="grid grid-cols-12">
           <div className="grid col-span-12 lg:col-span-2">
-            <div className="flex flex-col bg-on__surface__dark h-full">
+            <div className="flex flex-col bg-on__surface__dark h-full 2xl:h-screen">
               <div className="flex justify-between items-center px-10 py-4 border-b-black__write border-b">
                 <span className='text-xl font-bold'>Filter</span>
                 <span className='font-bold text-[14px] cursor-pointer' onClick={handleFilterReset}>Reset</span>
@@ -185,13 +203,11 @@ const Marketplace: React.FC = () => {
                     </div>
                   </li>
                   <li className=' contents '>
-                    <div className="flex flex-col gap-4 border-b border-b-black__write">
+                    <div className="flex flex-col gap-4">
                       <div className="flex justify-between items-center">
                         <span className='text-lg font-bold'>Price Range</span>
                         <FaChevronUp />
                       </div>
-                      Range Alanı
-                      <span>Price:  $800-$1850</span>
                       <div className="price-range-slider">
                         <input
                           type="range"
@@ -221,27 +237,30 @@ const Marketplace: React.FC = () => {
               <div className="flex  items-center justify-between">
                 <h1 className='text-4xl font-bold'>1000 Items</h1>
                 <div className="flex flex-row gap-6 items-center">
-                  <div className="flex flex-row">
-                    <div className="bg-black__write px-5 py-3 rounded-tl-xl rounded-bl-xl flex flex-row gap-2 font-bold items-center justify-center">
+                  <div className="flex flex-row overflow-hidden border border-black__write rounded-xl">
+                    <div
+                      onClick={() => setListView(false)}
+                      className={` px-5 py-3  flex flex-row gap-2 font-bold items-center justify-center cursor-pointer ${!isListView ? 'bg-black__write' : ''}`}
+                    >
                       <BiCategory />
                       <span className='font-bold'>Grid</span>
                     </div>
-                    <div className=" px-5 py-3 rounded-tr-xl rounded-br-xl flex flex-row gap-2 font-bold items-center border border-black__write justify-center">
+                    <div
+                      onClick={() => setListView(true)}
+                      className={`px-5 py-3 flex flex-row gap-2 font-bold items-center  justify-center cursor-pointer ${isListView ? 'bg-black__write' : ''}`}
+                    >
                       <CiCircleList />
                       <span className='font-bold'>List</span>
                     </div>
                   </div>
-                  <div className=" dropdown-select">
-                    <span>Low to High</span>
-                    <FaFilter />
-                  </div>
+                  <Dropdown options={["Short By", "Low to High", "High to Low"]} defaultOption='Short By' onSelect={handleShortBySelect} />
                 </div>
               </div>
 
 
-              <div className="grid gap-[30px] grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2">
+              <div className={`${isListView ? 'flex flex-col gap-[30px]' : 'grid gap-[30px] grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2'}`}>
                 {filteredProducts.map((nftData) => (
-                  <NftCard key={nftData.id} nftCardData={nftData} />
+                  <NftCard key={nftData.id} nftCardData={nftData} isListView={isListView} />
                 ))}
               </div>
               <div className="button w-max mx-auto white-b">

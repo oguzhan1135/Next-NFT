@@ -105,10 +105,19 @@ const ItemDetails = () => {
 
                                     </div>
                                 </div>
-                                <div className='button'>
-                                    <FaShoppingBag />
-                                    <span>Place Bid</span>
-                                </div>
+                                {
+                                    itemData?.stock === 0 ? (
+                                        <div className="bg-warning text-black__write font-bold px-3 py-3 rounded-xl text-center">
+                                            Coming Soon
+                                        </div>
+                                    ) : (
+                                        <div className='button'>
+                                            <FaShoppingBag />
+                                            <span>Place Bid</span>
+                                        </div>
+                                    )
+                                }
+
                                 <div className="flex flex-row">
                                     <div className="py-3 border-b-2 border-b-transparent hover:border-b-primary" style={{ paddingRight: "16px" }}>
                                         Bid History
