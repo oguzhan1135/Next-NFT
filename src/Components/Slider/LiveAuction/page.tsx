@@ -4,8 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import NftCard from '@/Components/NftCard/page';
 import { NftProductContext } from '@/Context/NftCardContext';
-import { Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css/navigation';
+import { Pagination,} from 'swiper/modules';
 import { useState, useEffect } from 'react';
 import Loading from '@/Components/Loading/loading';
 
@@ -35,7 +34,7 @@ const MySwiper = () => {
           <Swiper
             spaceBetween={30}
             pagination={{ clickable: true }}
-            navigation={true}
+            navigation={false}
             breakpoints={{
               0: { slidesPerView: 1 },
               600: { slidesPerView: 2 },
@@ -44,13 +43,11 @@ const MySwiper = () => {
             }}
 
             modules={[Pagination]}
-            className="mySwiper"
+            className="mySwiper pb-16"
           >
             {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
               <SwiperSlide key={nftData.id}>
                 <NftCard nftCardData={nftData} isListView={false} />
-
-
               </SwiperSlide>
             ))}
           </Swiper>

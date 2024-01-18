@@ -78,7 +78,7 @@
 }
 
 .swiper-wrapper {
-  @apply relative h-auto -z-10 flex transition-transform ease-in-out pb-10;
+  @apply relative h-auto -z-10 flex transition-transform ease-in-out;
   transition-property: transform;
   transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
   box-sizing: content-box;
@@ -144,14 +144,14 @@ main {
 }
 
 .slogan {
-  @apply text-4xl md:text-5xl text-on__surface font-bold max-w-[470px];
+  @apply text-4xl md:text-5xl text-on__surface font-bold max-w-[470px]
 }
 .slogan-v2{
-  @apply  w-full  text-4xl md:text-5xl text-on__surface font-bold
+  @apply  w-full  text-4xl md:text-5xl text-on__surface font-bold 
 }
 
 .slogan-area {
-  @apply flex flex-col gap-6 items-center md:items-start;
+  @apply flex flex-col gap-6 items-center md:items-start pt-10 lg:pt-0
 }
 
 .homepage-header-area {
@@ -247,4 +247,28 @@ form input {
 
 .text-hover{
   @apply hover:transition-all hover:duration-300 hover:ease-in-out hover:text-primary
+}
+
+.swiper-pagination-bullet{
+  @apply bg-transparent border-2 border-on__surface p-[6px]
+}
+.swiper-pagination-bullet-active{
+  @apply bg-on__surface border-2 border-on__surface p-[6px]
+}
+.top-seller-button-prev, .top-seller-button-next{
+  @apply rounded-full p-3 transition-all ease-in-out duration-300 flex justify-center items-center border border-primary text-on__surface text-xl hover:text-primary hover:bg-on__surface
+}
+
+.swiper-pagination{
+  @apply bottom-[0px] z-10 !important
+}
+.cloud-effect{
+  @apply absolute pointer-events-none w-80 h-[500px] opacity-10 blur-[100px] overflow-hidden bg-[#8e5be6]
+}
+.buble-solid-circle{
+  @apply  bg-gradiant__color rounded-full absolute hidden md:flex justify-center items-center opacity-100 z-10
+}
+
+.buble-solid-circle-in{
+  @apply absolute rounded-full bg-dark__bg
 }

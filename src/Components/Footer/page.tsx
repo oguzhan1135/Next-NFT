@@ -12,7 +12,7 @@ const Footer: React.FC<Router> = ({ router }) => {
             {
                 router !== "/Marketplace" ?
                     <>
-                        <div className='flex justify-center w-full relative 3xl:fixed bottom-0 bg-footer__bg py-10 px-2 '>
+                        <div className='flex justify-center w-full relative 3xl:fixed bottom-0 bg-footer__bg py-20 px-2 '>
                             <div className="container">
                                 <div className="grid grid-cols-1 xl:grid-cols-4 w-full gap-5">
                                     <div className="flex flex-col gap-10">

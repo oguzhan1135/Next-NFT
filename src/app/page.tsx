@@ -12,6 +12,8 @@ import PopularCollection from '@/Components/Slider/PopularCollection/page'
 export default function Home() {
   return (
     <main className='main-container'>
+      <span className="cloud-effect w-40 h-40 top-0 right-0"></span>
+      <span className="cloud-effect w-40 h-40 top-0 left-0"></span>
       <div className='content'>
         <div className="homepage-header-area">
           <div className="slogan-area">
@@ -37,10 +39,26 @@ export default function Home() {
           </div>
 
           <div className="relative ">
+              <span className=" animate-[fadeIn_3s_linear_infinite] buble-solid-circle absolute top-[3%] right-[16%] p-[27px]">
+                <span className="buble-solid-circle-in p-6"></span>
+              </span>
+
+              <span className=" animate-[fadeIn_3s_linear_infinite] buble-solid-circle absolute top-[28%] right-[13%] p-8"></span>
+
+              <span className=" animate-[fadeIn_4s_linear_infinite] buble-solid-circle absolute top-[14%] right-[10%] p-[15px]"></span>
+
+              <span className=" animate-[fadeIn_5s_linear_infinite] buble-solid-circle absolute top-[55%] left-25% p-5"></span>
+
+              <span className=" animate-[fadeIn_6s_linear_infinite] buble-solid-circle absolute top-[10%] left-[0%] p-4">
+                <span className="buble-solid-circle-in p-3"></span>
+              </span>
+
+              <span className="buble-solid-circle absolute top-[12%] right-[65%] p-[10px]"></span>
+
             <Image
               src={BigRobo}
               alt='robo'
-              className='w-full '
+              className='w-full  animate-[fadeIn_5s_linear_infinite] '
               priority
             />
           </div>
@@ -51,8 +69,6 @@ export default function Home() {
           <SlidesPerView />
         </div>
         <div className="content-container">
-          <ContentHeader
-            title='Top Seller' />
           <TopSeller />
         </div>
         <div className="content-container">
@@ -69,7 +85,7 @@ export default function Home() {
           <CreateAndSell />
         </div>
       </div>
-    </main>
+    </main >
   )
 
 
