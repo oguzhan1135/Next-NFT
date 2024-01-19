@@ -106,7 +106,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
         <>
             {
                 isListView ? <>
-                    <div className="flex justify-between items-center bg-black__write p-5 rounded-[20px]">
+                    <div className="flex justify-between gap-5 flex-wrap items-center bg-black__write p-5 rounded-[20px]">
                         <Link href={"/ItemDetails"}>
                             <div className="overflow-hidden rounded-[20px]">
                                 <Image

@@ -31,6 +31,7 @@ const Searchbar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const menuRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [mobileNavbarMenu, SetMobileNavbarMenu] = useState(false);
 
     const handleSearchBlur = () => {
         setFilteredProducts([]);
@@ -75,7 +76,7 @@ const Searchbar = () => {
         };
     }, [menuRef, searchTerm]);
     return (
-        <div className="navbar-switch-area">
+        <div className="navbar-switch-area relative">
             <div className="cursor-pointer relative" ref={menuRef} >
                 <FaSearch onClick={handleSearchClick} />
                 {activeDropdown === 'search' && (
@@ -266,7 +267,7 @@ const Searchbar = () => {
                     </>
             }
 
-            <span className='lg:hidden'><IoIosMenu /></span>
+           
         </div>
     )
 }

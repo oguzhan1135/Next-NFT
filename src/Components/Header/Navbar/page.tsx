@@ -1,23 +1,25 @@
 import React from 'react'
 import Link from 'next/link'
-import { FaChevronDown} from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import { usePathname } from 'next/navigation';
 import Searchbar from '@/Components/Header/SearchBar/page';
+import { IoIosMenu } from 'react-icons/io';
+import MobileNavbarMenu from '../MobilNavbarMenu/page';
 
-interface Router{
-  router:string;
+interface Router {
+  router: string;
 }
-const Navbar: React.FC<Router> = ({router}) => {
+const Navbar: React.FC<Router> = ({ router }) => {
   const marketplacePage = '/Marketplace';
   const homepageSpacielPage = '/HomepageSpaciel';
 
 
   return (
     <>
-      <div className={`navbar-header ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
-        <div className='navbar-container'>
+      <div className={`navbar-header  ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
+        <div className='navbar-container '>
           <div className={`${router === marketplacePage || router === homepageSpacielPage ? 'v2-w-container' : 'main-container'}`}>
-            <div className='navbar'>
+            <div className='navbar relative'>
               <div className="logo">
                 <Link href={"/"}>
                   <svg width="30" height="41" viewBox="0 0 30 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +96,10 @@ const Navbar: React.FC<Router> = ({router}) => {
 
               </ul>
               <Searchbar />
+              <MobileNavbarMenu/>
+
             </div>
+
           </div>
 
         </div>

@@ -5,7 +5,7 @@ import { NftProductContext } from '@/Context/NftCardContext'
 import React, { useState, useEffect } from 'react'
 import { BiCategory } from 'react-icons/bi'
 import { CiCircleList } from 'react-icons/ci'
-import { FaChevronUp, FaFilter } from 'react-icons/fa'
+import { FaChevronDown, FaChevronUp, FaFilter } from 'react-icons/fa'
 interface Nft {
   id: number;
   createrName: string;
@@ -35,6 +35,12 @@ const Marketplace: React.FC = () => {
   const [activeTab, setActiveTab] = useState("live");
   const [shortBy, setShortBy] = useState("Short By")
   const [isListView, setListView] = useState(false);
+  const [accordionCategory, setAccordionCategory] = useState(true);
+  const [accordionFileType, setAccordionFiileType] = useState(true);
+  const [accordionCurrencies, setAccordionCurrencies] = useState(true);
+  const [accordionPriceRange, setAccordionPriceRange] = useState(true);
+const   [responsiveFilter,setResponsiveFilter] = useState(true);
+
 
   const handleMinPriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMinPrice(Number(e.target.value));
@@ -77,7 +83,7 @@ const Marketplace: React.FC = () => {
     setFilterProducts(updatedProducts);
   };
 
-
+  
   const handleFilterReset = () => {
     setSelectedCategories([])
     setSelectedCurrencies([]);
@@ -94,12 +100,14 @@ const Marketplace: React.FC = () => {
     applyFilters();
 
   }, [selectedCategories, nftProducts, selectedCurrencies, maxPrice, minPrice, selectedFileType, activeTab, shortBy]);
-
+  useEffect(()=> {
+    console.log(responsiveFilter)
+  },[responsiveFilter])
 
   return (
     <>
       <div className="flex flex-col w-full">
-        <div className="flex flex-row bg-on__surface__dark">
+        <div className="flex flex-col lg:flex-row bg-on__surface__dark">
           <div
             className={`marketplace-tab-btn ${activeTab === "live" ? 'active' : ''}`}
             onClick={() => handleTabClick("live")}
@@ -128,107 +136,132 @@ const Marketplace: React.FC = () => {
         <div className="grid grid-cols-12">
           <div className="grid col-span-12 lg:col-span-2">
             <div className="flex flex-col bg-on__surface__dark h-full 2xl:h-screen">
-              <div className="flex justify-between items-center px-10 py-4 border-b-black__write border-b">
+              <div onClick={()=> setResponsiveFilter(!responsiveFilter)} className="flex justify-between items-center px-10 py-4 border-b-black__write border-b">
                 <span className='text-xl font-bold'>Filter</span>
+                {
+                  responsiveFilter === false ? <FaChevronDown/>:<></>
+                }
                 <span className='font-bold text-[14px] cursor-pointer' onClick={handleFilterReset}>Reset</span>
               </div>
-              <form>
+              {
+                responsiveFilter === true?
+                 <form>
                 <ul className='px-10 py-4 flex flex-col gap-4'>
                   <li className=' contents '>
                     <div className="flex flex-col gap-4 border-b border-b-black__write">
-                      <div className="flex justify-between items-center">
+                      <div onClick={() => setAccordionCategory(!accordionCategory)} className="flex justify-between items-center">
                         <span className='text-lg font-bold'>Categories</span>
-                        <FaChevronUp />
+                        {accordionCategory === true ? <FaChevronUp /> : <FaChevronDown />}
+
                       </div>
-                      <ul className='flex flex-col'>
-                        {["Art", "Music", "Domain Names", "Virtual Worlds", "Trading Cards", "Collectibles", "Sports", "Utility"].map(category => (
-                          <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
-                            <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
-                            <input
-                              className='w-[18px] h-[18px]'
-                              type="checkbox"
-                              name={category}
-                              id={category}
-                              onChange={() => handleCheckboxChange(category, selectedCategories, setSelectedCategories)}
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                      {
+                        accordionCategory === true ?
+                          <ul className='flex flex-col'>
+                            {["Art", "Music", "Domain Names", "Virtual Worlds", "Trading Cards", "Collectibles", "Sports", "Utility"].map(category => (
+                              <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
+                                <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
+                                <input
+                                  className='w-[18px] h-[18px]'
+                                  type="checkbox"
+                                  name={category}
+                                  id={category}
+                                  onChange={() => handleCheckboxChange(category, selectedCategories, setSelectedCategories)}
+                                />
+                              </li>
+                            ))}
+                          </ul> : <></>
+                      }
+
 
                     </div>
                   </li>
                   <li className=' contents '>
                     <div className="flex flex-col gap-4 border-b border-b-black__write">
-                      <div className="flex justify-between items-center">
+                      <div onClick={() => setAccordionFiileType(!accordionFileType)} className="flex justify-between items-center">
                         <span className='text-lg font-bold'>File Types</span>
-                        <FaChevronUp />
+                        {accordionFileType === true ? <FaChevronUp /> : <FaChevronDown />}
+
                       </div>
-                      <ul className='flex flex-col'>
-                        {["Image", "Video", "Audio"].map(category => (
-                          <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
-                            <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
-                            <input
-                              className='w-[18px] h-[18px]'
-                              type="checkbox"
-                              name={category}
-                              id={category}
-                              onChange={() => handleCheckboxChange(category, selectedFileType, setSelectedFileType)}
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                      {
+                        accordionFileType === true ?
+                          <ul className='flex flex-col'>
+                            {["Image", "Video", "Audio"].map(category => (
+                              <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
+                                <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
+                                <input
+                                  className='w-[18px] h-[18px]'
+                                  type="checkbox"
+                                  name={category}
+                                  id={category}
+                                  onChange={() => handleCheckboxChange(category, selectedFileType, setSelectedFileType)}
+                                />
+                              </li>
+                            ))}
+                          </ul> : <></>
+                      }
+
 
                     </div>
                   </li>
                   <li className=' contents '>
                     <div className="flex flex-col gap-4 border-b border-b-black__write">
-                      <div className="flex justify-between items-center">
+                      <div onClick={() => setAccordionCurrencies(!accordionCurrencies)} className="flex justify-between items-center">
                         <span className='text-lg font-bold'>Currencies</span>
-                        <FaChevronUp />
+                        {accordionCurrencies === true ? <FaChevronUp /> : <FaChevronDown />}
                       </div>
-                      <ul className='flex flex-col'>
-                        {["BNB", "BUSD", "ETH"].map(category => (
-                          <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
-                            <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
-                            <input
-                              className='w-[18px] h-[18px]'
-                              type="checkbox"
-                              name={category}
-                              id={category}
-                              onChange={() => handleCheckboxChange(category, selectedCurrencies, setSelectedCurrencies)}
-                            />
-                          </li>
-                        ))}
-                      </ul>
+                      {
+                        accordionCurrencies === true ?
+                          <ul className='flex flex-col'>
+                            {["BNB", "BUSD", "ETH"].map(category => (
+                              <li key={category} className='list-none flex justify-between items-center py-2 cursor-pointer'>
+                                <label htmlFor={category} className='text-[15px] font-semibold w-full'>{category}</label>
+                                <input
+                                  className='w-[18px] h-[18px]'
+                                  type="checkbox"
+                                  name={category}
+                                  id={category}
+                                  onChange={() => handleCheckboxChange(category, selectedCurrencies, setSelectedCurrencies)}
+                                />
+                              </li>
+                            ))}
+                          </ul> : <></>
+                      }
+
                     </div>
                   </li>
                   <li className=' contents '>
                     <div className="flex flex-col gap-4">
-                      <div className="flex justify-between items-center">
+                      <div onClick={() => setAccordionPriceRange(!accordionPriceRange)} className="flex justify-between items-center">
                         <span className='text-lg font-bold'>Price Range</span>
-                        <FaChevronUp />
+                        {accordionPriceRange === true ? <FaChevronUp /> : <FaChevronDown />}
                       </div>
-                      <div className="price-range-slider">
-                        <input
-                          type="range"
-                          min={0}
-                          max={3500}
-                          value={minPrice}
-                          onChange={handleMinPriceChange}
-                        />
-                        <input
-                          type="range"
-                          min={0}
-                          max={3500}
-                          value={maxPrice}
-                          onChange={handleMaxPriceChange}
-                        />
-                        <span>Min-Max: ${minPrice} - ${maxPrice}</span>
-                      </div>
+                      {
+                        accordionPriceRange === true ?
+                          <div className="price-range-slider">
+                            <input
+                              type="range"
+                              min={0}
+                              max={3500}
+                              value={minPrice}
+                              onChange={handleMinPriceChange}
+                            />
+                            <input
+                              type="range"
+                              min={0}
+                              max={3500}
+                              value={maxPrice}
+                              onChange={handleMaxPriceChange}
+                            />
+                            <span>Min-Max: ${minPrice} - ${maxPrice}</span>
+                          </div> : <></>
+                      }
+
                     </div>
                   </li>
                 </ul>
-              </form>
+              </form>:<></>
+              }
+             
 
             </div>
           </div>
@@ -236,7 +269,7 @@ const Marketplace: React.FC = () => {
             <div className="flex flex-col gap-[30px] w-full">
               <div className="flex  items-center justify-between">
                 <h1 className='text-4xl font-bold'>1000 Items</h1>
-                <div className="flex flex-row gap-6 items-center">
+                <div className="flex flex-col lg:flex-row gap-6 items-center">
                   <div className="flex flex-row overflow-hidden border border-black__write rounded-xl">
                     <div
                       onClick={() => setListView(false)}
