@@ -10,9 +10,9 @@ import EditForm from '@/Components/Forms/EditForm/page'
 const EditProfile = () => {
     return (
         <>
-            <div className="w-full flex flex-col lg:flex-row gap-20 items-start justify-center pt-16 max-w-10xl">
+            <div className="w-full flex flex-col lg:flex-row gap-20 items-start justify-center pt-16 text-on__surface__dark dark:text-on__surface max-w-10xl">
                 <div className="flex flex-col gap-5 items-start mx-auto max-w-[350px]">
-                    <div className="rounded-[20px] p-5 flex flex-col gap-5 max-h-max bg-on__surface__dark my-0 mx-auto">
+                    <div className="rounded-[20px] p-5 flex flex-col gap-5 max-h-max bg-on__surface shadow-nft-card dark:bg-on__surface__dark my-0 mx-auto">
                         <div className="overflow-hidden rounded[20px]">
                             <Image
                                 src={Avatar}

@@ -35,7 +35,7 @@ const TopSeller = () => {
 
                     <div className="flex flex-col gap-[30px]">
                         <div className='flex justify-between w-full items-center gap-2'>
-                            <h2 className='font-bold text-[36px]'>Top Seller</h2>
+                            <h2 className='font-bold text-[36px] text-on__surface__dark dark:text-on__surface '>Top Seller</h2>
                             <div className="flex flex-row gap-4">
                                 <button className='top-seller-button-prev'><FaChevronLeft /></button>
                                 <button className='top-seller-button-next'><FaChevronRight/></button>

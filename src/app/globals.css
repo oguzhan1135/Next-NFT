@@ -85,7 +85,7 @@
 }
 
 body {
-  @apply bg-dark__bg;
+  @apply dark:bg-dark__bg bg-on__surface transition-all duration-300
 }
 
 main {
@@ -121,11 +121,11 @@ main {
 }
 
 .navbar-switch {
-  @apply bg-black__write w-10 h-10 justify-center items-center rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer hidden md:flex;
+  @apply bg-white__second dark:bg-black__write w-10 h-10 justify-center items-center rounded-lg text-center text-on__surface text-lg shadow-md cursor-pointer hidden md:flex;
 }
 
 .navbar-container {
-  @apply flex justify-center border-b-black__write border-b-2 w-full;
+  @apply flex justify-center border-b-white__second dark:border-b-black__write border-b-2 w-full ;
 }
 
 .content {
@@ -144,18 +144,18 @@ main {
 }
 
 .slogan {
-  @apply text-4xl md:text-5xl text-on__surface font-bold max-w-[470px]
+  @apply text-4xl md:text-5xl text-on__surface__dark dark:text-on__surface font-bold max-w-[470px]
 }
 .slogan-v2{
-  @apply  w-full  text-4xl md:text-5xl text-on__surface font-bold 
+  @apply  w-full  text-4xl md:text-5xl text-on__surface__dark dark:text-on__surface font-bold 
 }
 
 .slogan-area {
-  @apply flex flex-col gap-6 items-center md:items-start pt-10 lg:pt-0
+  @apply flex flex-col gap-6 items-center md:items-start pt-10 lg:pt-0 text-on__surface__dark dark:text-on__surface
 }
 
 .homepage-header-area {
-  @apply flex flex-col lg:flex-row w-full justify-between items-center;
+  @apply flex flex-col lg:flex-row w-full justify-between items-center
 }
 .homepage-header-area.v2{
   @apply justify-center items-center py-20 w-full
@@ -166,14 +166,14 @@ main {
 }
 
 .button {
-  @apply px-9 py-[14px] rounded-3xl flex gap-3 font-bold flex-row items-center justify-center border-primary border-2 text-on__surface cursor-pointer
-  hover:bg-on__surface hover:text-primary hover:border-on__surface hover:transition-all hover:duration-300;
+  @apply px-9 py-[14px] rounded-3xl flex gap-3 font-bold flex-row items-center justify-center border-primary border-2 dark:text-on__surface  cursor-pointer
+  dark:hover:bg-on__surface hover:bg-primary  dark:hover:text-primary hover:text-on__surface dark:hover:border-on__surface hover:border-primary hover:transition-all hover:duration-300;
   }
 .button.place-bid {
-  @apply px-7 py-3 text-sm font-bold;
+  @apply px-7 py-3 text-sm font-bold ;
 }
 .button.white-b {
-  @apply border-on__surface;
+  @apply dark:border-on__surface ;
 }
 .button.place-bid-hover {
   @apply text-sm font-bold absolute bottom-28 w-max transform translate-x-2/4  z-30 opacity-0;
@@ -191,7 +191,7 @@ main {
 }
 
 .page-title {
-  @apply text-5xl font-bold;
+  @apply text-5xl font-bold  text-on__surface;
 }
 
 .page-title-area {
@@ -199,17 +199,16 @@ main {
 }
 
 .dropdown-select {
-  @apply bg-black__write py-3 pl-6 pr-3 rounded-md flex justify-between items-center gap-8 cursor-pointer;
+  @apply bg-[#F8F8F8] dark:bg-black__write py-3 pl-6 pr-3 rounded-md flex justify-between items-center gap-8 cursor-pointer;
 }
 .navbar-header {
-  @apply flex w-full flex-col;
+  @apply flex w-full flex-col ;
 }
 .navbar-header.homepage {
-  @apply bg-dark__bg;
+   @apply dark:bg-dark__bg  
 }
-
 .navbar-header.navbar-v2 {
-  @apply bg-header-bg mb-10 bg-cover;
+  @apply dark:bg-header-bg bg-header-bg-light  mb-10 bg-cover;
 }
 .tab-btn {
   @apply hover:border-b-primary hover:transition-all hover:duration-300;
@@ -227,13 +226,13 @@ form input {
   border: 4px solid transparent;
 }
 .create-item-method {
-  @apply bg-black__write flex p-3 items-center gap-[10px] flex-row cursor-pointer font-bold transition-all duration-300 justify-center w-full rounded-lg text-white__second hover:text-primary hover:bg-on__surface;
+  @apply bg-gray dark:bg-black__write flex p-3 items-center gap-[10px] flex-row cursor-pointer font-bold transition-all duration-300 justify-center w-full rounded-lg text-white__second dark:hover:text-primary hover:bg-primary hover:text-on__surface dark:hover:bg-on__surface;
 }
 .create-item-method.active{
   @apply bg-on__surface text-primary
 }
 .author-tab-btn{
-  @apply text-on__surface p-5 cursor-pointer
+  @apply dark:text-on__surface text-on__surface__dark p-5 cursor-pointer
 }
 .author-tab-btn.active{
   @apply relative
@@ -256,7 +255,7 @@ form input {
   @apply bg-on__surface border-2 border-on__surface p-[6px]
 }
 .top-seller-button-prev, .top-seller-button-next{
-  @apply rounded-full p-3 transition-all ease-in-out duration-300 flex justify-center items-center border border-primary text-on__surface text-xl hover:text-primary hover:bg-on__surface
+  @apply rounded-full p-3 transition-all ease-in-out duration-300 flex justify-center items-center border border-primary dark:text-on__surface text-xl hover:text-on__surface dark:hover:text-primary hover:bg-primary dark:hover:bg-on__surface
 }
 
 .swiper-pagination{
@@ -270,5 +269,5 @@ form input {
 }
 
 .buble-solid-circle-in{
-  @apply absolute rounded-full bg-dark__bg
+  @apply absolute rounded-full dark:bg-dark__bg bg-on__surface
 }

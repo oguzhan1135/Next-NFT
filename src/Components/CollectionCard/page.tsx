@@ -11,7 +11,7 @@ import { FaHeart, FaCheck } from 'react-icons/fa';
 const CollectionCard = () => {
     return (
         <>
-            <div className='flex flex-col gap-3 bg-black__write p-5 min-w-full rounded-[20px]' >
+            <div className='flex flex-col gap-3 bg-on__surface shadow-nft-card dark:bg-black__write p-5 min-w-full rounded-[20px]' >
                 <div className="flex flex-row justify-between items-start">
                     <div className="flex flex-row gap-3 items-center">
                         <div className="p-2  relative">
@@ -21,16 +21,16 @@ const CollectionCard = () => {
                                     width={80}
                                     height={80}
                                     alt='fredie' />
-                                <div className="absolute bottom-2 right-2 rounded-full bg-primary  w-4 h-4 flex items-center justify-center ">
+                                <div className="absolute bottom-2 right-2 rounded-full bg-primary text-on__surface  w-4 h-4 flex items-center justify-center ">
                                      <FaCheck size={12}/>
                                 </div>
                             </div>
                         </div>
                         <div className="flex flex-col gap-2">
-                            <h6 className='font-bold text-xl'>Creative Art Collection</h6>
+                            <h6 className='font-bold text-xl text-on__surface__dark dark:text-on__surface'>Creative Art Collection</h6>
                             <div className="flex flex-row gap-1 items-center">
                                 <span className='text-[13px] text-white__second'>Created by</span>
-                                <span className='text-[15px]'>Ralph Garraway</span>
+                                <span className='text-[15px] text-on__surface__dark dark:text-on__surface'>Ralph Garraway</span>
                             </div>
                         </div>
                     </div>

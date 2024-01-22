@@ -106,7 +106,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
         <>
             {
                 isListView ? <>
-                    <div className="flex justify-between gap-5 flex-wrap items-center bg-black__write p-5 rounded-[20px]">
+                    <div className="flex justify-between gap-5 flex-wrap items-center bg-on__surface shadow-xl dark:bg-black__write p-5 rounded-[20px]">
                         <Link href={"/ItemDetails"}>
                             <div className="overflow-hidden rounded-[20px]">
                                 <Image
@@ -180,7 +180,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                     </div>
                 </>
                     :
-                    <div className='flex flex-col gap-4 bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
+                    <div className='flex flex-col gap-4 bg-on__surface shadow-nft-card dark:bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
                         <Link href={"/ItemDetails"}>
                             <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
@@ -227,7 +227,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                                                 alt='logo'
                                                 className=' w-auto h-auto'
                                             />
-                                            <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
+                                            <span className='font-bold text-on__surface'>{counterFunction(nftCardData.targetDate)}</span>
                                         </div> :
                                         <></>
                                 }
@@ -236,7 +236,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                         </Link>
 
                         <div className="flex justify-between items-center">
-                            <h3 className='text-lg font-bold'>{nftCardData.cardName}</h3>
+                            <h3 className='text-lg font-bold dark:text-on__surface'>{nftCardData.cardName}</h3>
                             <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>
                         </div>
 
@@ -252,12 +252,12 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                                 </div>
                                 <div className="flex flex-col gap-0">
                                     <span className='font-bold text-white__second'>Creater</span>
-                                    <Link onClick={authorData} href={"/Author"} className='font-bold hover:text-primary text-hover'>{nftCardData.createrName}</Link>
+                                    <Link onClick={authorData} href={"/Author"} className='font-bold dark:hover:text-primary hover:text-primary text-hover dark:text-on__surface'>{nftCardData.createrName}</Link>
                                 </div>
                             </div>
                             <div className="flex flex-col text-right">
                                 <span className='text-white__second'>Current Bid</span>
-                                <span className='text-lg font-bold text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
+                                <span className='text-lg font-bold dark:text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
                             </div>
                         </div>
 
@@ -270,8 +270,8 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                                         Place Bid
                                     </div>
                                     <div className="flex flex-row items-center gap-2 hover:text-primary cursor-pointer ">
-                                        <FiRefreshCw />
-                                        <span className=' text-base font-bold text-white__second hover:text-primary'>View History</span>
+                                        <i className='dark:text-on__surface text-on__surface__dark'><FiRefreshCw /></i>
+                                        <span className=' transition-all duration-300 text-base font-bold text-white__second hover:text-primary'>View History</span>
                                     </div>
                                 </div>
                             </> :

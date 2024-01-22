@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import React from 'react'
 import { FaFacebook, FaGoogle, FaTwitch, FaTwitter } from "react-icons/fa";
 import { BsFillSendFill } from "react-icons/bs";
+import Link from 'next/link';
 
 interface Router {
     router: string;
@@ -12,7 +12,7 @@ const Footer: React.FC<Router> = ({ router }) => {
             {
                 router !== "/Marketplace" ?
                     <>
-                        <div className='flex justify-center w-full relative 3xl:fixed bottom-0 bg-footer__bg py-20 px-2 '>
+                        <div className='flex justify-center w-full relative 3xl:fixed bottom-0 bg-on__surface dark:bg-footer__bg py-20 px-2 '>
                             <div className="container">
                                 <div className="grid grid-cols-1 xl:grid-cols-4 w-full gap-5">
                                     <div className="flex flex-col gap-10">
@@ -27,54 +27,54 @@ const Footer: React.FC<Router> = ({ router }) => {
                                                         </linearGradient>
                                                     </defs>
                                                 </svg>
-                                                <h1 style={{ fontSize: "36px", fontWeight: "500" }}>Siyaz</h1>
+                                                <h1 className='dark:text-on__surface text-on__surface__dark' style={{ fontSize: "36px", fontWeight: "700" }}>Siyaz</h1>
                                             </Link>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
+                                        <p className='dark:text-on__surface text-on__surface__dark'>Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
                                         <div className="flex flex-row items-center justify-start gap-3">
-                                            <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
+                                            <Link href={"/"} className="flex justify-center items-center p-4 text-white__second hover:bg-primary hover:text-on__surface transition-all duration-300 dark:text-on__surface text-xl dark:bg-black__write bg-gray rounded-md">
                                                 <FaFacebook />
-                                            </div>
-                                            <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
+                                            </Link>
+                                            <Link href={"/"} className="flex justify-center items-center p-4 text-white__second hover:bg-primary hover:text-on__surface transition-all duration-300 dark:text-on__surface text-xl dark:bg-black__write bg-gray rounded-md">
                                                 <FaTwitter />
-                                            </div>
-                                            <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
+                                            </Link>
+                                            <Link href={"/"} className="flex justify-center items-center p-4 text-white__second hover:bg-primary hover:text-on__surface transition-all duration-300 dark:text-on__surface text-xl dark:bg-black__write bg-gray rounded-md">
                                                 <FaGoogle />
-                                            </div>
-                                            <div className="flex justify-center items-center p-4 text-on__surface text-xl bg-white__second rounded-md">
+                                            </Link>
+                                            <Link href={"/"} className="flex justify-center items-center p-4 text-white__second hover:bg-primary hover:text-on__surface transition-all duration-300 dark:text-on__surface text-xl dark:bg-black__write bg-gray rounded-md">
                                                 <FaTwitch />
 
-                                            </div>
+                                            </Link>
                                         </div>
                                     </div>
                                     <div className="grid col-span-2 p-0 xl:px-20">
                                         <div className="flex flex-row justify-between items-start">
                                             <div className="flex flex-col gap-2">
-                                                <span className='font-bold text-lg mb-3'>My Account</span>
-                                                <span>Authors</span>
-                                                <span>Collection</span>
-                                                <span>Author Profile</span>
-                                                <span>Create Collection</span>
+                                                <span className='font-bold text-lg mb-3 text-on__surface__dark dark:text-on__surface'>My Account</span>
+                                               <Link href={"/Author"} className='text-on__surface__dark dark:text-on__surface'>Authors</Link>
+                                               <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Collection</Link>
+                                               <Link href={"/Author"} className='text-on__surface__dark dark:text-on__surface'>Authors Profile</Link>
+                                               <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Create Collection</Link>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                <span className='font-bold text-lg mb-3'>Resources</span>
-                                                <span>Help & Support</span>
-                                                <span>Live Auctions</span>
-                                                <span>Item Details</span>
-                                                <span>Activity</span>
+                                                <span className='font-bold text-lg mb-3 text-on__surface__dark dark:text-on__surface'>Resources</span>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Help & Support</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Live Auction</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Item Details</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Activity</Link>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                <span className='font-bold text-lg mb-3'>Company</span>
-                                                <span>About Us</span>
-                                                <span>Contact Us</span>
-                                                <span>Our Blog</span>
-                                                <span>Discover</span>
+                                                <span className='font-bold text-lg mb-3 text-on__surface__dark dark:text-on__surface'>Company</span>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>About Us</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Contact Us</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Our Blog</Link>
+                                                <Link href={"/"} className='text-on__surface__dark dark:text-on__surface'>Discover</Link>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div className="flex flex-col gap-10">
-                                        <span className='font-bold text-lg'>Subscribe Us</span>
+                                        <span className='font-bold text-lg text-on__surface__dark dark:text-on__surface'>Subscribe Us</span>
                                         <div className="flex  justify-between items-center border-2 rounded-md border-white__second text-on__surface">
                                             <input type="text" placeholder='info@yourgmail.com' style={{ outline: "none", backgroundColor: "transparent", paddingLeft: "20px" }} />
                                             <button type="submit" className='py-3 px-4 bg-primary text-on__surface rounded-md'>

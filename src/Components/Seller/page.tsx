@@ -18,7 +18,7 @@ const Seller = () => {
                 <FaCheck size={12}/>
                 </div>
             </div>
-            <div className="flex flex-col gap-2 text-center">
+            <div className="flex flex-col gap-2 text-on__surface__dark dark:text-on__surface text-center">
                 <Link className='font-bold' href={"/"}>Crispin Berry</Link>
                 <span className='font-bold'>214.2 ETH</span>
             </div>

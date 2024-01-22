@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
 
   return (
-    <html style={{ color: 'white' }} className={urbanist.className} lang="en">
+    <html id='layout' className={urbanist.className} lang="en">
       <body>
         <NftProvider>
           <main>

@@ -81,7 +81,7 @@ export default function Home() {
           <PopularCollection />
         </div>
         <div className="content-container">
-          <h2 className='font-bold text-[36px]'>Create And Your Sell Nfts</h2>
+          <h2 className='font-bold text-[36px] text-on__surface__dark dark:text-on__surface'>Create And Your Sell Nfts</h2>
           <CreateAndSell />
         </div>
       </div>

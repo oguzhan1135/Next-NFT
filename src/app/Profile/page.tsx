@@ -19,7 +19,7 @@ const Profile = () => {
 
     return (
         <>
-            <div className="flex flex-col gap-[60px] pb-20">
+            <div className="flex flex-col gap-[60px] pb-20 ">
                 <div className="flex flex-col bg-author-card p-0 pt-10 rounded-[20px] bg-cover w-full max-w-screen-2xl mt-20 relative">
                     <div className="grid grid-cols-9">
                         <div className="grid col-span-2 relative">
@@ -44,17 +44,17 @@ const Profile = () => {
                                             <Link href="/" className=' bg-on__surface rounded-xl flex justify-center items-center p-3 text-dark__bg'><FaGoogle /></Link>
                                             <Link href="/" className=' bg-on__surface rounded-xl flex justify-center items-center p-3 text-dark__bg'><FaTwitch /></Link>
                                         </div>
-                                        <div className="button white-b">
+                                        <div className="button white-b text-on__surface">
                                             Follow
                                         </div>
 
                                     </div>
 
                                 </div>
-                                <h4 className="text-4xl font-bold">
+                                <h4 className="text-4xl font-bold text-on__surface">
                                     {loggedUser.name}
                                 </h4>
-                                <p className="max-w-[500px]">Lorem ipsum dolor sit amet,
+                                <p className="max-w-[500px] text-on__surface">Lorem ipsum dolor sit amet,
                                     consectetur adipisicing elit. Laborum obcaecati
                                     dignissimos quae quo ad iste ipsum officiis deleniti asperiores sit.</p>
 
@@ -65,12 +65,12 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-black__write rounded-bl-[20px] rounded-br-[20px]">
-                        <div className="flex flex-row gap-[15px] mr-auto justify-end flex-wrap relative">
+                    <div className="bg-gray dark:bg-black__write rounded-bl-[20px] rounded-br-[20px]  ">
+                        <div className="flex flex-row gap-[15px] mr-auto justify-end flex-wrap relative ">
                             <Link href={"/"} className='author-tab-btn active'>All
                                 <span className='absolute bottom-[-12px] left-[16px] text-3xl text-dark__bg'><FaCaretUp /></span></Link>
 
-                            <Link href={"/"} className='author-tab-btn'>ART</Link>
+                            <Link href={"/"} className='author-tab-btn '>ART</Link>
                             <Link href={"/"} className='author-tab-btn'>MUSIC</Link>
                             <Link href={"/"} className='author-tab-btn'>COLLECTIBLES</Link>
                             <Link href={"/"} className='author-tab-btn'>SPORTS</Link>

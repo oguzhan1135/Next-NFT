@@ -16,7 +16,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
 
   return (
     <>
-      <div className={`navbar-header  ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
+      <div id='navbar' className={` bg-gradiant__color  navbar-header  ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
         <div className='navbar-container '>
           <div className={`${router === marketplacePage || router === homepageSpacielPage ? 'v2-w-container' : 'main-container'}`}>
             <div className='navbar relative'>

@@ -4,9 +4,9 @@ import { FaFacebook, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     return (
-        <div className="flex flex-col max-w-2xl gap-10 w-full pt-10 overflow-hidden">
-            <h1 className='ml-auto mr-auto text-4xl font-bold '>Login to Nfts</h1>
-            <div className="flex flex-row items-center gap-3 w-full justify-center">
+        <div className="flex flex-col max-w-2xl gap-10 w-full pt-10 overflow-hidden text-on__surface__dark dark:text-on__surface">
+            <h1 className='ml-auto mr-auto text-4xl font-bold text-on__surface__dark dark:text-on__surface'>Login to Nfts</h1>
+            <div className="flex flex-row items-center gap-3 w-full justify-center ">
                 <span className='border border-white__second w-60'></span>
                 Login with social
                 <span className='border border-white__second w-60'></span>

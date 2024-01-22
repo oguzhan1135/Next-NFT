@@ -9,9 +9,9 @@ import { ImPriceTag } from "react-icons/im";
 const CreateItem = () => {
     return (
         <>
-            <div className="w-full flex flex-col lg:flex-row gap-20 items-start justify-center pt-16 max-w-10xl">
+            <div className="w-full flex flex-col lg:flex-row gap-20 items-start justify-center pt-16 max-w-10xl text-on__surface__dark dark:text-on__surface pb-20">
                 <div className="flex flex-col gap-5 items-start mx-auto max-w-[350px]">
-                    <div className="rounded-[20px] p-5 flex flex-col gap-5 max-h-max bg-black__write my-0 mx-auto">
+                    <div className="rounded-[20px] p-5 flex flex-col gap-5 max-h-max bg-white shadow-nft-card dark:bg-black__write my-0 mx-auto">
                         <div className="overflow-hidden rounded[20px]">
                             <Image
                                 src={ExampleNft}
@@ -20,7 +20,7 @@ const CreateItem = () => {
                             />
                         </div>
                         <div className="flex justify-between items-center">
-                            <h3 className='text-lg font-bold'>Cyber Doberman #766</h3>
+                            <h3 className='text-lg font-bold text-on__surface__dark dark:text-on__surface'>Cyber Doberman #766</h3>
                             <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>BSC</span>
                         </div>
 

@@ -25,6 +25,7 @@ interface NftCard {
     targetDate: string;
     view: number;
 }
+
 const Searchbar = () => {
     const { nftProducts, loggedUser, setLoggedUser } = NftProductContext();
     const [filteredProducts, setFilteredProducts] = useState<NftCard[]>([]);
@@ -32,6 +33,41 @@ const Searchbar = () => {
     const menuRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileNavbarMenu, SetMobileNavbarMenu] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
+    const [storedTheme, setStoredTheme] = useState<string | null>(null);
+
+    useEffect(()=>{
+        localStorage.setItem("theme","dark")
+    },[])
+
+    useEffect(() => {
+        const theme = localStorage.getItem('theme');
+        setStoredTheme(theme);
+    }, []);
+
+    useEffect(() => {
+        if (storedTheme) {
+            document.documentElement.classList.toggle('dark', storedTheme === 'dark');
+            document.getElementById('navbar')?.classList.toggle('bg-gradiant__color', storedTheme === 'dark');
+        }
+    }, [storedTheme]);
+
+
+    useEffect(() => {
+        if (storedTheme === 'light' || storedTheme === 'dark') {
+            setDarkMode(storedTheme === 'dark');
+        }
+    }, [storedTheme]);
+
+    useEffect(() => {
+        if (darkMode) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('navbar')?.classList.add('bg-gradiant__color');
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('navbar')?.classList.remove('bg-gradiant__color');
+        }
+    }, [darkMode]);
 
     const handleSearchBlur = () => {
         setFilteredProducts([]);
@@ -68,9 +104,7 @@ const Searchbar = () => {
                 setFilteredProducts([]);
             }
         };
-
         document.addEventListener('mousedown', handleClickOutside);
-
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
@@ -119,7 +153,6 @@ const Searchbar = () => {
 
                 )}
             </div>
-
             <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-primary border-2'>
                 <FaWallet />
                 <span className='hidden xl:block'>Wallet Connect</span>
@@ -238,7 +271,7 @@ const Searchbar = () => {
             </div>
 
             <div className='navbar-switch'>
-                <FaMoon />
+                <FaMoon onClick={() => setDarkMode(!darkMode)} />
             </div>
             {
                 loggedUser.name !== "" ?
@@ -267,7 +300,7 @@ const Searchbar = () => {
                     </>
             }
 
-           
+
         </div>
     )
 }

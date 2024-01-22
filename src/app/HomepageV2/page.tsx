@@ -47,8 +47,6 @@ const HomapageV2 = () => {
         <SlidesPerView />
       </div>
       <div className="content-container">
-        <ContentHeader
-          title='Top Seller' />
         <TopSeller />
       </div>
       <div className="content-container">

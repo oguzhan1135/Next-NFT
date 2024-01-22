@@ -1,6 +1,6 @@
 'use client'
 import { NftProductContext } from '@/Context/NftCardContext'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { FaEye, FaHeart, FaShoppingBag } from "react-icons/fa";
@@ -21,8 +21,31 @@ const ItemDetails = () => {
         }
     }, [itemData, router]);
 
+    const counterFunction = (targetDate: string) => {
+        const [counter, setCounter] = useState("");
+
+        const interval = setInterval(() => {
+            var now = new Date().getTime();
+            var targetTime = new Date(targetDate).getTime();
+            var differenceDate = new Date(targetTime - now);
+            var day = differenceDate.getUTCDate() - 1;
+            var hours = differenceDate.getUTCHours();
+            var minute = differenceDate.getUTCMinutes();
+            var second = differenceDate.getUTCSeconds();
+
+            if (day <= 0 && hours <= 0 && minute <= 0 && second <= 0) {
+                clearInterval(interval);
+                setCounter("Time Out!!!")
+
+            } else {
+                setCounter(`${day < 10 ? `0${day}` : day} : ${hours < 10 ? `0${hours}` : hours} : ${minute < 10 ? `0${minute}` : minute} : ${second < 10 ? `0${second}` : second}`);
+            }
+        }, 1000);
+        return counter;
+    }
+
     return (
-        <div className=" main-container">
+        <div className=" main-container text-on__surface__dark dark:text-on__surface">
             <div className="content">
                 <div className="content-container pt-10">
                     <div className=' flex flex-col lg:flex-row gap-10 w-full'>
@@ -41,26 +64,26 @@ const ItemDetails = () => {
                                 <h1 className='font-bold text-4xl'>{itemData?.cardName}</h1>
                                 <div className="flex flex-row justify-between items-center gap-3">
                                     <div className="flex flex-row gap-3">
-                                        <div className="flex flex-row items-center justify-center gap-2 rounded-3xl px-4 py-2 bg-black__write">
+                                        <div className="flex flex-row items-center justify-center gap-2 rounded-3xl px-4 py-2 bg-gray dark:bg-black__write">
                                             <FaEye />
                                             {itemData?.view}
                                         </div>
-                                        <div className="flex flex-row items-center justify-center gap-2 rounded-3xl px-4 py-2 bg-black__write">
+                                        <div className="flex flex-row items-center justify-center gap-2 rounded-3xl px-4 py-2 bg-gray dark:bg-black__write">
                                             <FaHeart />
                                             {itemData?.like}
                                         </div>
                                     </div>
                                     <div className="flex flex-row gap-3">
-                                        <div className="flex items-center justify-center px-3 py-2 rounded-full bg-black__write">
+                                        <div className="flex items-center justify-center px-3 py-2 rounded-full bg-gray dark:bg-black__write">
                                             <IoIosSend />
                                         </div>
-                                        <div className="flex flex-row items-center justify-center gap-2 rounded-full px-4 py-2 bg-black__write">
+                                        <div className="flex flex-row items-center justify-center gap-2 rounded-full px-4 py-2 bg-gray dark:bg-black__write">
                                             <SlOptions />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
-                                    <div className="flex flex-row  gap-4 rounded-3xl p-4 bg-black__write w-full">
+                                    <div className="flex flex-row  gap-4 rounded-3xl p-4 bg-gray dark:bg-black__write w-full">
                                         <div className="overflow-hidden rounded-xl">
                                             <Image
                                                 src={'/images/avatar/salvadordali.svg'} alt="Owned" width={45} height={45}
@@ -71,7 +94,7 @@ const ItemDetails = () => {
                                             <span>Ralpp Garraway</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row  gap-4 rounded-3xl p-4 bg-black__write w-full">
+                                    <div className="flex flex-row  gap-4 rounded-3xl p-4 bg-gray dark:bg-black__write w-full">
                                         <div className="overflow-hidden rounded-xl">
                                             <Image
                                                 src={itemData?.createrAvatar ?? '/images/other/placeholder.svg'} alt="Owned Image" width={45} height={45}
@@ -89,7 +112,7 @@ const ItemDetails = () => {
                                     Facilisi lobortisal morbi fringilla urna amet sed ipsum
                                 </p>
                                 <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
-                                    <div className="flex flex-row justify-between gap-4 rounded-lg p-5 py-3 bg-black__write w-full">
+                                    <div className="flex flex-row justify-between gap-4 rounded-lg p-5 py-3 bg-gray dark:bg-black__write w-full">
                                         <span className='font-bold text-[15px]'>Current Bid</span>
                                         <div className="flex flex-row gap-2 items-center">
                                             <span className='font-bold text-xl'>4.89 ETH</span>
@@ -98,12 +121,15 @@ const ItemDetails = () => {
 
 
                                     </div>
-                                    <div className="flex flex-row justify-between gap-4 rounded-lg p-5 py-3 bg-black__write w-full">
-                                        <span className='font-bold text-[15px]'>Countdown</span>
-                                        <span className='font-bold text-xl'>04 : 23 : 10 : 39</span>
+                                    {
+                                        itemData?.targetDate !== "" ?
+                                            <div className="flex flex-row justify-between gap-4 rounded-lg p-5 py-3 bg-gray dark:bg-black__write w-full">
+                                                <span className='font-bold text-[15px]'>Countdown</span>
+                                                <span className='font-bold text-xl'>{counterFunction(itemData?.targetDate?itemData.targetDate:'2023-10-31T12:00:00Z')}</span>
+                                            </div>:
+                                            <></>
+                                    }
 
-
-                                    </div>
                                 </div>
                                 {
                                     itemData?.stock === 0 ? (
@@ -130,7 +156,7 @@ const ItemDetails = () => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col tab-menu">
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -149,7 +175,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -168,7 +194,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -187,7 +213,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -206,7 +232,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
@@ -225,7 +251,7 @@ const ItemDetails = () => {
                                             <span className='text-[13px]'>=$12,246</span>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row justify-between items-center py-3 border-y border-black__write gap-2">
+                                    <div className="flex flex-row justify-between items-center py-3 border-y dark:border-black__write border-gray gap-2">
                                         <div className="flex flex-row gap-3">
                                             <div className="overflow-hidden rounded-xl">
                                                 <Image
