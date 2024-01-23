@@ -7,8 +7,12 @@ import Loading from '@/Components/Loading/loading';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css/navigation';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { NftProductContext } from '@/Context/NftCardContext';
+
 
 const TopSeller = () => {
+
+    const { topSeller } = NftProductContext();
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -38,7 +42,7 @@ const TopSeller = () => {
                             <h2 className='font-bold text-[36px] text-on__surface__dark dark:text-on__surface '>Top Seller</h2>
                             <div className="flex flex-row gap-4">
                                 <button className='top-seller-button-prev'><FaChevronLeft /></button>
-                                <button className='top-seller-button-next'><FaChevronRight/></button>
+                                <button className='top-seller-button-next'><FaChevronRight /></button>
                             </div>
                         </div>
 
@@ -58,42 +62,12 @@ const TopSeller = () => {
                             }}
                             className="mySwiper"
                         >
-                            <SwiperSlide>
-                                <Seller />
+                            {topSeller.map((card)=>
+                            <SwiperSlide key={card.id}>
+                                <Seller data={card}/>
                             </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <Seller />
-                            </SwiperSlide>
+                            )}
+                            
 
 
                         </Swiper>

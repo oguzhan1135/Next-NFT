@@ -34,40 +34,20 @@ const Searchbar = () => {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [mobileNavbarMenu, SetMobileNavbarMenu] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
-    const [storedTheme, setStoredTheme] = useState<string | null>(null);
-
-    useEffect(()=>{
-        localStorage.setItem("theme","dark")
-    },[])
-
-    useEffect(() => {
-        const theme = localStorage.getItem('theme');
-        setStoredTheme(theme);
-    }, []);
-
-    useEffect(() => {
-        if (storedTheme) {
-            document.documentElement.classList.toggle('dark', storedTheme === 'dark');
-            document.getElementById('navbar')?.classList.toggle('bg-gradiant__color', storedTheme === 'dark');
-        }
-    }, [storedTheme]);
 
 
-    useEffect(() => {
-        if (storedTheme === 'light' || storedTheme === 'dark') {
-            setDarkMode(storedTheme === 'dark');
-        }
-    }, [storedTheme]);
 
     useEffect(() => {
         if (darkMode) {
             document.documentElement.classList.add('dark');
-            document.getElementById('navbar')?.classList.add('bg-gradiant__color');
+            document.getElementById('navbar')?.classList.remove('bg-gradiant__color');
         } else {
             document.documentElement.classList.remove('dark');
-            document.getElementById('navbar')?.classList.remove('bg-gradiant__color');
+            document.getElementById('navbar')?.classList.add('bg-gradiant__color');
         }
     }, [darkMode]);
+
+
 
     const handleSearchBlur = () => {
         setFilteredProducts([]);

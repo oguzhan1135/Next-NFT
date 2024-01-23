@@ -27,7 +27,7 @@ interface Nft {
 const Marketplace: React.FC = () => {
   const { nftProducts } = NftProductContext();
   const [minPrice, setMinPrice] = useState<number>(800);
-  const [maxPrice, setMaxPrice] = useState<number>(3500);
+  const [maxPrice, setMaxPrice] = useState<number>(2000);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedFileType, setSelectedFileType] = useState<string[]>([]);
   const [selectedCurrencies, setSelectedCurrencies] = useState<string[]>([]);
@@ -106,8 +106,8 @@ const   [responsiveFilter,setResponsiveFilter] = useState(true);
 
   return (
     <>
-      <div className="flex flex-col w-full">
-        <div className="flex flex-col lg:flex-row bg-on__surface__dark">
+      <div className="flex flex-col w-full transition-all duration-300 dark:text-on__surface text-on__surface__dark">
+        <div className="flex flex-col lg:flex-row bg-gray dark:bg-on__surface__dark">
           <div
             className={`marketplace-tab-btn ${activeTab === "live" ? 'active' : ''}`}
             onClick={() => handleTabClick("live")}
@@ -135,7 +135,7 @@ const   [responsiveFilter,setResponsiveFilter] = useState(true);
         </div>
         <div className="grid grid-cols-12">
           <div className="grid col-span-12 lg:col-span-2">
-            <div className="flex flex-col bg-on__surface__dark h-full 2xl:h-screen">
+            <div className="flex flex-col bg-gray dark:bg-on__surface__dark h-full 2xl:h-screen">
               <div onClick={()=> setResponsiveFilter(!responsiveFilter)} className="flex justify-between items-center px-10 py-4 border-b-black__write border-b">
                 <span className='text-xl font-bold'>Filter</span>
                 {
@@ -270,17 +270,17 @@ const   [responsiveFilter,setResponsiveFilter] = useState(true);
               <div className="flex  items-center justify-between">
                 <h1 className='text-4xl font-bold'>1000 Items</h1>
                 <div className="flex flex-col lg:flex-row gap-6 items-center">
-                  <div className="flex flex-row overflow-hidden border border-black__write rounded-xl">
+                  <div className="flex flex-row overflow-hidden border-gray border dark:border-black__write rounded-xl">
                     <div
                       onClick={() => setListView(false)}
-                      className={` px-5 py-3  flex flex-row gap-2 font-bold items-center justify-center cursor-pointer ${!isListView ? 'bg-black__write' : ''}`}
+                      className={` px-5 py-3  flex flex-row gap-2 font-bold items-center justify-center cursor-pointer ${!isListView ? 'bg-gray dark:bg-black__write' : ''}`}
                     >
                       <BiCategory />
                       <span className='font-bold'>Grid</span>
                     </div>
                     <div
                       onClick={() => setListView(true)}
-                      className={`px-5 py-3 flex flex-row gap-2 font-bold items-center  justify-center cursor-pointer ${isListView ? 'bg-black__write' : ''}`}
+                      className={`px-5 py-3 flex flex-row gap-2 font-bold items-center  justify-center cursor-pointer ${isListView ? 'bg-gray dark:bg-black__write' : ''}`}
                     >
                       <CiCircleList />
                       <span className='font-bold'>List</span>

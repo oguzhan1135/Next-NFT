@@ -4,7 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import CollectionCard from '@/Components/CollectionCard/page';
 import Loading from '@/Components/Loading/loading';
+import { NftProductContext } from '@/Context/NftCardContext';
 const PopularCollection = () => {
+    const { collection } = NftProductContext();
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -33,18 +35,14 @@ const PopularCollection = () => {
                         }}
                         className="mySwiper"
                     >
-                        <SwiperSlide>
-                            <CollectionCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CollectionCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CollectionCard />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <CollectionCard />
-                        </SwiperSlide>
+                        {
+                            collection.map((card) =>
+                                <SwiperSlide key={card.id}>
+                                    <CollectionCard data={card}/>
+                                </SwiperSlide>
+                            )
+                        }
+
                     </Swiper>
             }
 

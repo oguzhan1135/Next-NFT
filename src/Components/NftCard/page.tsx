@@ -150,7 +150,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                                         />
                                         <span className=' text-white__second font-bold text-sm'>COUNTDOWN</span>
                                     </div>
-                                    <span className='font-bold'>{counterFunction(nftCardData.targetDate)}</span>
+                                    <span className='font-bold '>{counterFunction(nftCardData.targetDate)}</span>
                                 </div>
                                 : <></>
                         }
@@ -163,7 +163,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                         <span className='bg-primary rounded-xl px-3 py-1 text-sm text-on__surface font-bold'>{nftCardData.currency.toUpperCase()}</span>
                         <div className="flex flex-col gap-4">
                             <span className=' text-white__second font-bold text-sm'>CURRENT BID</span>
-                            <span className='text-lg font-bold text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
+                            <span className='text-lg font-bold text-on__surface__dark dark:text-on__surface'>{(nftCardData.price / 357).toFixed(2)} {(nftCardData.currency).toUpperCase()}</span>
                         </div>
                         {
                             nftCardData.stock < 1 ?

@@ -238,10 +238,10 @@ form input {
   @apply relative
 }
 .marketplace-tab-btn{
-  @apply px-8 py-7 border-b border-b-on__surface__dark hover:text-primary transition-all duration-300 font-bold text-white__second cursor-pointer
+  @apply px-8 py-7 border-b border-b-gray dark:border-b-on__surface__dark hover:text-primary transition-all duration-300 font-bold text-white__second cursor-pointer
 }
 .marketplace-tab-btn.active{
-  @apply border-b-primary text-on__surface
+  @apply border-b-primary text-primary dark:text-on__surface
 }
 
 .text-hover{
