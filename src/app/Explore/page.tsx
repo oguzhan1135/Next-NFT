@@ -2,7 +2,7 @@
 import Dropdown from "@/Components/FilterDropdown/page";
 import React, { useState, useEffect } from "react";
 import { NftProductContext } from "@/Context/NftCardContext";
-import NftCard from "@/Components/NftCard/page";
+import NftCard from "@/Components/Cards/NftCard/page";
 import InCorrectMessage from "@/Components/Messages/InCorrectMessage/page";
 interface Nft {
   id: number;

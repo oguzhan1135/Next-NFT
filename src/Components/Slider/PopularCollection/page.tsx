@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import CollectionCard from '@/Components/CollectionCard/page';
+import CollectionCard from '@/Components/Cards/CollectionCard/page';
 import Loading from '@/Components/Loading/loading';
 import { NftProductContext } from '@/Context/NftCardContext';
 const PopularCollection = () => {
@@ -38,7 +38,7 @@ const PopularCollection = () => {
                         {
                             collection.map((card) =>
                                 <SwiperSlide key={card.id}>
-                                    <CollectionCard data={card}/>
+                                    <CollectionCard data={card} />
                                 </SwiperSlide>
                             )
                         }

@@ -91,7 +91,7 @@ const MobileNavbarMenu = () => {
         <>
             <span onClick={() => toggleMenu(menuItems.length)} className='lg:hidden'><IoIosMenu /></span>
             {openMenuIndex !== null && (
-                <div className="absolute top-full bg-footer__bg w-full flex lg:hidden flex-col" ref={menuRef}>
+                <div className="absolute top-full bg-white__second dark:bg-footer__bg w-full flex lg:hidden flex-col" ref={menuRef}>
                     {menuItems.map((menuItem, index) => (
                         <div className="flex flex-col p-3 border-b border-b-gray" key={index}>
                             <div className="flex flex-row justify-between w-full items-center" onClick={() => toggleMenu(index)}>

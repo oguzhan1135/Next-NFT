@@ -125,7 +125,7 @@ main {
 }
 
 .navbar-container {
-  @apply flex justify-center border-b-white__second dark:border-b-black__write border-b-2 w-full ;
+  @apply flex justify-center border-b-white__second dark:border-b-black__write border-b-2 w-full  bg-gradiant__color dark:bg-navbar__dark__bg;
 }
 
 .content {

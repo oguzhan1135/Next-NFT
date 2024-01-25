@@ -3,10 +3,12 @@ import { NftProductContext } from "@/Context/NftCardContext";
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Samson from '/public/images/avatar/samson.svg'
-import { FaSearch, FaWallet, FaBell, FaMoon, FaUser } from "react-icons/fa";
+import { FaSearch, FaWallet, FaBell, FaMoon, FaSun, FaUser } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
 import { CgLogOut } from "react-icons/cg";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import ThemeToggle from "../ThemeToggle/page";
 
 interface NftCard {
     id: number;
@@ -32,20 +34,11 @@ const Searchbar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const menuRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-    const [mobileNavbarMenu, SetMobileNavbarMenu] = useState(false);
-    const [darkMode, setDarkMode] = useState(false);
 
 
 
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-            document.getElementById('navbar')?.classList.remove('bg-gradiant__color');
-        } else {
-            document.documentElement.classList.remove('dark');
-            document.getElementById('navbar')?.classList.add('bg-gradiant__color');
-        }
-    }, [darkMode]);
+
+
 
 
 
@@ -84,10 +77,7 @@ const Searchbar = () => {
                 setFilteredProducts([]);
             }
         };
-        document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
+
     }, [menuRef, searchTerm]);
     return (
         <div className="navbar-switch-area relative">
@@ -250,9 +240,7 @@ const Searchbar = () => {
                 </div>
             </div>
 
-            <div className='navbar-switch'>
-                <FaMoon onClick={() => setDarkMode(!darkMode)} />
-            </div>
+            <ThemeToggle />
             {
                 loggedUser.name !== "" ?
                     <div className="dropdown-area relative w-max" >
