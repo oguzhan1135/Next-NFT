@@ -6,6 +6,7 @@ import { FiRefreshCw } from "react-icons/fi";
 import FireLogo from "@/../public/images/icon/fire.svg";
 import Link from 'next/link';
 import { NftProductContext } from '@/Context/NftCardContext';
+import { useRouter } from 'next/navigation';
 interface NftCard {
     id: number;
     createrName: string;
@@ -181,7 +182,8 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                 </>
                     :
                     <div className='flex flex-col gap-4 bg-on__surface shadow-nft-card dark:bg-black__write p-5 min-w-full rounded-[20px] nft-card h-max' >
-                        <Link href={"/ItemDetails"}>
+                        <Link href="/ItemDetails/[productId]" as={`/ItemDetails/${nftCardData.id}`}>
+
                             <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
                                 <Image

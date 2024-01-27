@@ -105,7 +105,7 @@ const Marketplace: React.FC = () => {
   return (
     <>
       <div className="flex flex-col w-full transition-all duration-300 dark:text-on__surface text-on__surface__dark">
-        <TabFilter handleTabClick={handleTabClick} activeTab={activeTab} setActiveTab={setActiveTab}/>
+        <TabFilter handleTabClick={handleTabClick} activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="grid grid-cols-12">
           <FilterSection
             handleCheckboxChange={handleCheckboxChange}

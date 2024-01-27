@@ -13,7 +13,6 @@ const Navbar: React.FC<Router> = ({ router }) => {
   const marketplacePage = '/Marketplace';
   const homepageSpacielPage = '/HomepageSpaciel';
 
-
   return (
     <>
       <div id='navbar' className={`  navbar-header  ${(["/", "/HomepageSpaciel", "/HomepageV2", "/Marketplace"].includes(router)) ? 'homepage' : 'navbar-v2'}`}>
@@ -96,7 +95,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
 
               </ul>
               <Searchbar />
-              <MobileNavbarMenu/>
+              <MobileNavbarMenu />
 
             </div>
 

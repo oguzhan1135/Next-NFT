@@ -55,7 +55,7 @@ const HomepageSpaciel = () => {
                 </div>
             </div>
             <div className=" w-full bg-on__surface__dark py-20 ">
-                <h2 className='text-4xl font-bold pb-10'>Broy by Category</h2>
+                <h2 className='text-4xl font-bold pb-10'>Brow by Category</h2>
                 <BrowbyCategory />
 
             </div>

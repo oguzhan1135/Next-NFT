@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, ReactNode, useState, useEffect, use } from 'react';
+import React, { createContext, useContext, ReactNode, useState, useEffect, use } from 'react';
 
 interface Nft {
     id: number;
@@ -43,6 +43,12 @@ interface Collection {
     collectFour: string;
 }
 
+export interface BrowbyCategory {
+    id: number;
+    cardName: string;
+    cardImages: string;
+}
+
 interface LoginUser {
     id: number;
     name: string;
@@ -64,6 +70,8 @@ interface NftContextProps {
     setUser: React.Dispatch<React.SetStateAction<LoginUser[]>>
     loggedUser: LoginUser;
     setLoggedUser: React.Dispatch<React.SetStateAction<LoginUser>>
+    browbyCategoryCards: BrowbyCategory[];
+    setBrowbyCategoryCards: React.Dispatch<React.SetStateAction<BrowbyCategory[]>>;
 }
 
 const NftContext = createContext<NftContextProps | undefined>(undefined);
@@ -475,62 +483,129 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
             image: `/images/avatar/harper.svg`,
         },
     ])
-    const [collection,setCollection] = useState<Collection[]>([
+    const [collection, setCollection] = useState<Collection[]>([
         {
-            id:1,
-            cardName:"Creative Art Collection",
-            like:120,
-            createrName:"Samson Garraway",
-            createrAvatar:`/images/avatar/samson.svg`,
-            collectOne:`/images/NFT/collection-item-1-1.svg`,
-            collectTwo:`/images/NFT/collection-item-top-1-1.svg`,
-            collectThree:`images/NFT/collection-item-top-1-2.svg`,
-            collectFour:`images/NFT/collection-item-bottom-1.svg`
+            id: 1,
+            cardName: "Creative Art Collection",
+            like: 120,
+            createrName: "Samson Garraway",
+            createrAvatar: `/images/avatar/samson.svg`,
+            collectOne: `/images/NFT/collection-item-1-1.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-bottom-1.svg`
 
         },
         {
-            id:2,
-            cardName:"Creative Art Collection",
-            like:220,
-            createrName:"Matt Garr",
-            createrAvatar:`/images/avatar/matt.svg`,
-            collectOne:`/images/NFT/collection-item-2-1.svg`,
-            collectTwo:`/images/NFT/collection-item-top-2-1.svg`,
-            collectThree:`images/NFT/collection-item-top-2-2.svg`,
-            collectFour:`images/NFT/collection-item-bottom-2.svg`
+            id: 2,
+            cardName: "Creative Art Collection",
+            like: 220,
+            createrName: "Matt Garr",
+            createrAvatar: `/images/avatar/matt.svg`,
+            collectOne: `/images/NFT/collection-item-2-1.svg`,
+            collectTwo: `/images/NFT/collection-item-top-2-1.svg`,
+            collectThree: `images/NFT/collection-item-top-2-2.svg`,
+            collectFour: `images/NFT/collection-item-bottom-2.svg`
 
         },
         {
-            id:3,
-            cardName:"Creative Art Collection",
-            like:98,
-            createrName:"Trista Garraway",
-            createrAvatar:`/images/avatar/trista.svg`,
-            collectOne:`/images/NFT/collection-item-3-1.svg`,
-            collectTwo:`/images/NFT/collection-item-top-3-1.svg`,
-            collectThree:`images/NFT/collection-item-top-3-2.svg`,
-            collectFour:`images/NFT/collection-item-bottom-3.svg`
+            id: 3,
+            cardName: "Creative Art Collection",
+            like: 98,
+            createrName: "Trista Garraway",
+            createrAvatar: `/images/avatar/trista.svg`,
+            collectOne: `/images/NFT/collection-item-3-1.svg`,
+            collectTwo: `/images/NFT/collection-item-top-3-1.svg`,
+            collectThree: `images/NFT/collection-item-top-3-2.svg`,
+            collectFour: `images/NFT/collection-item-bottom-3.svg`
 
         },
         {
-            id:4,
-            cardName:"Creative Art Collection",
-            like:320,
-            createrName:"Harper Garraway",
-            createrAvatar:`/images/avatar/harper.svg`,
-            collectOne:`/images/NFT/collection-item-1-1.svg`,
-            collectTwo:`/images/NFT/collection-item-top-1-1.svg`,
-            collectThree:`images/NFT/collection-item-top-1-2.svg`,
-            collectFour:`images/NFT/collection-item-bottom-1.svg`
+            id: 4,
+            cardName: "Creative Art Collection",
+            like: 320,
+            createrName: "Harper Garraway",
+            createrAvatar: `/images/avatar/harper.svg`,
+            collectOne: `/images/NFT/collection-item-1-1.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-bottom-1.svg`
 
         }
+    ])
+    const [browbyCategoryCards, setBrowbyCategoryCards] = useState<BrowbyCategory[]>([
+        {
+            id: 1,
+            cardName: "Music",
+            cardImages: `/images/other/music.svg`
+        },
+        {
+            id: 2,
+            cardName: "Domain Names",
+            cardImages: `/images/other/domain-names.svg`
+        },
+        {
+            id: 3,
+            cardName: "Virtual World",
+            cardImages: `/images/other/virtual.svg`
+        },
+        {
+            id: 4,
+            cardName: "Utility",
+            cardImages: `/images/other/utility.svg`
+        },
+        {
+            id: 5,
+            cardName: "Music",
+            cardImages: `/images/other/music.svg`
+        },
+        {
+            id: 6,
+            cardName: "Music",
+            cardImages: `/images/other/music.svg`
+        },
+        {
+            id: 7,
+            cardName: "Music",
+            cardImages: `/images/other/music.svg`
+        },
+        {
+            id: 8,
+            cardName: "Domain Names",
+            cardImages: `/images/other/domain-names.svg`
+        },
+        {
+            id: 9,
+            cardName: "Virtual World",
+            cardImages: `/images/other/virtual.svg`
+        },
+        {
+            id: 10,
+            cardName: "Uility",
+            cardImages: `/images/other/utility.svg`
+        },
+        {
+            id: 11,
+            cardName: "Domain Names",
+            cardImages: `/images/other/domain-names.svg`
+        },
+        {
+            id: 12,
+            cardName: "Virtual World",
+            cardImages: `/images/other/virtual.svg`
+        },
+
     ])
     const [loggedUser, setLoggedUser] = useState<LoginUser>({ id: 1, name: "", mail: "", password: "" })
     const [itemData, setItemData] = useState<Nft | null>(null);
     const [authorData, setAuthorData] = useState<AuthorData | null>(null);
 
     return (
-        <NftContext.Provider value={{ nftProducts, setNftProducts, setItemData, itemData, authorData, setAuthorData, user, setUser, loggedUser, setLoggedUser,topSeller,setTopSeller,collection,setCollection }}>
+        <NftContext.Provider value={{
+            nftProducts, setNftProducts, setItemData, itemData, authorData,
+            setAuthorData, user, setUser, loggedUser, setLoggedUser, topSeller, setTopSeller, collection, setCollection,
+            browbyCategoryCards,setBrowbyCategoryCards
+        }}>
             {children}
         </NftContext.Provider>
     );
