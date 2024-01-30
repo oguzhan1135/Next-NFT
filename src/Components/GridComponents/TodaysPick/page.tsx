@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import NftCard from '../Cards/NftCard/page'
+import NftCard from '../../Cards/NftCard/page'
 import { NftProductContext } from '@/Context/NftCardContext';
 
 const TodaysPick = () => {

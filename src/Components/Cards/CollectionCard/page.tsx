@@ -21,32 +21,32 @@ interface DataProps {
 const CollectionCard: React.FC<DataProps> = ({ data }) => {
     const { collection, setCollection } = NftProductContext()
     const [liked, setLiked] = useState(false);
-     const likeCounter = (event: React.MouseEvent<HTMLSpanElement>) => {
-         event.preventDefault();
-         const updatedNftProducts = [...collection];
-         const findProductIndex = updatedNftProducts.findIndex(product => product.id === data.id);
+    const likeCounter = (event: React.MouseEvent<HTMLSpanElement>) => {
+        event.preventDefault();
+        const updatedNftProducts = [...collection];
+        const findProductIndex = updatedNftProducts.findIndex(product => product.id === data.id);
 
-         if (!liked) {
-             setLiked(true);
+        if (!liked) {
+            setLiked(true);
 
-             if (findProductIndex !== -1) {
-                 updatedNftProducts[findProductIndex] = {
-                     ...updatedNftProducts[findProductIndex],
-                     like: data.like + 1
-                 };
-                 setCollection(updatedNftProducts);
-             }
-         } else {
-             setLiked(false)
-             if (findProductIndex !== -1) {
-                 updatedNftProducts[findProductIndex] = {
-                     ...updatedNftProducts[findProductIndex],
-                     like: data.like - 1
-                 };
-                 setCollection(updatedNftProducts);
-             }
-         }
-     }
+            if (findProductIndex !== -1) {
+                updatedNftProducts[findProductIndex] = {
+                    ...updatedNftProducts[findProductIndex],
+                    like: data.like + 1
+                };
+                setCollection(updatedNftProducts);
+            }
+        } else {
+            setLiked(false)
+            if (findProductIndex !== -1) {
+                updatedNftProducts[findProductIndex] = {
+                    ...updatedNftProducts[findProductIndex],
+                    like: data.like - 1
+                };
+                setCollection(updatedNftProducts);
+            }
+        }
+    }
     return (
         <>
             <div className='flex flex-col gap-3 bg-on__surface shadow-nft-card dark:bg-black__write p-5 w-full lg:w-max rounded-[20px]' >
@@ -72,10 +72,10 @@ const CollectionCard: React.FC<DataProps> = ({ data }) => {
                             </div>
                         </div>
                     </div>
-                     <div className='absolute top-4 right-12 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
+                    <div className='absolute top-4 right-12 bg-dark__bg text-on__surface flex items-center gap-2 flex-row px-3 py-1 rounded-xl'>
                         <span className={`${liked ? 'text-critical' : 'text-on__surface'}`} onClick={likeCounter}><FaHeart /></span>
                         <span>{data.like}</span>
-                    </div> 
+                    </div>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-3  w-full">
@@ -122,9 +122,9 @@ const CollectionCard: React.FC<DataProps> = ({ data }) => {
                                 alt='bottomCollection'
                                 className='w-full scale-110'
                                 width={500}
-                                    height={500}
-                                    priority
-                                    style={{ width: "100%" }}
+                                height={500}
+                                priority
+                                style={{ width: "100%" }}
                             />
                         </div >
 

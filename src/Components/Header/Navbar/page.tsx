@@ -1,15 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import { FaChevronDown } from "react-icons/fa";
-import { usePathname } from 'next/navigation';
 import Searchbar from '@/Components/Header/SearchBar/page';
-import { IoIosMenu } from 'react-icons/io';
 import MobileNavbarMenu from '../MobilNavbarMenu/page';
+import { GoTriangleUp } from "react-icons/go";
 
 interface Router {
   router: string;
+  routerElement:React.ReactNode;
 }
-const Navbar: React.FC<Router> = ({ router }) => {
+const Navbar: React.FC<Router> = ({ router,routerElement }) => {
   const marketplacePage = '/Marketplace';
   const homepageSpacielPage = '/HomepageSpaciel';
 
@@ -37,6 +37,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/"}>Home <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                    <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/"}><span className='sub-menu-line'></span> Homepage</Link>
                       <Link href={"/HomepageV2"}><span className='sub-menu-line'></span>Homepage-2</Link>
@@ -48,6 +49,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/Explore"}>Explore <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                  <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/Explore"}><span className='sub-menu-line'></span> Explore</Link>
                     </div>
@@ -56,6 +58,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/"}>Activity <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                  <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/"}><span className='sub-menu-line'></span> Activity-1</Link>
                       <Link href={"/"}><span className='sub-menu-line'></span> Activity-2</Link>
@@ -65,6 +68,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/"}>Community <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                  <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/"}><span className='sub-menu-line'></span> Community-1</Link>
                       <Link href={"/"}><span className='sub-menu-line'></span> Community-2</Link>
@@ -74,6 +78,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/"}>Pages <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                  <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/Login"}><span className='sub-menu-line'></span> Login</Link>
                       <Link href={"/SignUp"}><span className='sub-menu-line'></span> Sign Up</Link>
@@ -87,12 +92,12 @@ const Navbar: React.FC<Router> = ({ router }) => {
                 <li className='relative group'><Link href={"/"}>Contact <FaChevronDown />
                 </Link>
                   <div className="sub-menu-area">
+                  <span className='absolute z-[150] top-[-20px] text-on__surface text-4xl'><GoTriangleUp/></span>
                     <div className="sub-menu">
                       <Link href={"/"}><span className='sub-menu-line'></span> Contact</Link>
                     </div>
                   </div>
                 </li>
-
               </ul>
               <Searchbar />
               <MobileNavbarMenu />
@@ -107,14 +112,7 @@ const Navbar: React.FC<Router> = ({ router }) => {
 
           </> :
             <>
-              <div className='page-title-area'>
-                <h1 className='page-title'>{router}</h1>
-                <div className='flex flex-row items-center gap-3'>
-                  <h5 className='text-white__second'>Home /</h5>
-                  <h5 className='text-white__second'>{router}</h5>
-                  <h5>Explore-1</h5>
-                </div>
-              </div>
+              {routerElement}
             </>
         }
 

@@ -12,7 +12,7 @@ const PopularCollection = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoader(false)
-        }, 1000);
+        }, 5);
 
 
     }, [])

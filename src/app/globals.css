@@ -176,7 +176,7 @@ main {
   @apply dark:border-on__surface ;
 }
 .button.place-bid-hover {
-  @apply text-sm font-bold absolute bottom-28 w-max transform translate-x-2/4  z-30 opacity-0;
+  @apply  px-7 py-3 text-sm font-bold bg-on__surface hover:bg-primary hover:text-on__surface border-transparent;
 }
 .button.social {
   @apply bg-primary text-on__surface hover:border-on__surface hover:bg-on__surface hover:text-primary;
@@ -249,10 +249,11 @@ form input {
 }
 
 .swiper-pagination-bullet{
-  @apply bg-transparent border-2 border-on__surface p-[6px]
+  @apply !bg-transparent shadow-lg border-2 border-on__surface__dark dark:border-on__surface !border-spacing-10 p-[6px];
+
 }
 .swiper-pagination-bullet-active{
-  @apply bg-on__surface border-2 border-on__surface p-[6px]
+  @apply !bg-primary  dark:!bg-on__surface border-2 !border-spacing-10 border-on__surface__dark dark:border-on__surface p-[6px]
 }
 .top-seller-button-prev, .top-seller-button-next{
   @apply rounded-full p-3 transition-all ease-in-out duration-300 flex justify-center items-center border border-primary dark:text-on__surface text-xl hover:text-on__surface dark:hover:text-primary hover:bg-primary dark:hover:bg-on__surface

@@ -15,7 +15,7 @@ const MySwiper = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false)
-    }, 1000);
+    }, 5);
 
 
   }, [])
@@ -43,10 +43,10 @@ const MySwiper = () => {
             }}
 
             modules={[Pagination]}
-            className="mySwiper pb-16"
+            className="mySwiper "
           >
             {nftProducts.filter(card => card.sellCategory === "live").map((nftData) => (
-              <SwiperSlide key={nftData.id}>
+              <SwiperSlide key={nftData.id} className='pb-10'>
                 <NftCard nftCardData={nftData} isListView={false} />
               </SwiperSlide>
             ))}

@@ -4,10 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Samson from '/public/images/avatar/samson.svg'
 import { FaSearch, FaWallet, FaBell, FaMoon, FaSun, FaUser } from "react-icons/fa";
-import { IoIosMenu } from "react-icons/io";
 import { CgLogOut } from "react-icons/cg";
 import Link from "next/link";
-import { useTheme } from "next-themes";
 import ThemeToggle from "../ThemeToggle/page";
 
 interface NftCard {
@@ -34,13 +32,6 @@ const Searchbar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const menuRef = useRef<HTMLDivElement>(null);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-
-
-
-
-
-
 
     const handleSearchBlur = () => {
         setFilteredProducts([]);
@@ -97,23 +88,26 @@ const Searchbar = () => {
                             <div className={` absolute top-8 pt-10 -z-10 flex-col rounded-bl-3xl rounded-br-3xl rounded-tr-3xl max-h-80 overflow-y-auto ${filteredProducts.length > 0 ? 'bg-black__write' : 'bg-transparent'}  w-full `}>
 
                                 {filteredProducts.map((product) => (
-                                    <div className='flex flex-row justify-between items-center p-3 ' key={product.id}>
-                                        <div className="flex flex-row items-center gap-2">
-                                            <div className="overflow-hidden rounded-xl">
-                                                <Image
-                                                    src={product.nftImage ?? '/images/other/placeholder.svg'}
-                                                    alt='Nft-card'
-                                                    width={40}
-                                                    height={40}
-                                                />
+                                    <Link href="/ItemDetails/[productId]" as={`/ItemDetails/${product.id}`}>
+                                        <div className='flex flex-row justify-between items-center p-3 ' key={product.id}>
+                                            <div className="flex flex-row items-center gap-2">
+                                                <div className="overflow-hidden rounded-xl">
+                                                    <Image
+                                                        src={product.nftImage ?? '/images/other/placeholder.svg'}
+                                                        alt='Nft-card'
+                                                        width={40}
+                                                        height={40}
+                                                    />
+                                                </div>
+                                                <div className="flex flex-col gap-1">
+                                                    <h3 className='font-bold'>{product.cardName}</h3>
+                                                    <span>{product.createrName}</span>
+                                                </div>
                                             </div>
-                                            <div className="flex flex-col gap-1">
-                                                <h3 className='font-bold'>{product.cardName}</h3>
-                                                <span>{product.createrName}</span>
-                                            </div>
+                                            <span className='font-bold text-xl'>{product.price}$</span>
                                         </div>
-                                        <span className='font-bold text-xl'>{product.price}</span>
-                                    </div>
+                                    </Link>
+
                                 ))}
                             </div>
 
@@ -123,7 +117,7 @@ const Searchbar = () => {
 
                 )}
             </div>
-            <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-primary border-2'>
+            <div className='flex flex-row items-center rounded-full px-3 py-3 xl:px-10 gap-3  border-on__surface dark:border-primary border-2'>
                 <FaWallet />
                 <span className='hidden xl:block'>Wallet Connect</span>
             </div>

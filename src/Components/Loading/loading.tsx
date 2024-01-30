@@ -12,7 +12,7 @@ const Loading: React.FC<ComponentType> = ({ component }) => {
       {
         component === "nft-card" ?
           <>
-            <div className='flex flex-col gap-4 bg-black__write p-5  rounded-[20px] nft-card' >
+            <div className='flex flex-col gap-4 dark:bg-black__write bg-gray p-5  rounded-[20px] nft-card' >
               <div className="flex overflow-hidden rounded-[20px] w-full relative nft-image">
 
                 <Image
@@ -73,7 +73,7 @@ const Loading: React.FC<ComponentType> = ({ component }) => {
             </>
             : component === "category" ?
               <>
-                <div className="bg-black__write inline-flex flex-col gap-5 text-2xl font-bold p-5 rounded-[10px] w-full max-h-[316px]">
+                <div className="dark:bg-black__write bg-gray inline-flex flex-col gap-5 text-2xl font-bold p-5 rounded-[10px] w-full max-h-[316px]">
                   <span className='bg-white__second h-2 w-10 animate-pulse rounded-lg'></span>
                   <Image
                     src={Placeholder}
@@ -84,7 +84,7 @@ const Loading: React.FC<ComponentType> = ({ component }) => {
               </>
               : component === "collection" ?
                 <>
-                  <div className='flex flex-col gap-3 bg-black__write p-5 rounded-[20px]' >
+                  <div className='flex flex-col gap-3 dark:bg-black__write bg-gray p-5 rounded-[20px]' >
                     <div className="flex flex-row justify-between items-start">
                       <div className="flex flex-row gap-3 items-center">
                         <div className="p-2  relative">

@@ -125,7 +125,7 @@ const Marketplace: React.FC = () => {
           <div className="grid col-span-12 lg:col-span-10 p-10">
             <div className="flex flex-col gap-[30px] w-full">
               <MarketplaceHeader isListView={isListView} handleShortBySelect={handleShortBySelect} setListView={setListView} />
-              <div className={`${isListView ? 'flex flex-col gap-[30px]' : 'grid gap-[30px] grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2'}`}>
+              <div className={`${isListView ? 'flex flex-col gap-[30px]' : 'grid gap-[30px] grid-cols-1 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'}`}>
                 <ProductList data={filteredProducts} isListView={isListView} />
               </div>
               <div className="button w-max mx-auto white-b">

@@ -4,7 +4,7 @@ import { FaBook, FaRocket } from "react-icons/fa";
 import '@/app/globals.css'
 import Image from 'next/image'
 import BigRobo from '/public/images/NFT/gaming-home-NFT.svg'
-import TodaysPick from '@/Components/TodaysPick/page'
+import TodaysPick from '@/Components/GridComponents/TodaysPick/page'
 import ContentHeader from '@/Components/ContentHeader/page'
 import Link from 'next/link'
 import TopSeller from '@/Components/Slider/TopSellerSlider/page'
