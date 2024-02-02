@@ -5,8 +5,10 @@ import 'swiper/css';
 import CollectionCard from '@/Components/Cards/CollectionCard/page';
 import Loading from '@/Components/Loading/loading';
 import { NftProductContext } from '@/Context/NftCardContext';
+import { usePathname } from 'next/navigation';
+import CollectionCardV2 from '@/Components/Cards/CollectionCardV2/page';
 const PopularCollection = () => {
-    const { collection } = NftProductContext();
+    const { collectionV2, collection } = NftProductContext();
     const [loader, setLoader] = useState(true);
 
     useEffect(() => {
@@ -16,6 +18,7 @@ const PopularCollection = () => {
 
 
     }, [])
+    const pathName = usePathname();
     return (
         <>
             {
@@ -36,12 +39,27 @@ const PopularCollection = () => {
                         className="mySwiper"
                     >
                         {
-                            collection.map((card) =>
-                                <SwiperSlide key={card.id}>
-                                    <CollectionCard data={card} />
-                                </SwiperSlide>
-                            )
+                            pathName === "/HomepageV2" ?
+                                <>
+                                    {
+                                        collectionV2.map((card) =>
+                                            <SwiperSlide key={card.id}>
+                                                <CollectionCardV2 data={card} />
+                                            </SwiperSlide>
+                                        )
+                                    }
+                                </> :
+                                <>
+                                    {
+                                        collection.map((card) =>
+                                            <SwiperSlide key={card.id}>
+                                                <CollectionCard data={card} />
+                                            </SwiperSlide>
+                                        )
+                                    }
+                                </>
                         }
+
 
                     </Swiper>
             }

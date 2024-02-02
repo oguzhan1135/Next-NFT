@@ -7,9 +7,11 @@ import TodaysPick from '@/Components/GridComponents/TodaysPick/page'
 import { FaCaretDown, FaCaretUp, FaCopy, FaFacebook, FaGoogle, FaTwitch, FaTwitter } from 'react-icons/fa'
 import { NftProductContext } from '@/Context/NftCardContext'
 import { useRouter } from 'next/navigation'
+import FilterProductList from '@/Components/FilterProductList/page'
 
 const Profile = () => {
     const { loggedUser } = NftProductContext();
+    const [filterTab, setFilterTab] = useState("All")
     const router = useRouter();
     useEffect(() => {
         if (loggedUser.name === "") {
@@ -65,19 +67,24 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-gray dark:bg-black__write rounded-bl-[20px] rounded-br-[20px]  ">
-                        <div className="flex flex-row gap-[15px] mr-auto justify-end flex-wrap relative ">
-                            <Link href={"/"} className='author-tab-btn active'>All
-                                <span className='absolute bottom-[-12px] left-[16px] text-3xl text-dark__bg'><FaCaretUp /></span></Link>
+                    <div className="bg-gray dark:bg-black__write rounded-bl-[20px] rounded-br-[20px]">
+                        <div className="flex flex-row gap-[15px] mr-auto justify-end flex-wrap relative">
 
-                            <Link href={"/"} className='author-tab-btn '>ART</Link>
-                            <Link href={"/"} className='author-tab-btn'>MUSIC</Link>
-                            <Link href={"/"} className='author-tab-btn'>COLLECTIBLES</Link>
-                            <Link href={"/"} className='author-tab-btn'>SPORTS</Link>
+                            <div className='relative flex items-center justify-center'>
+                                <span className='author-tab-btn active' onClick={() => setFilterTab("All")}>ALL</span>
+                                <span className='absolute bottom-[-12px] left-[16px] text-3xl text-dark__bg'><FaCaretUp /></span>
+                            </div>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Art")}>ART</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Music")}>MUSIC</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Collectibles")}>COLLECTIBLES</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Sports")}>SPORTS</span>
+
                         </div>
                     </div>
                 </div>
-                <TodaysPick />
+                <div className='grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  gap-8'>
+                    <FilterProductList filterTab={filterTab} setFilterTab={setFilterTab}/>
+                </div>
             </div>
         </>
     )

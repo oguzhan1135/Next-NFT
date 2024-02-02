@@ -109,7 +109,7 @@ const EditForm = () => {
                     isSubmit ?
                         message ?
                             <CorrectMessage name={undefined} message="Congratulations. Your information has been successfully updated. You are redirected to the login page..." /> :
-                            <InCorrectMessage message="Sorry" /> : <></>
+                            <InCorrectMessage message="Sorry, Name and e-mail fields cannot be left blank." /> : <></>
                 }
             </form>
         </>

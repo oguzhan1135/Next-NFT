@@ -42,7 +42,17 @@ interface Collection {
     collectThree: string;
     collectFour: string;
 }
-
+interface CollectionV2 {
+    id: number;
+    cardName: string;
+    createrAvatar: string;
+    createrName: string;
+    like: number;
+    collectOne: string;
+    collectTwo: string;
+    collectThree: string;
+    collectFour: string;
+}
 export interface BrowbyCategory {
     id: number;
     cardName: string;
@@ -60,8 +70,10 @@ interface NftContextProps {
     setNftProducts: React.Dispatch<React.SetStateAction<Nft[]>>;
     topSeller: Seller[];
     setTopSeller: React.Dispatch<React.SetStateAction<Seller[]>>;
-    collection: Collection[];
-    setCollection: React.Dispatch<React.SetStateAction<Collection[]>>;
+    collection:Collection[];
+    setCollection:React.Dispatch<React.SetStateAction<Collection[]>>;
+    collectionV2: CollectionV2[];
+    setCollectionV2: React.Dispatch<React.SetStateAction<CollectionV2[]>>;
     itemData: Nft | null;
     setItemData: React.Dispatch<React.SetStateAction<Nft | null>>;
     authorData: AuthorData | null;
@@ -533,6 +545,56 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
         }
     ])
+    const [collectionV2, setCollectionV2] = useState<Collection[]>([
+        {
+            id: 1,
+            cardName: "Creative Art Collection",
+            like: 120,
+            createrName: "Samson Garraway",
+            createrAvatar: `/images/avatar/samson.svg`,
+            collectOne: `/images/other/collection-v2-top.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-top-2-1.svg`
+
+        },
+        {
+            id: 2,
+            cardName: "Creative Art Collection",
+            like: 220,
+            createrName: "Matt Garr",
+            createrAvatar: `/images/avatar/matt.svg`,
+            collectOne: `/images/other/collection-v2-2-top.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-top-2-1.svg`
+
+        },
+        {
+            id: 3,
+            cardName: "Creative Art Collection",
+            like: 98,
+            createrName: "Trista Garraway",
+            createrAvatar: `/images/avatar/trista.svg`,
+            collectOne: `/images/other/collection-v2-3-top.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-top-2-1.svg`
+
+        },
+        {
+            id: 4,
+            cardName: "Creative Art Collection",
+            like: 320,
+            createrName: "Harper Garraway",
+            createrAvatar: `/images/avatar/harper.svg`,
+            collectOne: `/images/other/collection-v2-2-top.svg`,
+            collectTwo: `/images/NFT/collection-item-top-1-1.svg`,
+            collectThree: `images/NFT/collection-item-top-1-2.svg`,
+            collectFour: `images/NFT/collection-item-top-2-1.svg`
+
+        }
+    ])
     const [browbyCategoryCards, setBrowbyCategoryCards] = useState<BrowbyCategory[]>([
         {
             id: 1,
@@ -604,7 +666,7 @@ export const NftProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
         <NftContext.Provider value={{
             nftProducts, setNftProducts, setItemData, itemData, authorData,
             setAuthorData, user, setUser, loggedUser, setLoggedUser, topSeller, setTopSeller, collection, setCollection,
-            browbyCategoryCards,setBrowbyCategoryCards
+            browbyCategoryCards, setBrowbyCategoryCards, collectionV2, setCollectionV2
         }}>
             {children}
         </NftContext.Provider>

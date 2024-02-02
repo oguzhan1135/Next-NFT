@@ -144,10 +144,10 @@ main {
 }
 
 .slogan {
-  @apply text-4xl md:text-5xl text-on__surface__dark dark:text-on__surface font-bold max-w-[470px]
+  @apply text-4xl flex flex-col gap-5 md:text-5xl text-on__surface__dark dark:text-on__surface font-bold max-w-[470px]
 }
 .slogan-v2{
-  @apply  w-full  text-4xl md:text-5xl text-on__surface__dark dark:text-on__surface font-bold 
+  @apply  w-full flex flex-col gap-3  text-4xl md:text-5xl  text-on__surface font-bold 
 }
 
 .slogan-area {
@@ -176,7 +176,7 @@ main {
   @apply dark:border-on__surface ;
 }
 .button.place-bid-hover {
-  @apply  px-7 py-3 text-sm font-bold bg-on__surface hover:bg-primary hover:text-on__surface border-transparent;
+  @apply  px-7 py-3 text-sm font-bold bg-on__surface text-on__surface__dark hover:bg-primary hover:text-on__surface border-transparent hover:border-primary;
 }
 .button.social {
   @apply bg-primary text-on__surface hover:border-on__surface hover:bg-on__surface hover:text-primary;

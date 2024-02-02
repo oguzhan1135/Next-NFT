@@ -1,7 +1,7 @@
 'use client'
 import { NftProductContext } from "@/Context/NftCardContext";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CorrectMessage from "../../Messages/CorrectMessage/page";
 import InCorrectMessage from "../../Messages/InCorrectMessage/page";
 
@@ -27,13 +27,18 @@ const SignUpForm = () => {
         setSubmit(true)
         if (formData.name !== "" && formData.mail !== "" && formData.password !== "") {
             setUser([...user, { id: user.length + 1, name: formData.name, mail: formData.mail, password: formData.password }])
+            setSign(true)
             setTimeout(() => {
                 router.push("/Login")
             }, 1000);
         } else {
             setSubmit(false)
+            setSign(false)
         }
     }
+    useEffect(() => {
+        console.log(user)
+    }, [user])
     return (
         <>
             <form className='flex flex-col gap-6' onSubmit={handleSubmit}>

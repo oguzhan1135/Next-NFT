@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import Creater from '/public/images/avatar/avt-author-tab-3.svg'
 import Image from 'next/image'
 import Link from 'next/link'
-import TodaysPick from '@/Components/GridComponents/TodaysPick/page'
-import { FaCaretDown, FaCaretUp, FaCopy, FaFacebook, FaGoogle, FaTwitch, FaTwitter } from 'react-icons/fa'
+import { FaCaretUp, FaCopy, FaFacebook, FaGoogle, FaTwitch, FaTwitter } from 'react-icons/fa'
 import { NftProductContext } from '@/Context/NftCardContext'
+import FilterProductList from '@/Components/FilterProductList/page'
+
 const Author = () => {
-    const { authorData, setAuthorData } = NftProductContext();
-
+    const { authorData, setAuthorData, nftProducts } = NftProductContext();
     const [isPageLoaded, setIsPageLoaded] = useState(false);
-
+    const [filterTab, setFilterTab] = useState("All")
     useEffect(() => {
         // This function will be called when the component unmounts
         return () => {
@@ -24,6 +24,8 @@ const Author = () => {
         // This function will be called when the component is first mounted
         setIsPageLoaded(true);
     }, []);
+
+    
     return (
         <>
             <div className="flex flex-col gap-[60px] pb-20">
@@ -79,18 +81,24 @@ const Author = () => {
                     </div>
                     <div className="bg-gray dark:bg-black__write rounded-bl-[20px] rounded-br-[20px]">
                         <div className="flex flex-row gap-[15px] mr-auto justify-end flex-wrap relative">
-                            <Link href={"/"} className='author-tab-btn active'>All
-                                <span className='absolute bottom-[-12px] left-[16px] text-3xl text-dark__bg'><FaCaretUp /></span></Link>
 
-                            <Link href={"/"} className='author-tab-btn'>ART</Link>
-                            <Link href={"/"} className='author-tab-btn'>MUSIC</Link>
-                            <Link href={"/"} className='author-tab-btn'>COLLECTIBLES</Link>
-                            <Link href={"/"} className='author-tab-btn'>SPORTS</Link>
+                            <div className='relative flex items-center justify-center'>
+                                <span className='author-tab-btn active' onClick={() => setFilterTab("All")}>ALL</span>
+                                <span className='absolute bottom-[-12px] left-[16px] text-3xl text-dark__bg'><FaCaretUp /></span>
+                            </div>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Art")}>ART</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Music")}>MUSIC</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Collectibles")}>COLLECTIBLES</span>
+                            <span className='author-tab-btn' onClick={() => setFilterTab("Sports")}>SPORTS</span>
+
                         </div>
                     </div>
                 </div>
-                <TodaysPick />
-            </div>
+                <div className='grid grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2  gap-8'>
+                    <FilterProductList filterTab={filterTab} setFilterTab={setFilterTab}/>
+                </div>
+
+            </div >
 
         </>
     )

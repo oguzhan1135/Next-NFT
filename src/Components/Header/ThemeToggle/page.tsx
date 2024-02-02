@@ -1,33 +1,27 @@
 'use client'
-import { FaMoon, FaSun } from "react-icons/fa"
-import { useState, useEffect } from "react"
-import { useTheme } from "next-themes"
+import { useEffect, useState } from "react";
+import { IoMdMoon, IoMdSunny } from "react-icons/io";
+import { useTheme } from "next-themes";
+
 const ThemeToggle = () => {
+    const [mounted, setMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
 
-    const [mounted, setMounted] = useState(false)
-    const { setTheme, resolvedTheme } = useTheme();
-    useEffect(() => setMounted(true), [])
+    useEffect(() => setMounted(true), []);
 
-    if (resolvedTheme === "dark") {
-        return (
-            <div className="dark-theme">
-                <span className="navbar-switch" onClick={() => setTheme("light")}><FaSun /></span>
-            </div>
-        );
-    } else if (resolvedTheme === "light") {
-        return (
-            <div className="light-theme">
-                <span className="navbar-switch" onClick={() => setTheme("dark")}><FaMoon /></span>
-            </div>
-        );
-    } else {
-        return (
-            <div className="default-theme">
-                <span className="navbar-switch" onClick={() => setTheme("dark")}><FaMoon /></span>
-            </div>
-        );
-    }
+    return (
+        <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
+            <span className="navbar-switch" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
+                {
+                    mounted ? <>
+                        {theme === "dark" ? <IoMdSunny /> : <IoMdMoon />}
+                    </>
+                        : <></>
+                }
 
+            </span>
+        </div>
+    );
+};
 
-}
-export default ThemeToggle
+export default ThemeToggle;

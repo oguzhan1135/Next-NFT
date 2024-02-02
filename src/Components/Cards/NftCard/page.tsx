@@ -51,47 +51,35 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
     }
 
     const counterFunction = (targetDate: string) => {
-        updateTime(targetDate)
-        const interval = setInterval(() => {
-            var now = new Date().getTime();
-            var targetTime = new Date(targetDate).getTime();
-            var differenceDate = new Date(targetTime - now);
-            var day = differenceDate.getUTCDate() - 1;
-            var hours = differenceDate.getUTCHours();
-            var minute = differenceDate.getUTCMinutes();
-            var second = differenceDate.getUTCSeconds();
-
-            if (day <= 0 && hours <= 0 && minute <= 0 && second <= 0) {
-                clearInterval(interval);
-                setCounter("Time Out!!!")
-
-            } else {
-                setCounter(`${day < 10 ? `0${day}` : day} : ${hours < 10 ? `0${hours}` : hours} : ${minute < 10 ? `0${minute}` : minute} : ${second < 10 ? `0${second}` : second}`);
-            }
-        }, 1000);
+        const [counter, setCounter] = useState("");
+    
+        useEffect(() => {
+            const updateTime = () => {
+                const now = new Date().getTime();
+                const targetTime = new Date(targetDate).getTime();
+                const differenceDate = new Date(targetTime - now);
+    
+                const day = differenceDate.getUTCDate() - 1;
+                const hours = differenceDate.getUTCHours();
+                const minute = differenceDate.getUTCMinutes();
+                const second = differenceDate.getUTCSeconds();
+    
+                if (day <= 0 && hours <= 0 && minute <= 0 && second <= 0) {
+                    setCounter("Süre Doldu!!!");
+                } else {
+                    setCounter(`${day < 10 ? `0${day}` : day} : ${hours < 10 ? `0${hours}` : hours} : ${minute < 10 ? `0${minute}` : minute} : ${second < 10 ? `0${second}` : second}`);
+                }
+            };
+    
+            updateTime(); 
+    
+            const interval = setInterval(updateTime, 1000);
+            return () => clearInterval(interval);
+        }, [targetDate]);
+    
         return counter;
-    }
-
-    const updateTime = (targetDate: string) => {
-        const interval = setInterval(() => {
-            var now = new Date().getTime();
-            var targetTime = new Date(targetDate).getTime();
-            var differenceDate = new Date(targetTime - now);
-            var day = differenceDate.getUTCDate() - 1;
-            var hours = differenceDate.getUTCHours();
-            var minute = differenceDate.getUTCMinutes();
-            var second = differenceDate.getUTCSeconds();
-
-            if (day <= 0 && hours <= 0 && minute <= 0 && second <= 0) {
-                clearInterval(interval);
-                setCounter("Time Out!!!")
-
-            } else {
-                setCounter(`${day < 10 ? `0${day}` : day} : ${hours < 10 ? `0${hours}` : hours} : ${minute < 10 ? `0${minute}` : minute} : ${second < 10 ? `0${second}` : second}`);
-            }
-        }, 0);
-    }
-
+    };
+    
     const likeCounter = (event: React.MouseEvent<HTMLSpanElement>) => {
         event.preventDefault();
         const updatedNftProducts = [...nftProducts];
@@ -232,7 +220,7 @@ const NftCard: React.FC<NftCardProps> = ({ nftCardData, isListView }) => {
                                 </div>
                                 {
                                     nftCardData.sellCategory === "live" ? <>
-                                        <div className="button place-bid-hover opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100">
+                                        <div className="button place-bid-hover  opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100">
                                             <FaShoppingBag />
                                             <span>Place Bid</span></div>
                                     </> :

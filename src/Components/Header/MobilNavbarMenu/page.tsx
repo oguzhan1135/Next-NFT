@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { IoIosMenu } from "react-icons/io";
+import { usePathname } from "next/navigation";
 
 interface MenuItem {
     label: string;
@@ -10,16 +11,13 @@ interface MenuItem {
 }
 
 const MobileNavbarMenu = () => {
-    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
-    const menuRef = useRef<HTMLDivElement>(null);
-
     const menuItems: MenuItem[] = [
         {
             label: "Home",
             subMenu: [
                 { label: "Homepage", url: "/" },
                 { label: "Homepage 2", url: "/HomepageV2" },
-                { label: "Homepage Special", url: "/GomepageSpaciel" },
+                { label: "Homepage Special", url: "/HomepageSpaciel" },
                 { label: "Marketplace", url: "/Marketplace" },
             ],
         },
@@ -64,17 +62,14 @@ const MobileNavbarMenu = () => {
             ],
         },
     ];
-
-    const toggleMenu = (index: number) => {
-        if (openMenuIndex === index) {
-            setOpenMenuIndex(null);
-        } else {
-            setOpenMenuIndex(index);
-        }
-    };
+    const pathName=usePathname();
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
 
     const handleOutsideClick = (event: MouseEvent) => {
         if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+            setMenuOpen(false);
             setOpenMenuIndex(null);
         }
     };
@@ -87,10 +82,22 @@ const MobileNavbarMenu = () => {
         };
     }, []);
 
+    const toggleMenu = (index: number) => {
+        if (openMenuIndex === index) {
+            setOpenMenuIndex(null);
+        } else {
+            setOpenMenuIndex(index);
+        }
+    };
+    useEffect(() => {
+        setMenuOpen(false);
+        setOpenMenuIndex(null);
+    }, [pathName]);
+
     return (
         <>
-            <span onClick={() => toggleMenu(menuItems.length)} className='lg:hidden'><IoIosMenu /></span>
-            {openMenuIndex !== null && (
+            <span onClick={() => setMenuOpen(!isMenuOpen)} className='lg:hidden'><IoIosMenu /></span>
+            {isMenuOpen && (
                 <div className="absolute top-full bg-white__second dark:bg-footer__bg w-full flex lg:hidden flex-col" ref={menuRef}>
                     {menuItems.map((menuItem, index) => (
                         <div className="flex flex-col p-3 border-b border-b-gray" key={index}>

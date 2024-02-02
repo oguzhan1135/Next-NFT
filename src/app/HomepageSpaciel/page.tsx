@@ -18,7 +18,7 @@ import TopSellerGrid from '@/Components/GridComponents/TopSellerV2/page'
 const HomepageSpaciel = () => {
     return (
         <>
-            <div className="grid grid-cols-2 justify-center w-full  text-on__surface dark:text-on__surface__dark">
+            <div className="grid grid-cols-1 lg:grid-cols-2 justify-center w-full  text-on__surface dark:text-on__surface__dark">
                 <div className=" grid col-span-1  w-full  dark:bg-gradiant-dark bg-gradiant__color ">
                     <div className="homepage-header-area v2">
                         <div className="slogan-area">
@@ -43,7 +43,7 @@ const HomepageSpaciel = () => {
 
                     </div>
                 </div>
-                <div className=" grid col-span-1 w-full dark:bg-gradiant-dark bg-gradiant__color transform rotate-180  ">
+                <div className="hidden lg:grid col-span-1 w-full dark:bg-gradiant-dark bg-gradiant__color transform rotate-180  ">
                     <Image
                         src={Background}
                         alt='bg-homepage'
@@ -98,8 +98,8 @@ const HomepageSpaciel = () => {
             </div>
             <div className="w-full max-w-screen-2xl py-20 flex flex-col gap-10">
                 <ContentHeader title='Todays Picks' />
-                <div className="flex justify-center lg:justify-between items-center">
-                    <div className="flex flex-row gap-9">
+                <div className="flex justify-center flex-col lg:flex-row gap-9 lg:justify-between items-center">
+                    <div className="flex flex-col lg:flex-row gap-9">
                         <div className="button white-b">
                             <BiCategory />
                             <span>Category</span>
